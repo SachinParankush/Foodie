@@ -5,7 +5,7 @@ import { WelcomeComponentComponent } from './welcome-component/welcome-component
 import { LayoutComponent } from '../layout/layout.component';
 
 const foodieRoutes: Routes = [     
-    { path: '', component: LayoutComponent, canActivate: [], children: [    
+            { path: '', component: LayoutComponent, canActivate: [], children: [    
             { path: '', redirectTo: 'BaseComponent', pathMatch: 'full' },
             { path: 'BaseComponent', component:BaseComponentComponent},
             { path: 'Welcome', component:WelcomeComponentComponent},

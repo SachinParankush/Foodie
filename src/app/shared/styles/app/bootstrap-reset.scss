@@ -11,6 +11,11 @@
     outline: 0 !important
 }
 
+.btn {
+    width: -webkit-fill-available !important;
+   margin: 15px !important;
+}
+
 a {
     outline: none !important;
     &.text-muted {

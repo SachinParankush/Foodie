@@ -6,6 +6,7 @@ import { foodieComponent } from './foodie.component';
 import { BaseComponentComponent } from './base-component/base-component.component';
 import { WelcomeComponentComponent } from './welcome-component/welcome-component.component';
 import { LayoutModule } from '../layout/layout.module';
+// import { genericModule } from '../GeneralComponents/genericModule.module';
 export const routes = [
   { path: '', component: foodieComponent, pathMatch: 'full' }
 ];
@@ -14,7 +15,8 @@ export const routes = [
   imports: [ 
     SharedModule,
     foodieROUTES,
-    LayoutModule
+    LayoutModule,
+    // genericModule
   ],
   declarations: [BaseComponentComponent, WelcomeComponentComponent],
     providers:[DatePipe]
