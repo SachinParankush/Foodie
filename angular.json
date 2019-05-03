@@ -3,21 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "uiApplication": {
+    "lic": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "styleext": "scss"
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/uiApplication",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,10 +27,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/app/core/preloader/preloader.scss",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": [
+              "src/app/core/wrapper/wrapper.js",
+              "src/app/core/preloader/preloader.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -52,7 +55,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "3mb",
                   "maximumError": "5mb"
                 }
               ]
@@ -62,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "uiApplication:build"
+            "browserTarget": "lic:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "uiApplication:build:production"
+              "browserTarget": "lic:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "uiApplication:build"
+            "browserTarget": "lic:build"
           }
         },
         "test": {
@@ -84,9 +87,13 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              "src/app/core/preloader/preloader.scss",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/app/core/wrapper/wrapper.js",
+              "src/app/core/preloader/preloader.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -107,7 +114,7 @@
         }
       }
     },
-    "uiApplication-e2e": {
+    "lic-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +123,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "uiApplication:serve"
+            "devServerTarget": "lic:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "uiApplication:serve:production"
+              "devServerTarget": "lic:serve:production"
             }
           }
         },
@@ -136,5 +143,5 @@
       }
     }
   },
-  "defaultProject": "uiApplication"
+  "defaultProject": "Billing"
 }
