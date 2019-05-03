@@ -6,16 +6,88 @@
         <button class="btn btn-primary" routerLink="/orders/PastOrders"> PAST ORDERS</button> <br>
     </div>
     <div class="col-lg-10">
-         <div class="row" >
-                <div class="col-lg-4">
-                   <input type="text" />
+        <div class="row">
+            <div class="col-lg-4 orderCard_div" >
+                <br>
+                <div class="input-group md-form form-sm form-1 pl-0">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text purple lighten-3" id="basic-text1"><i
+                                class="fas fa-search text-white" aria-hidden="true"></i></span>
+                    </div>
+                    <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
                 </div>
-                <div class="col-lg-6">
-                    Order Details
+
+                <div class="input-group md-form form-sm form-1 pl-0 bg_black margin_top_5 ">
+                    <div class="input-group-prepend">
+
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="padding_5 notification_style">There are 3 cancelled orders.</div>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-default">Show</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-2">
-                    Chota Details
+                <br>
+                <div style="height: -webkit-fill-available;  overflow-y: scroll;" >
+                <div   *ngFor="let data of arrayOne(3); let i = index;"  class="input-group md-form form-sm form-1 pl-0  padding_5 margin_top_5 orderCard"
+                    (click)="showOrderDetails(i)">
+                    <div class="container-fluid">
+                        <div class="container-fluid">
+                            <h6>
+                                <span>Banashankari, Srinagar, Bangalore</span>
+                            </h6>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h3 class="text-black">1047 </h3>
+                                    <p>2 items <span class="ng-binding">for ₹347.5</span></p>
+                                    <p>Received few seconds ago</p>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <!-- <ul class="list-inline text-right">
+                                        <li class="text-center">
+                                            <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode"
+                                                [value]="value">
+                                            </mat-progress-spinner>
+                                            <strong class="text-uppercase text-orange ">
+                                                <span>Assigning</span>
+                                            </strong>
+                                        </li>
+
+                                        <li class="text-right">
+                                            <span>
+                                                Pickup by customer
+                                            </span>
+                                            <span>
+
+                                            </span>
+                                        </li>
+
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div> 
             </div>
+     
+            <div class="col-lg-6">
+                 <div>
+                     <h3> 
+                        <span class="text-blue ng-binding">#{{ orderNumber }} </span>
+                        <span class="tag tag--blue">Food Ready</span>
+                    </h3>
+                 </div>
+            </div>
+            <div class="col-lg-2">
+                Chota Details
+            </div>
+        </div>
     </div>
 </div>

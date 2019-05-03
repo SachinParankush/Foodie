@@ -7,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewOrdersComponent implements OnInit {
 
+
+  color = 'primary';
+  mode = 'determinate';
+  value = 90;
+  orderNumber:number = 123456789;
+
+  arrayOne(n: number): any[] {
+    return Array(n);
+  }
+
   constructor() { }
 
   ngOnInit() {
   }
   
+  showOrderDetails(orderid)
+  {
+    this.orderNumber=orderid;
+  }
 
 }
