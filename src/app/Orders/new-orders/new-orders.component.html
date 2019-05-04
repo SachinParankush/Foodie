@@ -76,17 +76,63 @@
                 </div>
             </div> 
             </div>
-     
-            <div class="col-lg-6">
-                 <div>
-                     <h3> 
-                        <span class="text-blue ng-binding">#{{ orderNumber }} </span>
-                        <span class="tag tag--blue">Food Ready</span>
-                    </h3>
+            <br>
+            <div class="col-lg-6 ">
+                 <div class="margin_top_5">
+                     <h3><span class="text-blue ng-binding">#39957288584{{ orderNumber }} </span>
+                        <span class="badge badge-success">New</span> <i class="fa fa-print  fa-sm floatright " ></i> </h3>
+                   <span class="floatleft" > 3 items for ₹440</span><span class="floatright">03 May 2019 04:38 PM</span>
                  </div>
+                 <br>
+                 <hr>
+
+                
+                  <div>
+                         
+                  </div>
+
+
+
+                 <div class="row padding_5" *ngFor="let item of orderDetails"  >
+                        <div class="col-lg-11" >
+                                
+                            <h5>    <span *ngIf="item.item_category =='veg'"   >
+                                    <img src="../../../assets/img/veg.png" class="category_img"  />
+                                </span>
+                                <span *ngIf="item.item_category =='nonveg'"  >
+                                       <img src="../../../assets/img/nonveg.png" class="category_img" />
+                                </span>  {{ item.item_name  }} </h5>
+                            <span>{{item.item_main_category  }} > {{ item.item_sub_category  }}</span>
+                            <h5>₹ {{ item.item_price }}</h5>
+                        </div>
+                        <div class="col-lg-1" > <strong>X</strong> {{ item.item_qty }}</div>
+
+                 </div>
+
+
+
+
             </div>
-            <div class="col-lg-2">
-                Chota Details
+            <br>
+            <br>
+            <div class="col-lg-2 margin_top_5">
+                
+               <div class="row" >
+                    <div class="col-lg-2" >
+                         
+                    </div>
+                    <div class="col-lg-10" >
+                        <h4><b>GRAND TOTAL</b></h4>
+                        ₹  {{ grand_total }} <br><br>
+                        <span>Item Total</span> <span class="floatright marginright" >  ₹ {{ item_total }} </span> <br>
+                        <span>Packing Charges</span> <span class="floatright marginright" > ₹ {{ package_charges }} </span> <br>
+                        <span>GST</span> <span class="floatright marginright" > ₹ {{ GST }} </span> <br>
+                        <span>Discount</span> <span class="floatright marginright" > ₹ {{ discount }} </span> <br>
+                         
+                    </div>
+                   
+               </div>
+               <hr>
             </div>
         </div>
     </div>
