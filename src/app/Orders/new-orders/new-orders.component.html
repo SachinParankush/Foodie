@@ -6,7 +6,7 @@
         <button class="btn btn-primary" routerLink="/orders/PastOrders"> PAST ORDERS</button> <br>
     </div>
     <div class="col-lg-10">
-        <div class="row">
+        <div  class="row">
             <div class="col-lg-4 orderCard_div" >
                 <br>
                 <div class="input-group md-form form-sm form-1 pl-0">
@@ -33,65 +33,64 @@
                     </div>
                 </div>
                 <br>
-                <div style="height: -webkit-fill-available;  overflow-y: scroll;" >
-                <div   *ngFor="let data of arrayOne(3); let i = index;"  class="input-group md-form form-sm form-1 pl-0  padding_5 margin_top_5 orderCard"
-                    (click)="showOrderDetails(i)">
-                    <div class="container-fluid">
+                <div *ngIf="orderPresent" style="height: -webkit-fill-available;  overflow-y: scroll;">
+                    <div *ngFor="let data of cardDetails; let i = index;"
+                        class="input-group md-form form-sm form-1 pl-0  padding_5 margin_top_5 orderCard"
+                        (click)="showOrderDetails(data)">
                         <div class="container-fluid">
-                            <h6>
-                                <span>Banashankari, Srinagar, Bangalore</span>
-                            </h6>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <h3 class="text-black">1047 </h3>
-                                    <p>2 items <span class="ng-binding">for ₹347.5</span></p>
-                                    <p>Received few seconds ago</p>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <!-- <ul class="list-inline text-right">
-                                        <li class="text-center">
-                                            <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode"
-                                                [value]="value">
-                                            </mat-progress-spinner>
-                                            <strong class="text-uppercase text-orange ">
-                                                <span>Assigning</span>
-                                            </strong>
-                                        </li>
-
-                                        <li class="text-right">
-                                            <span>
-                                                Pickup by customer
-                                            </span>
-                                            <span>
-
-                                            </span>
-                                        </li>
-
-                                    </ul> -->
+                            <div class="container-fluid">
+                                <h6>
+                                    <span>{{data.hotel_location}}</span>
+                                </h6>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3 class="text-black">{{data.order_id}}</h3>
+                                        <p>{{data.item_quantity}} items <span class="ng-binding">for ₹{{data.order_price}}</span></p>
+                                        <p>Received few seconds ago</p>
+                                    </div>
+                
+                                    <div class="col-lg-6">
+                                        <!-- <ul class="list-inline text-right">
+                                                        <li class="text-center">
+                                                            <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode"
+                                                                [value]="value">
+                                                            </mat-progress-spinner>
+                                                            <strong class="text-uppercase text-orange ">
+                                                                <span>Assigning</span>
+                                                            </strong>
+                                                        </li>
+                
+                                                        <li class="text-right">
+                                                            <span>
+                                                                Pickup by customer
+                                                            </span>
+                                                            <span>
+                
+                                                            </span>
+                                                        </li>
+                
+                                                    </ul> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> 
-            </div>
-            <br>
-            <div class="col-lg-6 ">
-                 <div class="margin_top_5">
-                     <h3><span class="text-blue ng-binding">#39957288584{{ orderNumber }} </span>
-                        <span class="badge badge-success">New</span> <i class="fa fa-print  fa-sm floatright " ></i> </h3>
-                   <span class="floatleft" > 3 items for ₹440</span><span class="floatright">03 May 2019 04:38 PM</span>
-                 </div>
-                 <br>
-                 <hr>
 
                 
-                  <div>
-                         
-                  </div>
-
-
+            </div>
+            <br>
+            <div class="col-lg-6 orderCard">
+                 <div *ngIf="orderNumber" class="margin_top_5">
+                     <h3><span class="text-blue ng-binding">#{{ orderNumber }} </span>
+                        <span class="badge badge-success">New</span> <i class="fa fa-print  fa-sm floatright " ></i> </h3>
+                   <span class="floatleft" > {{orderQuantity}} items for ₹{{orderTotal}}</span><span class="floatright">03 May 2019 04:38 PM</span>
+                   <br>
+                   <hr> 
+                </div>
+                <div *ngIf="!orderPresent" class="padding_top_50px">
+                    <img src="../../../assets/img/noOrder.PNG"/>
+                </div> 
 
                  <div class="row padding_5" *ngFor="let item of orderDetails"  >
                         <div class="col-lg-11" >
@@ -109,15 +108,12 @@
 
                  </div>
 
-
-
-
             </div>
             <br>
             <br>
-            <div class="col-lg-2 margin_top_5">
+            <div class="col-lg-2 margin_top_5 orderCard">
                 
-               <div class="row" >
+               <div *ngIf="orderPresent"  class="row" >
                     <div class="col-lg-2" >
                          
                     </div>
@@ -130,10 +126,11 @@
                         <span>Discount</span> <span class="floatright marginright" > ₹ {{ discount }} </span> <br>
                          
                     </div>
-                   
+                    <hr>
                </div>
-               <hr>
+               
             </div>
         </div>
+        
     </div>
 </div>

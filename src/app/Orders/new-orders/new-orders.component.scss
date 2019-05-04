@@ -194,10 +194,7 @@ $brand-color:#df8625;
                             width: 30% !important;
                             float: left !important;
                             margin-left: 35px !important;
-                            margin-bottom: 0 !important;
-
-                            img {
-                            }
+                            margin-bottom: 0 !important;                            
                         }
 
                         p {
@@ -373,3 +370,10 @@ $brand-color:#df8625;
 }
 /*---------------------------------*/
 
+.margin_5px{
+    margin: 15px;
+}
+
+.padding_top_50px{
+    padding-top: 220px;
+}
