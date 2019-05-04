@@ -41,6 +41,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
+    MatBadgeModule,
 } from '@angular/material';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
@@ -149,6 +150,7 @@ export function maxValidationMessage(err, field) {
         MatNativeDateModule,
         MatStepperModule,
         FormlyBootstrapModule,
+        MatBadgeModule,
         FormlyModule.forRoot({
             validationMessages: [
               { name: 'required', message: ' ' },              
@@ -243,7 +245,9 @@ export function maxValidationMessage(err, field) {
         FormlyBootstrapModule,
         FormlyModule,
         FormWizardModule,
-        FileUploadModule
+        FileUploadModule,
+        MatBadgeModule
+        
         
     ]
 })
