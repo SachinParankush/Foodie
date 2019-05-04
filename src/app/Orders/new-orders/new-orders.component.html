@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <br>
-                <div *ngIf="orderPresent" style="height: -webkit-fill-available;  overflow-y: scroll;">
+                <div *ngIf="orderPresent" style="height: -webkit-fill-available-150px;  overflow-y: scroll;">
                     <div *ngFor="let data of cardDetails; let i = index;"
                         class="input-group md-form form-sm form-1 pl-0  padding_5 margin_top_5 orderCard"
                         (click)="showOrderDetails(data)">
