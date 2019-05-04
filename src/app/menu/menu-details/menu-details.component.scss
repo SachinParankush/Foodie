@@ -1,0 +1,101 @@
+.table {
+    width: 100%;
+  }
+
+
+  .mat-elevation-z8{
+    width: -webkit-fill-available;
+  }
+ 
+
+  .bg_black
+  {
+      background-color: black;
+  }
+  .margin_top_5
+  {
+      margin-top: 5px;
+  }
+  
+  .padding_5
+  {
+      padding: 5px;
+  }
+  .notification_style
+  {
+     color: white;
+     font-size: 10px;
+  }
+ 
+  .orderCard
+  {
+     background-color:  white;
+  }
+  .orderCard_div
+  {
+     background-color:  #ecf1f6;
+     height: -webkit-fill-available;
+  }
+
+  .menu-body {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: block;
+    color: rgb(92, 92, 92);
+  }
+   
+  .menu-section {
+    margin-bottom: 80px;
+  }
+   
+  .menu-section-title {
+    font-family: georgia;
+    font-size: 50px;
+    display: block;
+    font-weight:normal;
+    margin: 20px 0; 
+    text-align: left;
+  }
+   
+  .menu-item {
+    margin: 35px 0;
+    font-size: 18px;
+  }
+   
+  .menu-item-name{
+    font-family: helvetica;
+    font-weight: bold;
+    border-bottom: 2px dotted rgb(213, 213, 213);
+  }
+   
+  .menu-item-description {
+    font-style: italic;
+    font-size: .9em;
+    line-height: 1.5em;
+  }
+   
+  .menu-item-price{
+    // float: right;
+    text-align: center;
+    font-weight: bold;
+    font-family: arial;
+    margin-top: -30px;
+  }
+
+  .edit{
+    float: right;
+    font-weight: bold;
+    font-family: arial;
+    margin-top: -30px;
+  }
+
+  .a {
+    color: black !important;
+    font-size: 15px !important;
+    margin: 2px !important;
+  }
+
+  .margin_10px{
+    margin: 25px;
+  }
+ 

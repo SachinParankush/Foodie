@@ -1,3 +1,84 @@
-<p>
-  menu-details works!
-</p>
+<div class="row margin_10px">
+   <div class="col-lg-2">
+      <h4>
+            Categories
+      </h4>
+      <ul style="list-style-type:none;" class="text-left">
+         <li ><a class="a" href="#QuickBites">Quick Bites</a></li>
+         <li><a class="a" href="#Salads">Salads</a></li>
+         <li><a class="a" href="#content1">Soups</a></li>
+         <li><a class="a" href="#Indian">Indian</a></li>
+         <li><a class="a" href="#Chinese">Chinese</a></li>
+         <li><a class="a" href="#Arabian">Arabian</a></li>
+         <li><a class="a" href="#Continental">Continental</a></li>
+         <li><a class="a"href="#Desserts">Desserts</a></li>
+         <li><a class="a" href="#Beverages">Beverages</a></li>
+      </ul>
+   </div>
+
+   <div class="col-lg-10">
+      <div class="menu-body">
+         <div class="row">
+            <div class="col-lg-7">
+               <div class="input-group md-form form-sm form-1 pl-0">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text purple lighten-3" id="basic-text1"><i
+                           class="fas fa-search text-white" aria-hidden="true"></i></span>
+                  </div>
+                  <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+               </div>
+            </div>
+            <div class="col-lg-5">
+               <div class="row">
+                  <div class="col-lg-6" style="padding-top: 5px;">
+                     <mat-checkbox class="chk">Show Out of stock</mat-checkbox>
+                  </div>
+                  <div class="col-lg-6">
+                     <button type="button" class="btn btn-outline-success">ADD NEW ITEM</button>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+
+
+
+
+
+         <div *ngFor="let data of ELEMENT_DATA; let i = index;" class="menu-section">
+            <h6 class="menu-section-title">
+               <h2><b>{{data.MainCourse}}</b></h2>
+            </h6>
+            <!-- Item starts -->
+            <div *ngFor="let subData of data.Subcourse; let i = index;" class="menu-item">
+               <div class="menu-item-name">
+                  <h4>{{subData.item_name}}</h4>
+
+                  <div class="menu-item-description">
+                     <h5>₹{{subData.item_price}}</h5>
+                  </div>
+               </div>
+
+
+               <div class="menu-item-price">
+                  
+                  <mat-slide-toggle ></mat-slide-toggle>
+               </div>
+               <div class="edit">
+                  <a href="" class="a"><u>Edit</u></a>
+                  <a href="" class="a"><u>Delete</u></a>
+               </div>
+
+            </div>
+
+
+
+         </div>
+      </div>
+   </div>
+
+  
+
+
+
+</div>

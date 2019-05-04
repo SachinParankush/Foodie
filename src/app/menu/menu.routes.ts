@@ -4,7 +4,7 @@ import { LayoutComponent } from '../layout/layout.component';
 import { MenuDetailsComponent } from './menu-details/menu-details.component';
 
 const menuRoutes: Routes = [     
-            // { path: '', component: LayoutComponent, canActivate: [], children: [    
+            { path: '', component: LayoutComponent, canActivate: [], children: [    
             { path: '', redirectTo: 'menu', pathMatch: 'full' },
             { path: 'menu', component:MenuDetailsComponent},
             // { path: 'preparingOrder', component:PreparingOrderComponent},
@@ -13,8 +13,8 @@ const menuRoutes: Routes = [
 
             // Not found
             { path: '**', redirectTo: 'menu' }    
-    //]
-// } 
+    ]
+} 
 
 ];
 

@@ -7,6 +7,14 @@
 // Makes easy to update new framework versions
 // --------------------------------------------------
 
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color:#49c23b !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color:rgba(155,155,155,.2) !important; 
+}
+ 
 *:focus {
     outline: 0 !important
 }
