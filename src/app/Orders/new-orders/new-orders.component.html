@@ -45,7 +45,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <h3 class="text-black">{{data.order_id}}</h3>
-                                        <p>{{data.item_quantity}} items <span class="ng-binding">for ₹{{data.order_price}}</span></p>
+                                        <p>{{data.item_quantity}} items <span class="ng-binding">for ₹{{data.sub_total}}</span></p>
                                         <p>Received few seconds ago</p>
                                     </div>
                 
@@ -100,8 +100,8 @@
                                 </span>
                                 <span *ngIf="item.item_category =='nonveg'"  >
                                        <img src="../../../assets/img/nonveg.png" class="category_img" />
-                                </span>  {{ item.item_name  }} </h5>
-                            <span>{{item.item_main_category  }} > {{ item.item_sub_category  }}</span>
+                                </span>  {{ item.dish_name  }} </h5>
+                            <span>{{item.item_main_category  }}  {{ item.item_sub_category  }}</span>
                             <h5>₹ {{ item.item_price }}</h5>
                         </div>
                         <div class="col-lg-1" > <strong>X</strong> {{ item.item_qty }}</div>

@@ -28,41 +28,41 @@ export class NewOrdersComponent implements OnInit {
     {
       "hotel_location": "Banashankari, Srinagar, Bangalore",
       "order_id": "1046",
-      "item_quantity": "3",
-      "order_price": "347.5",
+      "total_items": "3",
+      "sub_total": "347.5",
       "bill_id":"399572885840",
       "total_item":"4",
-      "total_bill":"4400",
+      "total_amount":"4400",
       "order_Details":
         [
           {
-            "item_name": "Savour Special Chicken Biryani",
-            "item_main_category": "INDIAN",
-            "item_sub_category": "BIRYANIS",
+            "dish_name": "Savour Special Chicken Biryani",
+            "main_cat_name": "INDIAN",
+            "sub_cat_name": "BIRYANIS",
             "item_price": "170",
             "item_qty": "3",
             "item_category": "veg"
           },
           {
-            "item_name": "BBQ Chicken (1 Pc)",
-            "item_main_category": "ARABIAN",
-            "item_sub_category": "CHICKEN STARTERS",
+            "dish_name": "BBQ Chicken (1 Pc)",
+            "main_cat_name": "ARABIAN",
+            "sub_cat_name": "CHICKEN STARTERS",
             "item_price": "110",
             "item_qty": "1",
             "item_category": "nonveg"
           },
           {
-            "item_name": "Royal Chicken Burger",
-            "item_main_category": "QUICK BITES",
-            "item_sub_category": "BURGERS",
+            "dish_name": "Royal Chicken Burger",
+            "main_cat_name": "QUICK BITES",
+            "sub_cat_name": "BURGERS",
             "item_price": "120",
             "item_qty": "5",
             "item_category": "veg"
           },
           {
-            "item_name": "Wheat Paratha Tawa",
-            "item_main_category": "INDIAN ",
-            "item_sub_category": "INDIAN BREADS",
+            "dish_name": "Wheat Paratha Tawa",
+            "main_cat_name": "INDIAN ",
+            "sub_cat_name": "INDIAN BREADS",
             "item_price": "120",
             "item_qty": "5",
             "item_category": "nonveg"
@@ -72,33 +72,33 @@ export class NewOrdersComponent implements OnInit {
     {
       "hotel_location": "Jaynagar, Srinagar, Bangalore",
       "order_id": "1047",
-      "item_quantity": "2",
-      "order_price": "547.5",
+      "total_items": "2",
+      "sub_total": "547.5",
       "bill_id":"399572885841",
       "total_item":"4",
       "total_bill":"4300",
       "order_Details":
         [
           {
-            "item_name": "Savour Special Chicken Biryani",
-            "item_main_category": "INDIAN",
-            "item_sub_category": "BIRYANIS",
+            "dish_name": "Savour Special Chicken Biryani",
+            "main_cat_name": "INDIAN",
+            "sub_cat_name": "BIRYANIS",
             "item_price": "190",
             "item_qty": "4",
             "item_category": "veg"
           },
           {
-            "item_name": "BBQ Chicken (2 Pc)",
-            "item_main_category": "ARABIAN",
-            "item_sub_category": "CHICKEN STARTERS",
+            "dish_name": "BBQ Chicken (2 Pc)",
+            "main_cat_name": "ARABIAN",
+            "sub_cat_name": "CHICKEN STARTERS",
             "item_price": "410",
             "item_qty": "4",
             "item_category": "nonveg"
           },
           {
-            "item_name": "Royal Chicken Burger",
-            "item_main_category": "QUICK BITES",
-            "item_sub_category": "BURGERS",
+            "dish_name": "Royal Chicken Burger",
+            "main_cat_name": "QUICK BITES",
+            "sub_cat_name": "BURGERS",
             "item_price": "1820",
             "item_qty": "9",
             "item_category": "veg"
@@ -108,25 +108,25 @@ export class NewOrdersComponent implements OnInit {
     {
       "hotel_location": "Srinagar, Bangalore",
       "order_id": "1048",
-      "item_quantity": "4",
-      "order_price": "847.5",
+      "total_items": "4",
+      "sub_total": "847.5",
       "bill_id":"399572885842",
       "total_item":"4",
       "total_bill":"4900",
       "order_Details":
         [
           {
-            "item_name": "Savour Special Chicken Biryani",
-            "item_main_category": "INDIAN",
-            "item_sub_category": "BIRYANIS",
+            "dish_name": "Savour Special Chicken Biryani",
+            "main_cat_name": "INDIAN",
+            "sub_cat_name": "BIRYANIS",
             "item_price": "170",
             "item_qty": "3",
             "item_category": "veg"
           },         
           {
-            "item_name": "Wheat Paratha Tawa",
-            "item_main_category": "INDIAN ",
-            "item_sub_category": "INDIAN BREADS",
+            "dish_name": "Wheat Paratha Tawa",
+            "main_cat_name": "INDIAN ",
+            "sub_cat_name": "INDIAN BREADS",
             "item_price": "120",
             "item_qty": "5",
             "item_category": "nonveg"
@@ -138,32 +138,32 @@ export class NewOrdersComponent implements OnInit {
   // orderDetails =[
   // {
   //   "item_name":"Savour Special Chicken Biryani",
-  //   "item_main_category":"INDIAN",
-  //   "item_sub_category":"BIRYANIS",
+  //   "main_cat_name":"INDIAN",
+  //   "sub_cat_name":"BIRYANIS",
   //   "item_price":"170",
   //   "item_qty":"3",
   //   "item_category":"veg"
   // },
   // {
   //   "item_name":"BBQ Chicken (1 Pc)",
-  //   "item_main_category":"ARABIAN",
-  //   "item_sub_category":"CHICKEN STARTERS",
+  //   "main_cat_name":"ARABIAN",
+  //   "sub_cat_name":"CHICKEN STARTERS",
   //   "item_price":"110",
   //   "item_qty":"1",
   //   "item_category":"nonveg"
   // },
   // {
   //   "item_name":"Royal Chicken Burger",
-  //   "item_main_category":"QUICK BITES",
-  //   "item_sub_category":"BURGERS",
+  //   "main_cat_name":"QUICK BITES",
+  //   "sub_cat_name":"BURGERS",
   //   "item_price":"120",
   //   "item_qty":"5",
   //   "item_category":"veg"
   // },
   // {
   //   "item_name":"Wheat Paratha Tawa",
-  //   "item_main_category":"INDIAN ",
-  //   "item_sub_category":"INDIAN BREADS",
+  //   "main_cat_name":"INDIAN ",
+  //   "sub_cat_name":"INDIAN BREADS",
   //   "item_price":"120",
   //   "item_qty":"5",
   //   "item_category":"nonveg"
@@ -193,5 +193,12 @@ export class NewOrdersComponent implements OnInit {
     this.orderTotal = orderid.total_bill;
     // alert(JSON.stringify(orderid.order_Details))
   }
+
+  // getOrderDetails(){
+  //   this.foodieCallService.retrieveByKey(retrivedData).subscribe(
+  //     (res: any) => {
+       
+  //     }
+  // }
 
 }
