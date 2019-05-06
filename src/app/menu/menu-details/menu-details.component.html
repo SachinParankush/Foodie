@@ -4,9 +4,9 @@
             Categories
       </h4>
       <ul style="list-style-type:none;" class="text-left">
-         <li ><a class="a" href="#QuickBites">Quick Bites</a></li>
+         <li ><a class="a" href="#Quick Bites">Quick Bites</a></li>
          <li><a class="a" href="#Salads">Salads</a></li>
-         <li><a class="a" href="#content1">Soups</a></li>
+         <li><a class="a" href="#Soups">Soups</a></li>
          <li><a class="a" href="#Indian">Indian</a></li>
          <li><a class="a" href="#Chinese">Chinese</a></li>
          <li><a class="a" href="#Arabian">Arabian</a></li>
@@ -16,7 +16,7 @@
       </ul>
    </div>
 
-   <div class="col-lg-10">
+   <div class="col-lg-10 ">
       <div class="menu-body">
          <div class="row">
             <div class="col-lg-7">
@@ -42,11 +42,11 @@
          </div>
 
 
+<div class="ScrollStyle">
 
 
-
-         <div *ngFor="let data of ELEMENT_DATA; let i = index;" class="menu-section">
-            <h6 class="menu-section-title">
+         <div *ngFor="let data of ELEMENT_DATA; let i = index;" class="menu-section" >
+            <h6 class="menu-section-title" id={{data.MainCourse}}>
                <h2><b>{{data.MainCourse}}</b></h2>
             </h6>
             <!-- Item starts -->
@@ -74,6 +74,7 @@
 
 
          </div>
+      </div>
       </div>
    </div>
 
