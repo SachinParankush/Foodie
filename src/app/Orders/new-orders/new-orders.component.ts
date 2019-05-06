@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodieApiService } from '../../Foodie-api-service';
 
 @Component({
   selector: 'app-new-orders',
@@ -23,153 +24,12 @@ export class NewOrdersComponent implements OnInit {
   orderQuantity: any;
   orderTotal: any;
   orderPresent = true;
-
-  cardDetails = [
-    {
-      "hotel_location": "Banashankari, Srinagar, Bangalore",
-      "order_id": "1046",
-      "total_items": "3",
-      "sub_total": "347.5",
-      "bill_id":"399572885840",
-      "total_item":"4",
-      "total_amount":"4400",
-      "order_Details":
-        [
-          {
-            "dish_name": "Savour Special Chicken Biryani",
-            "main_cat_name": "INDIAN",
-            "sub_cat_name": "BIRYANIS",
-            "item_price": "170",
-            "item_qty": "3",
-            "item_category": "veg"
-          },
-          {
-            "dish_name": "BBQ Chicken (1 Pc)",
-            "main_cat_name": "ARABIAN",
-            "sub_cat_name": "CHICKEN STARTERS",
-            "item_price": "110",
-            "item_qty": "1",
-            "item_category": "nonveg"
-          },
-          {
-            "dish_name": "Royal Chicken Burger",
-            "main_cat_name": "QUICK BITES",
-            "sub_cat_name": "BURGERS",
-            "item_price": "120",
-            "item_qty": "5",
-            "item_category": "veg"
-          },
-          {
-            "dish_name": "Wheat Paratha Tawa",
-            "main_cat_name": "INDIAN ",
-            "sub_cat_name": "INDIAN BREADS",
-            "item_price": "120",
-            "item_qty": "5",
-            "item_category": "nonveg"
-          },
-        ]
-    },
-    {
-      "hotel_location": "Jaynagar, Srinagar, Bangalore",
-      "order_id": "1047",
-      "total_items": "2",
-      "sub_total": "547.5",
-      "bill_id":"399572885841",
-      "total_item":"4",
-      "total_bill":"4300",
-      "order_Details":
-        [
-          {
-            "dish_name": "Savour Special Chicken Biryani",
-            "main_cat_name": "INDIAN",
-            "sub_cat_name": "BIRYANIS",
-            "item_price": "190",
-            "item_qty": "4",
-            "item_category": "veg"
-          },
-          {
-            "dish_name": "BBQ Chicken (2 Pc)",
-            "main_cat_name": "ARABIAN",
-            "sub_cat_name": "CHICKEN STARTERS",
-            "item_price": "410",
-            "item_qty": "4",
-            "item_category": "nonveg"
-          },
-          {
-            "dish_name": "Royal Chicken Burger",
-            "main_cat_name": "QUICK BITES",
-            "sub_cat_name": "BURGERS",
-            "item_price": "1820",
-            "item_qty": "9",
-            "item_category": "veg"
-          },
-        ]
-    },
-    {
-      "hotel_location": "Srinagar, Bangalore",
-      "order_id": "1048",
-      "total_items": "4",
-      "sub_total": "847.5",
-      "bill_id":"399572885842",
-      "total_item":"4",
-      "total_bill":"4900",
-      "order_Details":
-        [
-          {
-            "dish_name": "Savour Special Chicken Biryani",
-            "main_cat_name": "INDIAN",
-            "sub_cat_name": "BIRYANIS",
-            "item_price": "170",
-            "item_qty": "3",
-            "item_category": "veg"
-          },         
-          {
-            "dish_name": "Wheat Paratha Tawa",
-            "main_cat_name": "INDIAN ",
-            "sub_cat_name": "INDIAN BREADS",
-            "item_price": "120",
-            "item_qty": "5",
-            "item_category": "nonveg"
-          },
-        ]
-    }
-  ]
-
-  // orderDetails =[
-  // {
-  //   "item_name":"Savour Special Chicken Biryani",
-  //   "main_cat_name":"INDIAN",
-  //   "sub_cat_name":"BIRYANIS",
-  //   "item_price":"170",
-  //   "item_qty":"3",
-  //   "item_category":"veg"
-  // },
-  // {
-  //   "item_name":"BBQ Chicken (1 Pc)",
-  //   "main_cat_name":"ARABIAN",
-  //   "sub_cat_name":"CHICKEN STARTERS",
-  //   "item_price":"110",
-  //   "item_qty":"1",
-  //   "item_category":"nonveg"
-  // },
-  // {
-  //   "item_name":"Royal Chicken Burger",
-  //   "main_cat_name":"QUICK BITES",
-  //   "sub_cat_name":"BURGERS",
-  //   "item_price":"120",
-  //   "item_qty":"5",
-  //   "item_category":"veg"
-  // },
-  // {
-  //   "item_name":"Wheat Paratha Tawa",
-  //   "main_cat_name":"INDIAN ",
-  //   "sub_cat_name":"INDIAN BREADS",
-  //   "item_price":"120",
-  //   "item_qty":"5",
-  //   "item_category":"nonveg"
-  // },
-
-  // ]
+  cardDetails: any; 
+  menu_Status: any;
+  searchText: any;
+  backUpArray: any;
+  
+ 
 
 
 
@@ -177,7 +37,9 @@ export class NewOrdersComponent implements OnInit {
     return Array(n);
   }
 
-  constructor() { }
+  constructor(private FoodieApiService: FoodieApiService) { 
+    this.getOrderDetails('new')
+  }
 
   ngOnInit() {
   }
@@ -187,18 +49,47 @@ export class NewOrdersComponent implements OnInit {
     this.orderNumber = "";
     this.orderQuantity = "";
     this.orderTotal = "";
-    this.orderDetails = (orderid.order_Details)
+    this.item_total = 0;
+    this.grand_total = 0;
+    this.orderDetails = (orderid.order_details);
     this.orderNumber = orderid.bill_id;
     this.orderQuantity = orderid.total_item;
-    this.orderTotal = orderid.total_bill;
+    this.orderTotal = orderid.total_amount;
+    this.item_total = orderid.order_price;
+    this.grand_total = orderid.total_amount;
     // alert(JSON.stringify(orderid.order_Details))
   }
 
-  // getOrderDetails(){
-  //   this.foodieCallService.retrieveByKey(retrivedData).subscribe(
-  //     (res: any) => {
-       
-  //     }
-  // }
+  getOrderDetails(orderStatus){
+    this.cardDetails = "";
+    this.menu_Status = orderStatus;
+    var params={
+
+    }
+    this.FoodieApiService.retrieveAll(params).subscribe(
+      (res:any) => {
+        console.log(JSON.stringify(res));
+        this.cardDetails = res;
+        this.backUpArray = res;
+  })
+}
+
+temp(data, s) {
+  return data.filter(e => e.hotel_location.includes(s) || e.order_id.includes(s))
+      .sort((a,b) => a.hotel_location.includes(s) && !b.hotel_location.includes(s) ? -1 : b.hotel_location.includes(s) && !a.hotel_location.includes(s) ? 1 :0);
+}
+
+  prodFilter() {
+
+    // this.httpdatanew = this.filtradoService.applyFilter(this.cardDetails, this.searchText)
+    let a = this.temp(this.cardDetails, this.searchText)
+    console.log(this.searchText);
+    this.cardDetails = a;
+    if (this.searchText == null || this.searchText == "") {
+      this.cardDetails = this.backUpArray
+    }
+
+  }
+
 
 }
