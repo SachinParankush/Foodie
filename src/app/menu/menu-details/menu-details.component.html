@@ -1,9 +1,7 @@
-<div class="row margin_10px">
-   <div class="col-lg-2">
-      <h4>
-         Categories
-      </h4>
-      <ul style="list-style-type:none;" class="text-left">
+<div class="row">
+   <div class="col-md-2">
+      <h4 class="pl-4 pt-3"> Categories </h4> 
+      <ul style="list-style-type:none; " class="text-left categoryMnuStyle">
          <li><a class="a" href="#Quick Bites">Quick Bites</a></li>
          <li><a class="a" href="#Salads">Salads</a></li>
          <li><a class="a" href="#Soups">Soups</a></li>
@@ -16,9 +14,10 @@
       </ul>
    </div>
 
-   <div class="col-lg-10 ">
-      <div class="menu-body">
-         <div class="row">
+   <div class="col-md-10" style="background: white;">
+     
+      <div class="menu-body__">
+         <div class="row mt-3">
             <div class="col-lg-7">
                <div class="input-group md-form form-sm form-1 pl-0">
                   <div class="input-group-prepend">
@@ -29,12 +28,13 @@
                </div>
             </div>
             <div class="col-lg-5">
+
                <div class="row">
-                  <div class="col-lg-6" style="padding-top: 5px;">
-                     <mat-checkbox class="chk">Show Out of stock</mat-checkbox>
+                  <div class="col-lg-6">
+                     <mat-checkbox class="chk pt-2 d-flex" >Show Out of stock</mat-checkbox>
                   </div>
                   <div class="col-lg-6">
-                     <button type="button" class="btn btn-outline-success">ADD NEW ITEM</button>
+                     <button type="button" class="btn btn-outline-success" style="margin-top:0px !important; ">ADD NEW ITEM</button>
                   </div>
                </div>
             </div>
@@ -50,6 +50,10 @@
                </h6>
                <!-- Item starts -->
                <div *ngFor="let subData of data.Subcourse; let i = index;" class="menu-item">
+
+
+
+                  
                   <div class="menu-item-name">
                      <span *ngIf="subData.item_category =='veg'">
                         <img src="../../../assets/img/veg.png" class="category_img" />
@@ -67,11 +71,11 @@
 
                   <div class="menu-item-price">
 
-                     <mat-slide-toggle></mat-slide-toggle>
+                     <mat-slide-toggle [checked]="true"></mat-slide-toggle>
                   </div>
                   <div class="edit">
-                     <a href="" class="a"><u>Edit</u></a>
-                     <a href="" class="a"><u>Delete</u></a>
+                     <a href="" class="a">Edit</a>
+                     <a href="" class="a">Delete</a>
                   </div>
 
                </div>
@@ -79,8 +83,10 @@
 
 
             </div>
+
          </div>
       </div>
+     
    </div>
 
 
