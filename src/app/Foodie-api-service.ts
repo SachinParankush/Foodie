@@ -6,7 +6,7 @@ import * as config from './providers/config';
 import { forkJoin } from 'rxjs/observable/forkJoin';
 
 @Injectable()
-export class BillingApiService {
+export class FoodieApiService {
     private headers = new Headers({
         'Content-Type': 'application/json',
         'charset': 'UTF-8'
