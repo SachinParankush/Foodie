@@ -1,17 +1,17 @@
 <div class="row margin_10px">
    <div class="col-lg-2">
       <h4>
-            Categories
+         Categories
       </h4>
       <ul style="list-style-type:none;" class="text-left">
-         <li ><a class="a" href="#Quick Bites">Quick Bites</a></li>
+         <li><a class="a" href="#Quick Bites">Quick Bites</a></li>
          <li><a class="a" href="#Salads">Salads</a></li>
          <li><a class="a" href="#Soups">Soups</a></li>
          <li><a class="a" href="#Indian">Indian</a></li>
          <li><a class="a" href="#Chinese">Chinese</a></li>
          <li><a class="a" href="#Arabian">Arabian</a></li>
          <li><a class="a" href="#Continental">Continental</a></li>
-         <li><a class="a"href="#Desserts">Desserts</a></li>
+         <li><a class="a" href="#Desserts">Desserts</a></li>
          <li><a class="a" href="#Beverages">Beverages</a></li>
       </ul>
    </div>
@@ -38,47 +38,52 @@
                   </div>
                </div>
             </div>
-            
+
          </div>
 
 
-<div class="ScrollStyle">
+         <div class="ScrollStyle">
+            <div *ngFor="let data of ELEMENT_DATA; let i = index;" class="menu-section">
+               <h6 class="menu-section-title">
+                  <h2><b>{{data.MainCourse}}</b></h2>
 
+               </h6>
+               <!-- Item starts -->
+               <div *ngFor="let subData of data.Subcourse; let i = index;" class="menu-item">
+                  <div class="menu-item-name">
+                     <span *ngIf="subData.item_category =='veg'">
+                        <img src="../../../assets/img/veg.png" class="category_img" />
+                     </span>
+                     <span *ngIf="subData.item_category =='nonveg'">
+                        <img src="../../../assets/img/nonveg.png" class="category_img" />
+                     </span><b>{{subData.item_name}}</b>
+                     <!-- <h4>{{subData.item_name}}</h4> -->
 
-         <div *ngFor="let data of ELEMENT_DATA; let i = index;" class="menu-section" >
-            <h6 class="menu-section-title" id={{data.MainCourse}}>
-               <h2><b>{{data.MainCourse}}</b></h2>
-            </h6>
-            <!-- Item starts -->
-            <div *ngFor="let subData of data.Subcourse; let i = index;" class="menu-item">
-               <div class="menu-item-name">
-                  <h4>{{subData.item_name}}</h4>
-
-                  <div class="menu-item-description">
-                     <h5>₹{{subData.item_price}}</h5>
+                     <div class="menu-item-description">
+                        <h5>₹{{subData.item_price}}</h5>
+                     </div>
                   </div>
+
+
+                  <div class="menu-item-price">
+
+                     <mat-slide-toggle></mat-slide-toggle>
+                  </div>
+                  <div class="edit">
+                     <a href="" class="a"><u>Edit</u></a>
+                     <a href="" class="a"><u>Delete</u></a>
+                  </div>
+
                </div>
 
 
-               <div class="menu-item-price">
-                  
-                  <mat-slide-toggle ></mat-slide-toggle>
-               </div>
-               <div class="edit">
-                  <a href="" class="a"><u>Edit</u></a>
-                  <a href="" class="a"><u>Delete</u></a>
-               </div>
 
             </div>
-
-
-
          </div>
-      </div>
       </div>
    </div>
 
-  
+
 
 
 

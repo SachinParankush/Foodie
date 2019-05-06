@@ -16,12 +16,14 @@ export class MenuDetailsComponent implements OnInit {
           {
             "item_name": "Pulav",
             "item_price": "55",
-            "item_discription": "Its Made with Love"
+            "item_discription": "Its Made with Love",
+            "item_category":"veg"
           },
           {
             "item_name": "Rice Bath",
             "item_price": "75",
-            "item_discription": "Its Made with Love and Care"
+            "item_discription": "Its Made with Love and Care",
+            "item_category":"veg"
           }
         ]
     },
@@ -32,12 +34,14 @@ export class MenuDetailsComponent implements OnInit {
           {
             "item_name": "Veg Salad",
             "item_price": "55",
-            "item_discription": "Its Made with Love"
+            "item_discription": "Its Made with Love",
+            "item_category":"veg"
           },
           {
             "item_name": "Non-Veg Salad",
             "item_price": "75",
-            "item_discription": "Its Made with Love and Care"
+            "item_discription": "Its Made with Love and Care",
+            "item_category":"nonveg"
           }
         ]
     },
@@ -48,12 +52,14 @@ export class MenuDetailsComponent implements OnInit {
           {
             "item_name": "Veg Soup",
             "item_price": "55",
-            "item_discription": "Its Made with Love"
+            "item_discription": "Its Made with Love",
+            "item_category":"veg"
           },
           {
             "item_name": "Non-Veg Soup",
             "item_price": "75",
-            "item_discription": "Its Made with Love and Care"
+            "item_discription": "Its Made with Love and Care",
+            "item_category":"nonveg"
           }
         ]
     },
@@ -64,12 +70,14 @@ export class MenuDetailsComponent implements OnInit {
           {
             "item_name": "Rotii",
             "item_price": "55",
-            "item_discription": "Its Made with Love"
+            "item_discription": "Its Made with Love",
+            "item_category":"veg"
           },
           {
             "item_name": "Curry",
             "item_price": "75",
-            "item_discription": "Its Made with Love and Care"
+            "item_discription": "Its Made with Love and Care",
+            "item_category":"nonveg"
           }
         ]
     }
