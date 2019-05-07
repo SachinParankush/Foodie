@@ -50,7 +50,7 @@
   }
    
   .menu-section {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
    
   .menu-section-title {
@@ -64,11 +64,14 @@
 
 .menu-section-title h2 b{
   font-family: sans-serif  !important;
-  font-size: 18px  !important; 
-  font-weight:normal !important;
+  font-size: 16px  !important; 
+  font-weight:bold !important;
   text-transform: uppercase;
 }
-
+.itemStyle{
+  font-size: 15px;
+  margin-left: 5px;
+}
    
   .menu-item {
     margin: 15px 0;
@@ -98,14 +101,14 @@
     text-align: center;
     font-weight: bold;
     font-family: arial;
-    margin-top: -30px;
+    // margin-top: -30px;
   }
 
   .edit{
     float: right;
     font-weight: bold;
     font-family: arial;
-    margin-top: -30px;
+    // margin-top: -30px;
   }
 
   .edit a{
@@ -137,8 +140,7 @@
     overflow-y: scroll;
 }
 
-.category_img
-{
+.category_img{
     width : 15px;
     height : 15px;
 }

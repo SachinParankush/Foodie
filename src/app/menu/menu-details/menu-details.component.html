@@ -52,24 +52,43 @@
                <div *ngFor="let subData of data.Subcourse; let i = index;" class="menu-item">
 
 
+<div class="row m-0 p-0">
+  <div class="col-md-6"><span *ngIf="subData.item_category =='veg'">
+      <img src="../../../assets/img/veg.png" class="category_img" />
+   </span>
+   <span *ngIf="subData.item_category =='nonveg'">
+      <img src="../../../assets/img/nonveg.png" class="category_img" />
+   </span><b class="itemStyle">{{subData.item_name}}</b>
+   
+   <div class="menu-item-description">
+         <h5>₹{{subData.item_price}}</h5>
+      </div></div>
 
-                  
-                  <div class="menu-item-name">
+  <div class="col-md-3"><div class="menu-item-price">
+      <mat-slide-toggle [checked]="true"></mat-slide-toggle>
+   </div></div>
+  <div class="col-md-3 edit"> 
+      <a href="" class="a">Edit</a>
+      <a href="" class="a">Delete</a>
+   </div>
+</div>
+
+                  <!-- <div class="menu-item-name">
                      <span *ngIf="subData.item_category =='veg'">
                         <img src="../../../assets/img/veg.png" class="category_img" />
                      </span>
                      <span *ngIf="subData.item_category =='nonveg'">
                         <img src="../../../assets/img/nonveg.png" class="category_img" />
-                     </span><b>{{subData.item_name}}</b>
+                     </span><b>{{subData.item_name}}</b>-->
                      <!-- <h4>{{subData.item_name}}</h4> -->
 
-                     <div class="menu-item-description">
-                        <h5>₹{{subData.item_price}}</h5>
+                     <!--<div class="menu-item-description">
+                        <h5>₹{{subData.item_price}}</h5> 
                      </div>
-                  </div>
+                  </div> -->
 
 
-                  <div class="menu-item-price">
+                  <!-- <div class="menu-item-price">
 
                      <mat-slide-toggle [checked]="true"></mat-slide-toggle>
                   </div>
@@ -78,7 +97,7 @@
                      <a href="" class="a">Delete</a>
                   </div>
 
-               </div>
+               </div> -->
 
 
 
