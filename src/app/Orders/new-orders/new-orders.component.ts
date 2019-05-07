@@ -70,12 +70,18 @@ export class NewOrdersComponent implements OnInit {
       (res:any) => {
         console.log(JSON.stringify(res));
         this.cardDetails = res;
+        this.orderDetails = res[0].order_details;
         this.backUpArray = res;
+        this.orderNumber = res[0].bill_id;
+        this.orderQuantity = res[0].total_item;
+        this.orderTotal = res[0].total_amount;
+        this.item_total = res[0].order_price;
+        this.grand_total = res[0].total_amount;
   })
 }
 
 temp(data, s) {
-  return data.filter(e => e.hotel_location.includes(s) || e.order_id.includes(s))
+  return data.filter(e => e.hotel_location.toLowerCase().includes(s) || e.order_id.toLowerCase().includes(s) || e.hotel_location.includes(s) || e.order_id.includes(s))
       .sort((a,b) => a.hotel_location.includes(s) && !b.hotel_location.includes(s) ? -1 : b.hotel_location.includes(s) && !a.hotel_location.includes(s) ? 1 :0);
 }
 

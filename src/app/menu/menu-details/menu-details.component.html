@@ -1,6 +1,6 @@
 <div class="row">
    <div class="col-md-2">
-      <h4 class="pl-4 pt-3"> Categories </h4> 
+      <h4 class="pl-4 pt-3"> Categories </h4>
       <ul style="list-style-type:none; " class="text-left categoryMnuStyle">
          <li><a class="a" href="#Quick Bites">Quick Bites</a></li>
          <li><a class="a" href="#Salads">Salads</a></li>
@@ -15,7 +15,7 @@
    </div>
 
    <div class="col-md-10" style="background: white;">
-     
+
       <div class="menu-body__">
          <div class="row mt-3">
             <div class="col-lg-7">
@@ -24,17 +24,19 @@
                      <span class="input-group-text purple lighten-3" id="basic-text1"><i
                            class="fas fa-search text-white" aria-hidden="true"></i></span>
                   </div>
-                  <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+                  <input class="form-control my-0 py-1" [(ngModel)]="SearchMenu" type="text" placeholder="Search"
+                  aria-label="Search" (ngModelChange)="menuFilter()">           
                </div>
             </div>
             <div class="col-lg-5">
 
                <div class="row">
                   <div class="col-lg-6">
-                     <mat-checkbox class="chk pt-2 d-flex" >Show Out of stock</mat-checkbox>
+                     <mat-checkbox class="chk pt-2 d-flex">Show Out of stock</mat-checkbox>
                   </div>
                   <div class="col-lg-6">
-                     <button type="button" class="btn btn-outline-success" style="margin-top:0px !important; ">ADD NEW ITEM</button>
+                     <button type="button" class="btn btn-outline-success" style="margin-top:0px !important; ">ADD NEW
+                        ITEM</button>
                   </div>
                </div>
             </div>
@@ -52,64 +54,62 @@
                <div *ngFor="let subData of data.Subcourse; let i = index;" class="menu-item">
 
 
-<div class="row m-0 p-0">
-  <div class="col-md-6"><span *ngIf="subData.item_category =='veg'">
-      <img src="../../../assets/img/veg.png" class="category_img" />
-   </span>
-   <span *ngIf="subData.item_category =='nonveg'">
-      <img src="../../../assets/img/nonveg.png" class="category_img" />
-   </span><b class="itemStyle">{{subData.item_name}}</b>
-   
-   <div class="menu-item-description">
-         <h5>₹{{subData.item_price}}</h5>
-      </div></div>
+                  <div class="row m-0 p-0">
+                     <div class="col-md-6"><span *ngIf="subData.item_category =='veg'">
+                           <img src="../../../assets/img/veg.png" class="category_img" />
+                        </span>
+                        <span *ngIf="subData.item_category =='nonveg'">
+                           <img src="../../../assets/img/nonveg.png" class="category_img" />
+                        </span><b class="itemStyle">{{subData.dish_name}}</b>
 
-  <div class="col-md-3"><div class="menu-item-price">
-      <mat-slide-toggle [checked]="true"></mat-slide-toggle>
-   </div></div>
-  <div class="col-md-3 edit"> 
-      <a href="" class="a">Edit</a>
-      <a href="" class="a">Delete</a>
-   </div>
-</div>
-
-                  <!-- <div class="menu-item-name">
-                     <span *ngIf="subData.item_category =='veg'">
-                        <img src="../../../assets/img/veg.png" class="category_img" />
-                     </span>
-                     <span *ngIf="subData.item_category =='nonveg'">
-                        <img src="../../../assets/img/nonveg.png" class="category_img" />
-                     </span><b>{{subData.item_name}}</b>-->
-                     <!-- <h4>{{subData.item_name}}</h4> -->
-
-                     <!--<div class="menu-item-description">
-                        <h5>₹{{subData.item_price}}</h5> 
+                        <div class="menu-item-description">
+                           <h5>₹{{subData.dish_price}}</h5>
+                        </div>
                      </div>
-                  </div> -->
 
-
-                  <!-- <div class="menu-item-price">
-
-                     <mat-slide-toggle [checked]="true"></mat-slide-toggle>
+                     <div class="col-md-3">
+                        <div class="menu-item-price">
+                           <form class="validate-form" [formGroup]="menuFormGroup">
+                              <mat-slide-toggle (click)='openModal(template,subData)' formControlName="togle">
+                              </mat-slide-toggle>
+                           </form>
+                        </div>
+                     </div>
+                     <div class="col-md-3 edit">
+                        <a href="" class="a">Edit</a>
+                        <a href="" class="a">Delete</a>
+                     </div>
                   </div>
-                  <div class="edit">
-                     <a href="" class="a">Edit</a>
-                     <a href="" class="a">Delete</a>
-                  </div>
-
-               </div> -->
 
 
+
+               </div>
 
             </div>
-
          </div>
+
       </div>
-     
+
+
+
+
+
    </div>
 
+   <ng-template #template>
+      <div class="template">
+         <span>Confirm that {{item_data.dish_name}} is out of stock</span>
+         <hr>
+
+         <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+               <button class="btn btn-primary">Cancel</button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+               <button class="btn btn-primary" (click)="modelDataSave()">Confirm</button>
+            </div>
+         </div>
 
 
-
-
-</div>
+      </div>
+   </ng-template>
