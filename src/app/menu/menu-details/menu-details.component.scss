@@ -68,6 +68,28 @@
   font-weight:bold !important;
   text-transform: uppercase;
 }
+
+
+h2.halfLine{
+  display: inline-block;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+h2.halfLine:before{
+  content: "";
+  border: 1px solid #282c3f;
+  padding-bottom: 0px;
+  position: absolute;
+  width: 35%;
+  height: 0px !important;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+
 .itemStyle{
   font-size: 15px;
   margin-left: 5px;

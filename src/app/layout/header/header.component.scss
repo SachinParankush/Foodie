@@ -168,11 +168,19 @@
     
 }
 
+.allOutlet{
+width: 400px;
+background: white;
+min-height: 250px;
+
+}
 
 
-
-
-
+::ng-deep .popover{
+    // border: 1px solid red !important;
+    overflow: hidden;
+    max-width: 576px !important;
+}
 
 
 
