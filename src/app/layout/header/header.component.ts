@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppState } from "../../app.service";
 
 
 @Component({
@@ -17,71 +18,69 @@ export class HeaderComponent implements OnInit {
 
 
   
-  outLetDetails = [
-    {
-      "Place": "Banglore",
-      "branchDetails":
-        [
-          {
-            "Store_Name": "A-1",
-            "Address": "Srirampura,Banglore",
-            "Store_id": "12334"
-          },
-          {
-            "Store_Name": "A-2",
-            "Address": "QQQQQQ,Banglore",
-            "Store_id": "12334"
-          }
-        ]
+  outLetDetails
+  //  = [
+  //   {
+  //     "Place": "Banglore",
+  //     "branchDetails":
+  //       [
+  //         {
+  //           "Store_Name": "A-1",
+  //           "Address": "Srirampura,Banglore",
+  //           "Store_id": "12334"
+  //         },
+  //         {
+  //           "Store_Name": "A-2",
+  //           "Address": "QQQQQQ,Banglore",
+  //           "Store_id": "12334"
+  //         }
+  //       ]
 
-    },
-    {
-      "Place": "Mysore",
-      "branchDetails":
-        [
-          {
-            "Store_Name": "B-1",
-            "Address": "fwefwe,Banglore",
-            "Store_id": "12334"
-          },
-          {
-            "Store_Name": "B-2",
-            "Address": "Srirawefwempura,Banglore",
-            "Store_id": "12334"
-          }
-        ]
+  //   },
+  //   {
+  //     "Place": "Mysore",
+  //     "branchDetails":
+  //       [
+  //         {
+  //           "Store_Name": "B-1",
+  //           "Address": "fwefwe,Banglore",
+  //           "Store_id": "12334"
+  //         },
+  //         {
+  //           "Store_Name": "B-2",
+  //           "Address": "Srirawefwempura,Banglore",
+  //           "Store_id": "12334"
+  //         }
+  //       ]
 
-    },
-    {
-      "Place": "Kolar",
-      "branchDetails":
-        [
-          {
-            "Store_Name": "A-1",
-            "Address": "Srirampura,Banglore",
-            "Store_id": "12334"
-          },
-          {
-            "Store_Name": "A-1",
-            "Address": "Srirampura,Banglore",
-            "Store_id": "12334"
-          }
-        ]
+  //   },
+  //   {
+  //     "Place": "Kolar",
+  //     "branchDetails":
+  //       [
+  //         {
+  //           "Store_Name": "A-1",
+  //           "Address": "Srirampura,Banglore",
+  //           "Store_id": "12334"
+  //         },
+  //         {
+  //           "Store_Name": "A-1",
+  //           "Address": "Srirampura,Banglore",
+  //           "Store_id": "12334"
+  //         }
+  //       ]
 
-    }
+  //   }
 
 
-  ]
+  // ]
   // -----------------------------------------------------------------------
   // Constructor
   // -----------------------------------------------------------------------
 
-  constructor(private router: Router) {
-    // this.personId = this.appState.signUpDetails.personId;
-    // this.profileImage = appState.profileImage;
-
-    // this.appState.signUpDetails.profileImg = localStorage.getItem("profileImg");
-
+  constructor(private router: Router,private FoodieAppState: AppState) {
+  //  this.outLetDetails= this.FoodieAppState.outLetArray;
+  console.log("++++++++"+JSON.stringify(this.FoodieAppState.outLetArray));
   }
 
   ngOnInit() { }
@@ -91,9 +90,13 @@ export class HeaderComponent implements OnInit {
   //Logout method //
 
   logOut() {
-    localStorage.clear();
-    this.router.navigate(['/routesNoMenu/signIn']);
+    // localStorage.clear();
+    // this.router.navigate(['/routesNoMenu/signIn']);
     
+  }
+
+  outletData(){
+    alert("++++++++"+JSON.stringify(this.FoodieAppState.globalLoginData));
   }
 
 

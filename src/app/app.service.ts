@@ -14,9 +14,11 @@ export class AppState {
     "organisation_name": "",
     "bid": "",
     "user_id":"" ,
-    "no_org": ""  
+    "no_org": "" 
     
   }
+
+  outLetArray: any;
 
   // -----------------------------------------------------------------------------
   // Constructor
@@ -32,16 +34,17 @@ export class AppState {
 
 
 
-  resetData() {
+  // resetData() {
 
-    this.globalLoginData = {
-      "brand_name":"",    
-      "organisation_name": "",
-      "bid": "",
-      "user_id":"",
-      "no_org": ""     
-    }
-  }
+  //   this.globalLoginData = {
+  //     "brand_name":"",    
+  //     "organisation_name": "",
+  //     "bid": "",
+  //     "user_id":"",
+  //     "no_org": ""     
+  //   }
+  //   this.outLetArray=[];
+  // }
 
   // -------------------------------------------------------------------------------------
   // ngOnInit

@@ -30,10 +30,19 @@ export class SignInComponent implements OnInit {
         "password": this.signUp.value.password,
       }
       this.FoodieApiService.signIn(params).subscribe(
-        (res: any) => {
+        (res: any) => {  
           if (res.code == '200') {
             if(res.no_org == 1 )
-            { this.FoodieAppState.globalLoginData.bid = res.data[0].bid;
+            {
+
+              this.FoodieApiService.retrieveOutletData(params).subscribe(
+                (resp: any) => {
+                  alert("--------->>>" + JSON.stringify(resp))
+                  this.FoodieAppState.outLetArray = resp;
+                  alert("2"+JSON.stringify(this.FoodieAppState.outLetArray))
+                })
+             
+            this.FoodieAppState.globalLoginData.bid = res.data[0].bid;
             this.FoodieAppState.globalLoginData.brand_name = res.data[0].brand_name;
             this.FoodieAppState.globalLoginData.organisation_name = res.data[0].organisation_name;
             this.FoodieAppState.globalLoginData.user_id = res.data[0].user_id;
@@ -47,7 +56,7 @@ export class SignInComponent implements OnInit {
             }
             else if(res.no_org >  1  &&  res.no_org  !=  0  )
             {
-              this.router.navigate(['/routesNoMenu/brandSelect']);
+              // this.router.navigate(['/routesNoMenu/brandSelect']);
             }
             
           }
