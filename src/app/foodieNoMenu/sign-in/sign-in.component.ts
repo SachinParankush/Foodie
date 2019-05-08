@@ -32,8 +32,8 @@ export class SignInComponent implements OnInit {
       this.FoodieApiService.signIn(params).subscribe(
         (res: any) => {
           if (res.code == '200') {
-            // alert(JSON.stringify(res.data[0]))
-            this.FoodieAppState.globalLoginData.bid = res.data[0].bid;
+            if(res.no_org == 1 )
+            { this.FoodieAppState.globalLoginData.bid = res.data[0].bid;
             this.FoodieAppState.globalLoginData.brand_name = res.data[0].brand_name;
             this.FoodieAppState.globalLoginData.organisation_name = res.data[0].organisation_name;
             this.FoodieAppState.globalLoginData.user_id = res.data[0].user_id;
@@ -43,7 +43,13 @@ export class SignInComponent implements OnInit {
             localStorage.setItem('bid', this.FoodieAppState.globalLoginData.bid);
             localStorage.setItem('user_id', this.FoodieAppState.globalLoginData.user_id);
             localStorage.setItem('no_org', this.FoodieAppState.globalLoginData.no_org);
-            // this.router.navigate(['/orders/NewOrders']);
+            this.router.navigate(['/orders/NewOrders']);
+            }
+            else if(res.no_org >  1  &&  res.no_org  !=  0  )
+            {
+              this.router.navigate(['/routesNoMenu/brandSelect']);
+            }
+            
           }
         })
     } else {

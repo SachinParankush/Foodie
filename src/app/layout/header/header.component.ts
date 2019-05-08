@@ -14,6 +14,64 @@ export class HeaderComponent implements OnInit {
   // -----------------------------------------------------------------------
   profileImage: any;
   personId: any;
+
+
+  
+  outLetDetails = [
+    {
+      "Place": "Banglore",
+      "branchDetails":
+        [
+          {
+            "Store_Name": "A-1",
+            "Address": "Srirampura,Banglore",
+            "Store_id": "12334"
+          },
+          {
+            "Store_Name": "A-2",
+            "Address": "QQQQQQ,Banglore",
+            "Store_id": "12334"
+          }
+        ]
+
+    },
+    {
+      "Place": "Mysore",
+      "branchDetails":
+        [
+          {
+            "Store_Name": "B-1",
+            "Address": "fwefwe,Banglore",
+            "Store_id": "12334"
+          },
+          {
+            "Store_Name": "B-2",
+            "Address": "Srirawefwempura,Banglore",
+            "Store_id": "12334"
+          }
+        ]
+
+    },
+    {
+      "Place": "Kolar",
+      "branchDetails":
+        [
+          {
+            "Store_Name": "A-1",
+            "Address": "Srirampura,Banglore",
+            "Store_id": "12334"
+          },
+          {
+            "Store_Name": "A-1",
+            "Address": "Srirampura,Banglore",
+            "Store_id": "12334"
+          }
+        ]
+
+    }
+
+
+  ]
   // -----------------------------------------------------------------------
   // Constructor
   // -----------------------------------------------------------------------

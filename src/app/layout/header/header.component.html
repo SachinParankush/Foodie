@@ -23,7 +23,7 @@
         <a href=""> <button class="btn btn-warning">FAQ's</button> </a>
     <mat-icon matBadge="22" matBadgeColor="accent"> alert </mat-icon>
           <a href=""><i class="far fa-bell"></i></a>
-          <a href=""><i class="fas fa-power-off"></i></a>
+          <a href=""><i  routerLink="/routesNoMenu/signIn" class="fas fa-power-off"></i></a>
         </form>
     </div>
   </nav>
@@ -68,8 +68,28 @@
 </div>
 
         <mat-tab-group>
-            <mat-tab label="Bangalore">Banglore</mat-tab>
-            <mat-tab label="Mangaluru"> Mangaluru</mat-tab>
+            <mat-tab *ngFor="let data of outLetDetails; let i = index;" label={{data.Place}} >
+              <div *ngFor="let subData of data.branchDetails; let i = index;">
+                <br>
+                <div class="row" >
+                  <div class="col-lg-8">
+                    <h4>{{subData.Store_Name}}</h4>
+                    <p>{{subData.Address}}</p>
+                  </div>
+                
+                  <div class="col-lg-2 text-right">
+                    <a>
+                        <mat-slide-toggle [checked]="true">
+                          </mat-slide-toggle>
+                    </a>
+                
+                  </div>
+                </div>
+              </div>
+            
+            
+            </mat-tab>
+            
           </mat-tab-group>
     </div>
   </ng-template>
