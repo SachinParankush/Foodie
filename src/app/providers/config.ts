@@ -1,7 +1,7 @@
 export const SERVERTYPE = "DEVELOPMENT"; // for server Type should be "PRODUCTION"  or "UAT" or "DEVELOPEMENT"
 
 export const SIGNUP = "/api/specific/signUp";
-export const SIGNIN = "/api/specific/signIn";
+export const SIGNIN = "http://192.168.0.181/foodieh/Angular_callcenter_api/app_login";
 
 
 export const CREATEDATA = "/api/mysqlDb/createData";

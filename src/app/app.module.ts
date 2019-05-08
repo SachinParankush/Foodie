@@ -19,6 +19,7 @@ import { HttpModule } from '@angular/http';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { LayoutModule } from './layout/layout.module';
 import { FoodieApiService } from './Foodie-api-service';
+import { AppState } from './app.service';
 
 
 
@@ -54,7 +55,7 @@ export function createTranslateLoader(http: HttpClient) {
         FormlyModule.forRoot(),
         FormlyBootstrapModule 
     ],
-    providers: [FoodieApiService],
+    providers: [FoodieApiService,AppState],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

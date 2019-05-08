@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FoodieApiService } from '../../Foodie-api-service';
+import { AppState } from '../../app.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,21 +13,39 @@ export class SignInComponent implements OnInit {
 
   signUp: FormGroup;
 
-  constructor(private fb: FormBuilder,private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private FoodieApiService: FoodieApiService, private FoodieAppState: AppState) {
     this.signUp = this.fb.group({
       'email': [null, Validators.compose([Validators.required])],
       'password': [null, Validators.compose([Validators.required])],
     });
-   }
+  }
 
   ngOnInit() {
   }
   validatePage() {
 
     if (this.signUp.valid) {
-      alert("login Successful")
-      this.signUp.reset();
-      this.router.navigate(['/foodie/BaseComponent']);
+      var params = {
+        "mail_id": this.signUp.value.email,
+        "password": this.signUp.value.password,
+      }
+      this.FoodieApiService.signIn(params).subscribe(
+        (res: any) => {
+          if (res.code == '200') {
+            // alert(JSON.stringify(res.data[0]))
+            this.FoodieAppState.globalLoginData.bid = res.data[0].bid;
+            this.FoodieAppState.globalLoginData.brand_name = res.data[0].brand_name;
+            this.FoodieAppState.globalLoginData.organisation_name = res.data[0].organisation_name;
+            this.FoodieAppState.globalLoginData.user_id = res.data[0].user_id;
+            this.FoodieAppState.globalLoginData.no_org = res.no_org;
+            localStorage.setItem('brand_name', this.FoodieAppState.globalLoginData.brand_name);
+            localStorage.setItem('organisation_name', this.FoodieAppState.globalLoginData.organisation_name);
+            localStorage.setItem('bid', this.FoodieAppState.globalLoginData.bid);
+            localStorage.setItem('user_id', this.FoodieAppState.globalLoginData.user_id);
+            localStorage.setItem('no_org', this.FoodieAppState.globalLoginData.no_org);
+            // this.router.navigate(['/orders/NewOrders']);
+          }
+        })
     } else {
       for (let c in this.signUp.controls) {
         this.signUp.controls[c].markAsTouched();
@@ -34,5 +54,5 @@ export class SignInComponent implements OnInit {
     }
 
   }
- 
+
 }

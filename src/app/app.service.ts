@@ -8,12 +8,13 @@ export class AppState {
   // -----------------------------------------------------------------------
   
   // To hold login profile related information
-   disablecheckfalse = true;
   globalLoginData = {    
     
-    "userId":"",    
-    "roleId": "",
-    "personEmail": ""   
+    "brand_name":"",    
+    "organisation_name": "",
+    "bid": "",
+    "user_id":"" ,
+    "no_org": ""  
     
   }
 
@@ -21,7 +22,11 @@ export class AppState {
   // Constructor
   //-----------------------------------------------------------------------------
   constructor() {
-    
+    // localStorage.setItem('brand_name', this.globalLoginData.brand_name);
+    // localStorage.setItem('organisation_name', this.globalLoginData.organisation_name);
+    // localStorage.setItem('bid', this.globalLoginData.bid);
+    // localStorage.setItem('user_id', this.globalLoginData.user_id);
+    // localStorage.setItem('no_org', this.globalLoginData.no_org);
     
   }
 
@@ -30,9 +35,11 @@ export class AppState {
   resetData() {
 
     this.globalLoginData = {
-        "userId":"",    
-        "roleId": "",
-        "personEmail": ""
+      "brand_name":"",    
+      "organisation_name": "",
+      "bid": "",
+      "user_id":"",
+      "no_org": ""     
     }
   }
 
