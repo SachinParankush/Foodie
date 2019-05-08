@@ -209,3 +209,25 @@ ul.categoryMnuStyle li a:hover{
   background-color:#27c24c !important; /* Red background for example */
 }
 // chk pt-2 d-flex mat-checkbox mat-accent mat-checkbox-checked
+
+::ng-deep.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000 !important;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+}
+
+::ng-deep.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 990 !important;
+  background-color: #000;
+}

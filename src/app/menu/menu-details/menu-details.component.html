@@ -97,19 +97,48 @@
    </div>
 
    <ng-template #template>
-      <div class="template">
-         <span>Confirm that {{item_data.dish_name}} is out of stock</span>
-         <hr>
-
-         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-               <button class="btn btn-primary">Cancel</button>
+         <div class="template">
+            <span>Confirm that <b>{{item_data.dish_name}}</b> is out of stock</span>
+            <hr>
+            <span><b>Choose from the below time frame:</b></span>
+            <br>
+            <span>You will not receive orders for this item till <b>{{ selection || '8 AM tomorrow morning'}}</b>.</span>
+            <br>
+            <br>
+   
+            <mat-radio-group [(ngModel)]="selection" aria-label="Select an option">
+               <mat-radio-button class="a" value="End of the Day">End of the Day</mat-radio-button>&nbsp;&nbsp;
+               <mat-radio-button class="a" value="6 hrs from now">6 Hrs</mat-radio-button>&nbsp;&nbsp;
+               <mat-radio-button class="a" value="2 hrs from now">2 Hrs</mat-radio-button>&nbsp;&nbsp;
+            </mat-radio-group>
+            <label class="a">CUSTOM: </label>
+            <mat-form-field id="datepicker togglewidth">
+               <b> <input matInput [matDatepicker]="picker1"></b>
+               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+               <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <br>
+            <br>
+            <span>*You can make an item out of stock for a maximum of 12 days.</span>
+   
+            
+            <hr>
+   
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-sm-6">
+                  <button class="btn btn-primarycancel">Cancel</button>
+               </div>
+               <div class="col-lg-6 col-md-6 col-sm-6">
+                  <button class="btn btn-primaryconfirm" (click)="modelDataSave()">Confirm</button>
+               </div>
+   
+   
+   
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-               <button class="btn btn-primary" (click)="modelDataSave()">Confirm</button>
-            </div>
+   
+   
          </div>
-
-
-      </div>
-   </ng-template>
+   
+   
+   
+      </ng-template>
