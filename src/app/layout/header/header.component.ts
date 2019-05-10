@@ -14,90 +14,42 @@ export class HeaderComponent implements OnInit {
   // Local variables
   // -----------------------------------------------------------------------
   profileImage: any;
-  personId: any;
+  personId: any;  
+  outLetDetails ; 
+  searchText: any;
+  backUpArray: any;
 
-
-  
-  outLetDetails
-  //  = [
-  //   {
-  //     "Place": "Banglore",
-  //     "branchDetails":
-  //       [
-  //         {
-  //           "Store_Name": "A-1",
-  //           "Address": "Srirampura,Banglore",
-  //           "Store_id": "12334"
-  //         },
-  //         {
-  //           "Store_Name": "A-2",
-  //           "Address": "QQQQQQ,Banglore",
-  //           "Store_id": "12334"
-  //         }
-  //       ]
-
-  //   },
-  //   {
-  //     "Place": "Mysore",
-  //     "branchDetails":
-  //       [
-  //         {
-  //           "Store_Name": "B-1",
-  //           "Address": "fwefwe,Banglore",
-  //           "Store_id": "12334"
-  //         },
-  //         {
-  //           "Store_Name": "B-2",
-  //           "Address": "Srirawefwempura,Banglore",
-  //           "Store_id": "12334"
-  //         }
-  //       ]
-
-  //   },
-  //   {
-  //     "Place": "Kolar",
-  //     "branchDetails":
-  //       [
-  //         {
-  //           "Store_Name": "A-1",
-  //           "Address": "Srirampura,Banglore",
-  //           "Store_id": "12334"
-  //         },
-  //         {
-  //           "Store_Name": "A-1",
-  //           "Address": "Srirampura,Banglore",
-  //           "Store_id": "12334"
-  //         }
-  //       ]
-
-  //   }
-
-
-  // ]
   // -----------------------------------------------------------------------
   // Constructor
   // -----------------------------------------------------------------------
 
   constructor(private router: Router,private FoodieAppState: AppState) {
-  //  this.outLetDetails= this.FoodieAppState.outLetArray;
-  console.log("++++++++"+JSON.stringify(this.FoodieAppState.outLetArray));
+   this.outLetDetails= this.FoodieAppState.outLetArray;
+   this.backUpArray= this.FoodieAppState.outLetArray;
   }
 
   ngOnInit() { }
 
-  
-
-  //Logout method //
-
   logOut() {
-    // localStorage.clear();
-    // this.router.navigate(['/routesNoMenu/signIn']);
     
   }
 
-  outletData(){
-    alert("++++++++"+JSON.stringify(this.FoodieAppState.globalLoginData));
+  temp(data, s) {
+    return data.filter(e => e.Store_Name.includes(s) || e.Address.includes(s))
+        .sort((a,b) => a.Store_Name.includes(s) && !b.Store_Name.includes(s) ? -1 : b.Store_Name.includes(s) && !a.Store_Name.includes(s) ? 1 :0);
   }
+  
+    prodFilter() {
+  
+      // this.httpdatanew = this.filtradoService.applyFilter(this.cardDetails, this.searchText)
+      let a = this.temp(this.outLetDetails, this.searchText)
+      console.log(this.searchText);
+      this.outLetDetails = a;
+      if (this.searchText == null || this.searchText == "") {
+        this.outLetDetails = this.backUpArray
+      }
+  
+    }
 
 
 }

@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <br>
-                <div *ngIf="orderPresent" style="height:-webkit-fill-available-150px;  overflow-y: scroll;">
+                <div *ngIf="orderPresent" class="ScrollStyle" style="height:-webkit-fill-available-150px;  overflow-y: scroll;">
 
 
 <div class="fixHeight">
@@ -120,6 +120,14 @@
                         <div class="col-lg-1" > <strong>X</strong> {{ item.item_qty }}</div>
 
                  </div>
+                 <div class="row">
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary">Reject</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary" (click)="orderStatus('accept')">Accept</button>
+                    </div>
+                </div>
 
             </div>
             <br>

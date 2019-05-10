@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { FileUploadModule } from 'ng2-file-upload';
-
+import { AppStateModule } from '../appstate.module';
 import {
     MatAutocompleteModule,
     MatButtonModule,

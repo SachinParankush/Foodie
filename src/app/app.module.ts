@@ -18,7 +18,8 @@ import { ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { LayoutModule } from './layout/layout.module';
-import { FoodieApiService } from './Foodie-api-service';
+// import { FoodieApiService } from './Foodie-api-service';
+import { AppStateModule } from './appstate.module';
 // import { AppState } from './app.service';
 
 
@@ -41,6 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
         LayoutModule,
         Ng2TableModule,
         SharedModule.forRoot(),
+        AppStateModule.forRoot(),
         RouterModule.forRoot(ROUTES, { useHash: true }),
         //RoutesModule,
         TranslateModule.forRoot({
@@ -55,7 +57,9 @@ export function createTranslateLoader(http: HttpClient) {
         FormlyModule.forRoot(),
         FormlyBootstrapModule 
     ],
-    providers: [FoodieApiService],
+    providers: [
+        // AppState
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

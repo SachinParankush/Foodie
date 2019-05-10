@@ -12,6 +12,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { OrderCardComponent } from './order-card/order-card.component';
+import { AppStateModule } from '../appstate.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { OrderCardComponent } from './order-card/order-card.component';
         FormsModule,
         Ng2TableModule,
         SharedModule,
+        AppStateModule,
         ReactiveFormsModule,
         ModalModule.forRoot(),
         RouterModule,

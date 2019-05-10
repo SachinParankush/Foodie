@@ -9,6 +9,7 @@ import { PreparingOrderComponent } from './preparing-order/preparing-order.compo
 import { ReadyOrdersComponent } from './ready-orders/ready-orders.component';
 import { PastOrdersComponent } from './past-orders/past-orders.component';
 import { genericModule } from '../genericComponent/genericComponent.module';
+import { AppStateModule } from '../appstate.module';
 export const routes = [
   { path: '', component: orderComponent, pathMatch: 'full' }
 ];
@@ -18,7 +19,8 @@ export const routes = [
     SharedModule,
     orderROUTES,
     LayoutModule,
-    genericModule
+    genericModule,
+    AppStateModule
   ],
   declarations: [NewOrdersComponent, PreparingOrderComponent, ReadyOrdersComponent, PastOrdersComponent],
     providers:[DatePipe]

@@ -37,22 +37,25 @@ export class SignInComponent implements OnInit {
 
               this.FoodieApiService.retrieveOutletData(params).subscribe(
                 (resp: any) => {
-                  alert("--------->>>" + JSON.stringify(resp))
+                  // alert("--------->>>" + JSON.stringify(resp))
                   this.FoodieAppState.outLetArray = resp;
-                  alert("2"+JSON.stringify(this.FoodieAppState.outLetArray))
+                  
+                  this.FoodieAppState.globalLoginData.bid = res.data[0].bid;
+                  this.FoodieAppState.globalLoginData.brand_name = res.data[0].brand_name;
+                  this.FoodieAppState.globalLoginData.organisation_name = res.data[0].organisation_name;
+                  this.FoodieAppState.globalLoginData.user_id = res.data[0].user_id;
+                  this.FoodieAppState.globalLoginData.no_org = res.no_org;
+                  // alert("======>" +  JSON.stringify(this.FoodieAppState.globalLoginData))
+                  // localStorage.setItem('brand_name', this.FoodieAppState.globalLoginData.brand_name);
+                  // localStorage.setItem('organisation_name', this.FoodieAppState.globalLoginData.organisation_name);
+                  // localStorage.setItem('bid', this.FoodieAppState.globalLoginData.bid);
+                  // localStorage.setItem('user_id', this.FoodieAppState.globalLoginData.user_id);
+                  // localStorage.setItem('no_org', this.FoodieAppState.globalLoginData.no_org);
+                  this.router.navigate(['/orders/NewOrders']);
                 })
+                // alert("2"+JSON.stringify(this.FoodieAppState.outLetArray))
              
-            this.FoodieAppState.globalLoginData.bid = res.data[0].bid;
-            this.FoodieAppState.globalLoginData.brand_name = res.data[0].brand_name;
-            this.FoodieAppState.globalLoginData.organisation_name = res.data[0].organisation_name;
-            this.FoodieAppState.globalLoginData.user_id = res.data[0].user_id;
-            this.FoodieAppState.globalLoginData.no_org = res.no_org;
-            localStorage.setItem('brand_name', this.FoodieAppState.globalLoginData.brand_name);
-            localStorage.setItem('organisation_name', this.FoodieAppState.globalLoginData.organisation_name);
-            localStorage.setItem('bid', this.FoodieAppState.globalLoginData.bid);
-            localStorage.setItem('user_id', this.FoodieAppState.globalLoginData.user_id);
-            localStorage.setItem('no_org', this.FoodieAppState.globalLoginData.no_org);
-            this.router.navigate(['/orders/NewOrders']);
+           
             }
             else if(res.no_org >  1  &&  res.no_org  !=  0  )
             {

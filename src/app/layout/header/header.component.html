@@ -51,26 +51,50 @@
 
 
 </div>
+
+
 <ng-template #popTemplate>
 
   <div class="allOutlet">
 
-<div class="row">
-<div class="col-md-5"><h4>ALL OUTLETS </h4></div>
-<div class="col-md-7"><p>
-  <mat-form-field appearance="outline">
-    <mat-label>Search Outlet</mat-label>
-    <input matInput placeholder="Type Restaurant Name">
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> 
-    <mat-hint>Type Restaurant Name</mat-hint>-->
-  </mat-form-field>
-</p></div>
-</div>
+    <div class="row">
+      <div class="col-md-5">
+        <h4>ALL OUTLETS </h4>
+      </div>
+      <div class="col-md-7">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Search Outlet</mat-label>
+            <input matInput placeholder="Type Restaurant Name" [(ngModel)]="searchText" (ngModelChange)="prodFilter()">
+          </mat-form-field>
+        </p>
+      </div>
+    </div>
 
-      <mat-tab-group>
-          <mat-tab label="Bangalore">Banglore</mat-tab>
-          <mat-tab label="Mangaluru"> Mangaluru</mat-tab>
-        </mat-tab-group>
+    <mat-tab-group>
+      <mat-tab *ngFor="let data of outLetDetails; let i = index;" label={{data.Place}}>
+        <div *ngFor="let subData of data.branchDetails; let i = index;">
+          <br>
+          <div class="row">
+            <div class="col-lg-8">
+              <h4>{{subData.Store_Name}}</h4>
+              <p>{{subData.Address}}</p>
+            </div>
+
+            <div class="col-lg-2 text-right">
+              <a>
+                <mat-slide-toggle [checked]="true">
+                </mat-slide-toggle>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+
+      </mat-tab>
+
+    </mat-tab-group>
   </div>
 </ng-template>
 

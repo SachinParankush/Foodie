@@ -93,6 +93,19 @@ export class FoodieApiService {
     }
 
     /* ----------------------------------------------------------------------------------
+    **  Http call to order status change
+    ------------------------------------------------------------------------------------*/
+    orderStatusChange(retrive): Observable<any> {
+        var url = this.getUrl(config.SERVERTYPE,config.ORDERSTATUSCHANGE);
+        console.log("calling retrieveMenuData method");
+        return this.http.post(url,
+            JSON.stringify(retrive),
+            this.options)
+            .map(res => res.json()
+            );
+    }
+
+    /* ----------------------------------------------------------------------------------
     **  Http call to create signUp data 
     ------------------------------------------------------------------------------------*/
     signUp(createSignUpTable): Observable<any> {

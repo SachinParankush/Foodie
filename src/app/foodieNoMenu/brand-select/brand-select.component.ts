@@ -31,7 +31,7 @@ export class BrandSelectComponent implements OnInit {
   }
 
   cardClick(data){
-    alert(JSON.stringify(data))
+    // alert(JSON.stringify(data))
   }
 
 }

@@ -9,13 +9,14 @@ import { UserblockComponent } from './sidebar/userblock/userblock.component';
 import { UserblockService } from './sidebar/userblock/userblock.service';
 import { SharedModule } from '../shared/shared.module';
 import { OffsidebarComponent } from './offsidebar/offsidebar.component';
-import { AppState } from '../app.service';
+import { AppStateModule } from '../appstate.module';
 @NgModule({
   imports: [
     // RouterModule,
     SharedModule,
+    AppStateModule
       ],
-  providers:[UserblockService, AppState],
+  providers:[UserblockService],
   declarations: [LayoutComponent, 
                  HeaderComponent, 
                  SidebarComponent, 
