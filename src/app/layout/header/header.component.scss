@@ -148,25 +148,39 @@
     color:white;
 }
 .subnav{
-    background:#e3e4e8;
-    padding: 5px 0;
+    background:#f1f3f4;
+    padding: 0px 0;
 }
 .roundedBtn{
     border-radius: 100%;
-    width: 48px !important;
-    height: 48px !important;
-    border: 2px solid #3a3f51;
-    line-height: 32px;
+    width: 39px !important;
+    height: 39px !important;
+    // border: 1px solid #3a3f51;
+    line-height: 35px;
     display:inline-block;
     text-align: center;
+    background: white !important;    
 }
-
 
 .roundedBtn i{
-    padding-right: 10px;
     color:#3a3f51;
-    
+    // width: 39px !important;
+    // height: 39px !important;
+    padding: 12px;
+    border-radius: 100%;
 }
+
+.roundedBtn:hover{
+    background: #3a3f51 !important;    
+}
+.roundedBtn i:hover{
+    color:white !important;
+    // border: 1px solid red; 
+}
+
+
+
+
 
 .allOutlet{
 width: 400px;

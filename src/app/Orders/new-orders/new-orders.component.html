@@ -1,20 +1,20 @@
 <div class="row">
-    <div class="col-lg-1">
-        <button class="btn btn-primary mr-md-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"         
-         (click)="getOrderDetails('new')">NEW</button> <br>
-        <button class="btn btn-primary mr-md-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"        
-        (click)="getOrderDetails('preparing')">PREPARING</button> <br>
-        <button class="btn btn-primary mr-md-0 mb-md-3 p-md-0 pt-md-2 pb-md-2" 
-        (click)="getOrderDetails('ready')">READY</button> <br>
-        <button class="btn btn-primary mr-md-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
-        (click)="getOrderDetails('pastOrder')">PAST ORDERS</button> <br>
+    <div class="col-lg-1 leftPanel pr-0">
+        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"         
+         (click)="getOrderDetails('new')"><span>NEW</span></button> <br>
+        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"        
+        (click)="getOrderDetails('preparing')"><span>PREPARING</span></button> <br>
+        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2" 
+        (click)="getOrderDetails('ready')"><span>READY</span></button> <br>
+        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
+        (click)="getOrderDetails('pastOrder')"><span>PAST ORDERS</span></button> <br>
     </div>
     <div class="col-lg-11">
         <div  class="row">
-            <div class="col-lg-4 orderCard_div" >
+            <div class="col-lg-4 orderCard_div pr-0 pl-0" >
                 <br>
-                <div class="input-group md-form form-sm form-1 pl-0">
-                    <div class="input-group-prepend">
+                <div class="input-group md-form form-sm form-1 pl-0 ">
+                    <div class="input-group-prepend ">
                         <span class="input-group-text purple lighten-3" id="basic-text1"><i
                                 class="fas fa-search text-white" aria-hidden="true"></i></span>
                     </div>
@@ -37,7 +37,10 @@
                     </div>
                 </div>
                 <br>
-                <div *ngIf="orderPresent" style="height: -webkit-fill-available-150px;  overflow-y: scroll;">
+                <div *ngIf="orderPresent" style="height:-webkit-fill-available-150px;  overflow-y: scroll;">
+
+
+<div class="fixHeight">
                     <div *ngFor="let data of cardDetails; let i = index;"
                         class="input-group md-form form-sm form-1 pl-0  padding_5 margin_top_5 orderCard"
                         (click)="showOrderDetails(data)">
@@ -81,11 +84,13 @@
                     </div>
                 </div>
 
+                </div>
+
                 
             </div>
             <br>
             <div class="col-lg-6 orderCard">
-                 <div *ngIf="orderNumber" class="margin_top_5">
+                 <div *ngIf="orderNumber" class="margin_top_5 pt-3">
                      <h3><span class="text-blue ng-binding">#{{ orderNumber }} </span>
                         <span *ngIf="menu_Status == 'new'" class="badge badge-secondary">New</span>
                         <span *ngIf="menu_Status == 'preparing'" class="badge badge-warning">PREPARING</span>
@@ -119,20 +124,23 @@
             </div>
             <br>
             <br>
-            <div class="col-lg-2 margin_top_5 orderCard">
+            <div class="col-lg-2 orderCard">
                 
                <div *ngIf="orderNumber"  class="row" >
                     <div class="col-lg-2" >
                          
                     </div>
-                    <div class="col-lg-10" >
+                    <div class="col-lg-10">
+
+                        <div class="pt-3 pr-3">
                         <h4><b>GRAND TOTAL</b></h4>
-                        ₹ {{grand_total}} <br><br>
+                        <span style="font-size: 18px; font-weight: bold;">₹ {{grand_total}} </span><br><br>
                         <span>Item Total</span> <span class="floatright marginright" >  ₹ {{ item_total }} </span> <br>
                         <span>Packing Charges</span> <span class="floatright marginright" > ₹ {{ package_charges }} </span> <br>
                         <span>GST</span> <span class="floatright marginright" > ₹ {{ GST }} </span> <br>
                         <span>Discount</span> <span class="floatright marginright" > ₹ {{ discount }} </span> <br>
-                         
+                    
+                    </div>
                     </div>
                     <hr>
                </div>
@@ -142,3 +150,5 @@
         
     </div>
 </div>
+
+

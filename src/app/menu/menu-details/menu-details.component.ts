@@ -19,6 +19,16 @@ export class MenuDetailsComponent implements OnInit {
   item_data;
   SearchMenu: any;
   menuFormGroup: FormGroup;
+
+  data : Date = new Date();
+  settings={
+  bigBanner: true,
+  timePickker:true,
+  format:'dd-MMM-yyyy hh:mm a',
+  defaultOpen:false,
+  closeOnSelect:false
+}
+
   //  = [
 
   //   {

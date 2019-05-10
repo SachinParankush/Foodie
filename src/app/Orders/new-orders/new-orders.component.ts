@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import { FoodieApiService } from '../../Foodie-api-service';
 
 @Component({
@@ -28,6 +28,8 @@ export class NewOrdersComponent implements OnInit {
   menu_Status: any;
   searchText: any;
   backUpArray: any;
+
+ 
   
  
 

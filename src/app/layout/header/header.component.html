@@ -1,101 +1,81 @@
 <!-- Header Start -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:0px 0;">
-    <a class="navbar-brand" href="javascript:void(0)"><img src="../../../assets/img/foodie_logo_small.png"></a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse pt-md-0 pb-md-0" id="navb">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" style="font-size: 20px;">MENU DETAILS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" style="font-size: 20px;" [popover]="popTemplate" placement="bottom" (click)="outletData()">Outlet</a>           
-<!--           
-          <button type="button" class="btn btn-success" [popover]="popTemplate" popoverTitle="Dynamic html inside" placement="bottom">
-            Show me popover with html
-          </button> -->
-        </li>
-        
-      </ul>
-      <form class="form-inline my-0 my-lg-0 mnuBtns">
-        <a href=""> <button class="btn btn-warning">FAQ's</button> </a>
-    <mat-icon matBadge="22" matBadgeColor="accent"> alert </mat-icon>
-          <a href=""><i class="far fa-bell"></i></a>
-          <a href=""><i  routerLink="/routesNoMenu/signIn" class="fas fa-power-off"></i></a>
-        </form>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-white pt-0 pb-0 mt-0 mb-0" style="margin:0px 0;background-color: #f8f9fa !important;">
+  <a class="navbar-brand" href="javascript:void(0)"><img src="../../../assets/img/foodie_logo_small.png"></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <div class="subnav">
+  <div class="collapse navbar-collapse pt-md-0 pb-md-0" id="navb">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" style="font-size: 18px; color: black;">MENU DETAILS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" style="font-size: 18px; color: black;" [popover]="popTemplate" placement="bottom">Outlet</a>           
+<!--           
+        <button type="button" class="btn btn-success" [popover]="popTemplate" popoverTitle="Dynamic html inside" placement="bottom">
+          Show me popover with html
+        </button> -->
+      </li>
+      
+    </ul>
+    <form class="form-inline my-0 my-lg-0 mnuBtns">
+      <a href=""> <button class="btn btn-warning btn-xs">FAQ's</button> </a>
+  <mat-icon matBadge="22" matBadgeColor="warn"> alert </mat-icon>
+        <a href=""><i class="far fa-bell" style="color: black;"></i></a>
+        <a href=""><i class="fas fa-power-off" style="color: black;"></i></a>
+      </form>
+  </div>
+</nav>
+
+<div class="subnav">
 
 <div class="row">
-  <div class="col-md-12 col-sm-12">
-    <div class="row">
-      <div class="col-md-6 col-sm-6">
-    <p style="float: left" class="mb-md-0"><a  class="btn btn-default roundedBtn" routerLink="/orders/NewOrders"> <i class="fas fa-bars"></i> </a>ORDER</p>
-    <p style="float: left;" class="mb-md-0"><a  class="btn btn-default roundedBtn" routerLink="/menuDetails/menu"> <i class="fas fa-utensils"></i> </a>MENU</p>
-    <p style="float: left;" class="mb-md-0"><a  class="btn btn-default roundedBtn" routerLink="/orders/NewOrders"> <i class="far fa-user"></i> </a>PROFILE</p>
-    <p style="float: left;" class="mb-md-0"><a  class="btn btn-default roundedBtn" routerLink="/orders/NewOrders"><i class="fas fa-question"></i></a>HELP</p>
-      </div>
-      <div class="col-md-6 col-sm-6"> </div>
-     
+<div class="col-md-12 col-sm-12">
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+  <p style="float: left" class="mb-md-0"><a  class="btn btn-default roundedBtn p-0" routerLink="/orders/NewOrders"> <i class="fas fa-bars"></i> </a>ORDER</p>
+  <p style="float: left;" class="mb-md-0"><a  class="btn btn-default roundedBtn p-0" routerLink="/menuDetails/menu"> <i class="fas fa-utensils"></i> </a>MENU</p>
+  <p style="float: left;" class="mb-md-0"><a  class="btn btn-default roundedBtn p-0" routerLink="/orders/NewOrders"> <i class="far fa-user"></i> </a>PROFILE</p>
+  <p style="float: left;" class="mb-md-0"><a  class="btn btn-default roundedBtn p-0" routerLink="/orders/NewOrders"><i class="fas fa-question"></i></a>HELP</p>
     </div>
-
+    <div class="col-md-6 col-sm-6"> </div>
+   
   </div>
 
-  
+</div>
+
+
 </div>
 
 
 
-  </div>
-  <ng-template #popTemplate>
+</div>
+<ng-template #popTemplate>
 
-    <div class="allOutlet">
+  <div class="allOutlet">
 
 <div class="row">
 <div class="col-md-5"><h4>ALL OUTLETS </h4></div>
 <div class="col-md-7"><p>
-    <mat-form-field appearance="outline">
-      <mat-label>Search Outlet</mat-label>
-      <input matInput placeholder="Type Restaurant Name">
-      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> 
-      <mat-hint>Type Restaurant Name</mat-hint>-->
-    </mat-form-field>
-  </p></div>
+  <mat-form-field appearance="outline">
+    <mat-label>Search Outlet</mat-label>
+    <input matInput placeholder="Type Restaurant Name">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> 
+    <mat-hint>Type Restaurant Name</mat-hint>-->
+  </mat-form-field>
+</p></div>
 </div>
 
-        <mat-tab-group>
-            <mat-tab *ngFor="let data of outLetDetails; let i = index;" label={{data.Place}} >
-              <div *ngFor="let subData of data.branchDetails; let i = index;">
-                <br>
-                <div class="row" >
-                  <div class="col-lg-8">
-                    <h4>{{subData.Store_Name}}</h4>
-                    <p>{{subData.Address}}</p>
-                  </div>
-                
-                  <div class="col-lg-2 text-right">
-                    <a>
-                        <mat-slide-toggle [checked]="true">
-                          </mat-slide-toggle>
-                    </a>
-                
-                  </div>
-                </div>
-              </div>
-            
-            
-            </mat-tab>
-            
-          </mat-tab-group>
-    </div>
-  </ng-template>
+      <mat-tab-group>
+          <mat-tab label="Bangalore">Banglore</mat-tab>
+          <mat-tab label="Mangaluru"> Mangaluru</mat-tab>
+        </mat-tab-group>
+  </div>
+</ng-template>
 
 
-  
+
 
 
 
