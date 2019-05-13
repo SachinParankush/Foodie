@@ -30,6 +30,7 @@ export class MenuDetailsComponent implements OnInit {
 }
   config: { leftTime: number; size: string; };
   testContent=1;
+  IsmodelShow: boolean;
 
   //  = [
 
@@ -164,6 +165,10 @@ menuFilter() {
     }
 
   }
+
+  close() {
+    this.modalRef.hide();
+}
 
 
 }
