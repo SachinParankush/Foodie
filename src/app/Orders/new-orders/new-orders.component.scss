@@ -419,3 +419,52 @@ $brand-color:#df8625;
 .preparing{
     background-color:  #FF902B
 }
+
+.tracker{
+background-color:#f1f3f4;
+// border-top:1px solid rgb(207, 207, 207);
+overflow: hidden;
+}
+
+.trackingOrder{
+overflow: hidden;
+float: left;
+font-weight: 400;
+}
+
+.toIcon{
+float: left;
+padding: 0 8px;
+}
+
+
+.toIcon_2{
+    float: left;
+    padding: 20px 8px 0 8px;
+    color: #348e80;
+    font-size: 11px;
+    }
+.noIcon{
+display: none !important;
+}
+
+.toDetails{
+float: left;
+font-family: 7px !important;
+}
+
+.toDetails>p:first-of-type{
+    font-size: 14px;
+    font-weight: bold !important;
+    color: #161616 !important;
+    }
+
+
+
+
+
+
+
+
+
+
