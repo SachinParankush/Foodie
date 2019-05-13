@@ -28,6 +28,8 @@ export class MenuDetailsComponent implements OnInit {
   defaultOpen:false,
   closeOnSelect:false
 }
+  config: { leftTime: number; size: string; };
+  testContent=1;
 
   //  = [
 
@@ -118,6 +120,11 @@ export class MenuDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.config = {
+      leftTime: (this.testContent) * 60,
+      size: 'large',
+    };
+
   }
 
   openModal(template: TemplateRef<any>, data?: any) {

@@ -6,6 +6,7 @@ import { menuComponent } from './menu.component';
 import { LayoutModule } from '../layout/layout.module';
 import { MenuDetailsComponent } from './menu-details/menu-details.component';
 import { CountdownModule } from 'ngx-countdown';
+
 export const routes = [
   { path: '', component: menuComponent, pathMatch: 'full' }
 ];

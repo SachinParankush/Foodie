@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AppStateModule } from '../appstate.module';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 // import { CountdownModule } from 'ngx-countdown';
 import {
     MatAutocompleteModule,
@@ -43,6 +44,7 @@ import {
     MatTooltipModule,
     MatStepperModule,
     MatBadgeModule,
+    
 } from '@angular/material';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
@@ -152,6 +154,8 @@ export function maxValidationMessage(err, field) {
         MatStepperModule,
         FormlyBootstrapModule,
         MatBadgeModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
         FormlyModule.forRoot({
             validationMessages: [
               { name: 'required', message: ' ' },              
@@ -247,7 +251,9 @@ export function maxValidationMessage(err, field) {
         FormlyModule,
         FormWizardModule,
         FileUploadModule,
-        MatBadgeModule
+        MatBadgeModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule
         
         
     ]
