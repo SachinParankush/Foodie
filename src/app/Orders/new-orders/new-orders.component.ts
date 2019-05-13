@@ -29,7 +29,10 @@ export class NewOrdersComponent implements OnInit {
   searchText: any;
   backUpArray: any;
   orderId: any;
-
+  config: any;
+  status: any;
+  audio = new Audio('../../../assets/music/bell.mp3');
+  testContent = 15;
 
 
 
@@ -43,6 +46,10 @@ export class NewOrdersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.config = {
+      leftTime: (this.testContent) * 60,
+      size: 'large',
+    };
   }
 
   showOrderDetails(orderData) {
@@ -109,5 +116,9 @@ export class NewOrdersComponent implements OnInit {
         console.log("Status Responce....>>>" + JSON.stringify(res));
         this.getOrderDetails('new')
       })
+  }
+  finishTest() {
+    console.log("time over")    
+    this.audio.play(); 
   }
 }

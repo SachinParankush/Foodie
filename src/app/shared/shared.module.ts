@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AppStateModule } from '../appstate.module';
+// import { CountdownModule } from 'ngx-countdown';
 import {
     MatAutocompleteModule,
     MatButtonModule,
@@ -95,7 +96,7 @@ export function maxValidationMessage(err, field) {
 
 @NgModule({
     imports: [
-        CommonModule,
+        CommonModule,        
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,

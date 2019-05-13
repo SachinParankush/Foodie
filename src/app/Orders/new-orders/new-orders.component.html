@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-lg-1 leftPanel pr-0">
-        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"         
+        <button matBadge="3" matBadgeColor="warn"  [matBadgeHidden]="!true" class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"         
          (click)="getOrderDetails('new')"><span>NEW</span></button> <br>
-        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"        
+        <button matBadge="2" matBadgeColor="warn" [matBadgeHidden]="true" class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"        
         (click)="getOrderDetails('preparing')"><span>PREPARING</span></button> <br>
-        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2" 
+        <button matBadge="1" matBadgeColor="warn" [matBadgeHidden]="true" class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2" 
         (click)="getOrderDetails('ready')"><span>READY</span></button> <br>
-        <button class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
+        <button matBadge="8" matBadgeColor="warn" [matBadgeHidden]="!true" class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
         (click)="getOrderDetails('pastOrder')"><span>PAST ORDERS</span></button> <br>
     </div>
     <div class="col-lg-11">
@@ -40,7 +40,7 @@
                 <div *ngIf="orderPresent" class="ScrollStyle" style="height:-webkit-fill-available-150px;  overflow-y: scroll;">
 
 
-<div class="fixHeight">
+                    <div class="fixHeight">
                     <div *ngFor="let data of cardDetails; let i = index;"
                         class="input-group md-form form-sm form-1 pl-0  padding_5 margin_top_5 orderCard"
                         (click)="showOrderDetails(data)">
@@ -89,13 +89,16 @@
                 
             </div>
             <br>
-            <div class="col-lg-6 orderCard">
+            <div class="col-lg-6 orderCard ">
                  <div *ngIf="orderNumber" class="margin_top_5 pt-3">
                      <h3><span class="text-blue ng-binding">#{{ orderNumber }} </span>
                         <span *ngIf="menu_Status == 'new'" class="badge badge-secondary">New</span>
                         <span *ngIf="menu_Status == 'preparing'" class="badge badge-warning">PREPARING</span>
                         <span *ngIf="menu_Status == 'ready'" class="badge badge-info">FOOD READY</span>
                         <span *ngIf="menu_Status == 'pastOrder'" class="badge badge-success">PICKED UP</span>
+                        <!-- <countdown #countdown [config]="config" (finished)="finishTest()">
+                            <div class="test_heading">Time left - $!m!:$!s!</div>
+                         </countdown>  -->
                          <i class="fa fa-print  fa-sm floatright " ></i> </h3>
                    <span class="floatleft" > {{orderQuantity}} items for ₹{{orderTotal}}</span><span class="floatright">03 May 2019 04:38 PM</span>
                    <br>
@@ -105,24 +108,22 @@
                     <img src="../../../assets/img/noOrder.PNG"/>
                 </div> 
 
-                 <div class="row padding_5 " *ngFor="let item of orderDetails"  >
-                        <div class="col-lg-11" >
-                                
-                            <h5>    <span *ngIf="item.item_category =='Veg'"   >
-                                    <img src="../../../assets/img/veg.png" class="category_img"  />
-                                </span>
-                                <span *ngIf="item.item_category =='nonveg'"  >
-                                       <img src="../../../assets/img/nonveg.png" class="category_img" />
-                                </span>  {{ item.dish_name  }} </h5>
-                            <span>{{item.item_main_category  }}  {{ item.item_sub_category  }}</span>
-                            <h5>₹ {{ item.item_price }}</h5>
-                        </div>
-                        <div class="col-lg-1" > <strong>X</strong> {{ item.item_qty }}</div>
-
-                 </div>
-                 <div class="row">
+                <div class="row padding_5 " *ngFor="let item of orderDetails">
+                    <div class="col-lg-11">
+                        <h5> <span *ngIf="item.item_category =='Veg'">
+                                <img src="../../../assets/img/veg.png" class="category_img" />
+                            </span>
+                            <span *ngIf="item.item_category =='nonveg'">
+                                <img src="../../../assets/img/nonveg.png" class="category_img" />
+                            </span> {{ item.dish_name  }} </h5>
+                        <span>{{item.item_main_category  }} {{ item.item_sub_category  }}</span>
+                        <h5>₹ {{ item.item_price }}</h5>
+                    </div>
+                    <div class="col-lg-1"> <strong>X</strong> {{ item.item_qty }}</div>
+                </div>
+                <div class="row">
                     <div class="col-lg-6">
-                        <button class="btn btn-primary">Reject</button>
+                        <button class="btn btn-primary" (click)="orderStatus('reject')">Reject</button>
                     </div>
                     <div class="col-lg-6">
                         <button class="btn btn-primary" (click)="orderStatus('accept')">Accept</button>
