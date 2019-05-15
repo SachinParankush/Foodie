@@ -1,15 +1,15 @@
 <div class="row">
     <div class="col-lg-1 leftPanel pr-0">
-        <button matBadge={{orderCountJson.newOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
+        <button matBadge={{newOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
             (click)="getOrderDetails('new')"><span>NEW</span></button> <br>
-        <button matBadge={{orderCountJson.prepareOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
+        <button matBadge={{prepareOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
             (click)="getOrderData('preparing')"><span>PREPARING</span></button> <br>
-        <button matBadge={{orderCountJson.readyOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
+        <button matBadge={{readyOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
             (click)="getOrderData('ready')"><span>READY</span></button> <br>
-        <button matBadge={{orderCountJson.dispathOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
+        <button matBadge={{dispathOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
             (click)="getOrderData('pastOrder')"><span>PAST ORDERS</span></button> <br>
     </div>

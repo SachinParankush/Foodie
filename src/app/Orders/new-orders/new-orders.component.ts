@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FoodieApiService } from '../../Foodie-api-service';
 import { AppState } from '../../app.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-new-orders',
@@ -34,29 +35,48 @@ export class NewOrdersComponent implements OnInit {
   audio = new Audio('../../../assets/music/bell.mp3');
   testContent = 15;
   infinityLoopCheck = true;
-  orderCountJson = {
-    "newOrderStatus":true,
-    "newOrderCount":"0",
-    "prepareOrderStatus":true,
-    "prepareOrderCount":"0",
-    "readyOrderStatus":true,
-    "readyOrderCount":"0",
-    "dispathOrderStatus":true,
-    "dispathOrderCount":"0",
-  }
+  newOrderCount = "0";
+  prepareOrderCount = "0"
+  readyOrderCount ="0";
+  dispathOrderCount = "0";
+  
+  alive = true;
 
 
 
 
-  arrayOne(n: number): any[] {
-    return Array(n);
-  }
+  // arrayOne(n: number): any[] {
+  //   return Array(n);
+  // }
 
   constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState) {
     this.getOrderCount();
     this.getOrderDetails('new');
-    
-    // this.getNewOrders();
+    Observable.timer(0,10000)
+    .takeWhile(() => this.alive) // only fires when component is alive
+    .subscribe(() => {
+      var params = {
+        "user_id": this.FoodieAppState.globalLoginData.user_id,
+        "bid": this.FoodieAppState.globalLoginData.bid
+      }
+      this.FoodieApiService.getOrderCount(params).subscribe(
+        (responce: any) => {
+          if (responce.code == '200') {
+            if (responce.data.newOrder[0].count != 0) {
+              this.newOrderCount = responce.data.newOrder[0].count;
+            }
+            if (responce.data.prepareOrder[0].count != 0) {
+              this.prepareOrderCount = responce.data.prepareOrder[0].count;
+            }
+            if (responce.data.readyOrder[0].count != 0) {
+              this.readyOrderCount = responce.data.readyOrder[0].count;
+            }
+            if (responce.data.dispathOrder[0].count != 0) {
+              this.dispathOrderCount = responce.data.dispathOrder[0].count;
+            }
+          }
+        })
+    });
   }
 
   ngOnInit() {
@@ -64,6 +84,10 @@ export class NewOrdersComponent implements OnInit {
       leftTime: (this.testContent) * 60,
       size: 'large',
     };
+  }
+
+  ngOnDestroy(){
+    this.alive = false; // switches your IntervalObservable off
   }
 
   showOrderDetails(orderData) {
@@ -80,7 +104,6 @@ export class NewOrdersComponent implements OnInit {
     this.item_total = orderData.order_price;
     this.grand_total = orderData.total_amount;
     this.orderId = orderData.order_id;
-    // alert(JSON.stringify(orderid.order_Details))
   }
 
   getOrderDetails(orderStatus) {
@@ -101,6 +124,7 @@ export class NewOrdersComponent implements OnInit {
         this.orderTotal = res.data[0].total_amount;
         this.item_total = res.data[0].order_price;
         this.grand_total = res.data[0].total_amount;
+        this.getOrderCount();
       })
   }
 
@@ -114,7 +138,7 @@ export class NewOrdersComponent implements OnInit {
     console.log(this.searchText);
     this.cardDetails = a;
     if (this.searchText == null || this.searchText == "") {
-      this.cardDetails = this.backUpArray
+      this.cardDetails = this.backUpArray;
     }
   }
 
@@ -139,15 +163,11 @@ export class NewOrdersComponent implements OnInit {
 
   getOrderData(status_Type) {
     this.menu_Status = status_Type;
-    // this.orderDetails = "";
-    // this.cardDetails = "";
-
     var params = {
       "user_id": this.FoodieAppState.globalLoginData.user_id,
       "bid": this.FoodieAppState.globalLoginData.bid,
       "status": status_Type
     }
-    // alert("params" + JSON.stringify(params));
     this.FoodieApiService.getOrderData(params).subscribe(
       (res: any) => {
         console.log("getOrderData" + JSON.stringify(res));
@@ -167,58 +187,44 @@ export class NewOrdersComponent implements OnInit {
             this.orderTotal = res.data[0].total_amount;
             this.item_total = res.data[0].order_price;
             this.grand_total = res.data[0].total_amount;
+            this.getOrderCount();            
           }
         }
       })
   }
 
-  getOrderCount(){
+  getOrderCount() {
+    // this.orderCountJson = {
+    //   "newOrderStatus": true,
+    //   "newOrderCount": "0",
+    //   "prepareOrderStatus": true,
+    //   "prepareOrderCount": "0",
+    //   "readyOrderStatus": true,
+    //   "readyOrderCount": "0",
+    //   "dispathOrderStatus": true,
+    //   "dispathOrderCount": "0",
+    // }
     var params = {
       "user_id": this.FoodieAppState.globalLoginData.user_id,
       "bid": this.FoodieAppState.globalLoginData.bid
     }
-    // alert("2225" + JSON.stringify(params));
     this.FoodieApiService.getOrderCount(params).subscribe(
       (res: any) => {
-        alert("<<<newOrder>>>"+JSON.stringify(res.data.prepareOrder[0].count));
-        if(res.code == '200'){
-          if(res.data.newOrder[0].count != 0){
-            this.orderCountJson.newOrderCount = res.data.newOrder[0].count;
-            this.orderCountJson.newOrderStatus = false;
-          } 
-          if(res.data.prepareOrder[0].count != 0){
-            this.orderCountJson.prepareOrderCount = res.data.prepareOrder[0].count;
-            this.orderCountJson.prepareOrderStatus = false;
+        if (res.code == '200') {
+          if (res.data.newOrder[0].count != 0) {
+            this.newOrderCount = res.data.newOrder[0].count;
           }
-          if(res.data.readyOrder[0].count != 0){
-            this.orderCountJson.readyOrderCount = res.data.readyOrder[0].count;
-            this.orderCountJson.readyOrderStatus = false;
+          if (res.data.prepareOrder[0].count != 0) {
+            this.prepareOrderCount = res.data.prepareOrder[0].count;
           }
-          if(res.data.dispathOrder[0].count != 0){
-            this.orderCountJson.dispathOrderCount = res.data.dispathOrder[0].count;
-            this.orderCountJson.dispathOrderStatus = false;
+          if (res.data.readyOrder[0].count != 0) {
+            this.readyOrderCount = res.data.readyOrder[0].count;
           }
-          // else {
-          //   this.orderCountJson.newOrderStatus = true;
-          //   this.orderCountJson.prepareOrderStatus = true;
-          //   this.orderCountJson.readyOrderStatus = true;
-          //   this.orderCountJson.dispathOrderStatus = true;
-          //   this.orderCountJson.newOrderCount = '0';
-          //   this.orderCountJson.prepareOrderCount = '0';
-          //   this.orderCountJson.readyOrderCount = '0';
-          //   this.orderCountJson.dispathOrderCount = '0';
-          // }
+          if (res.data.dispathOrder[0].count != 0) {
+            this.dispathOrderCount = res.data.dispathOrder[0].count;
+          }
         }
       })
   }
-  
-  // Initiate infinite loop
-  // getNewOrders(){
-  //   while (1) {
-  //     setTimeout(() => {
-  //       console.log('timeout!');
-  //   }, 6000);
-  //   }
-  // }
-  
+
 }
