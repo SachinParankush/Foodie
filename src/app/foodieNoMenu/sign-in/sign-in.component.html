@@ -5,17 +5,18 @@
 
       <!-- <form class="login100-form validate-form"> -->
       <form class="login100-form validate-form" [formGroup]="signUp">
-        <div class="login100-pic js-tilt" data-tilt>
+          <div class="text-center"><h4 class="mb-3">One account. Access all services</h4></div>
+
+        <div class="login100-pic js-tilt mb-3" data-tilt>
           <img src="../../../assets/img/foodie_logo.png" style="
           padding-left: 19px;" alt="IMG">
         </div>
-        <span class="login100-form-title p-t-15">
-          FOODIE PARTNER APP
-        </span>
+        <span class="login100-form-title logTxtStyle mb-4"> FOODIE PARTNER APP </span>
+       
 
-        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <div class="wrap-input100 validate-input mb-2" data-validate="Valid email is required: ex@abc.xyz">
           <!-- <input class="input100" type="text" name="email" placeholder="Email"> -->
-          <input class="input100" 
+          <input class="input100 inputStyle" 
             type="email" 
             name="email" 
             autocomplete="off" 
@@ -27,16 +28,18 @@
             <i class="fa fa-envelope" aria-hidden="true"></i>
           </span>
         </div>
-        <div class="text-center">
-          <span class="text-danger fs-15" *ngIf="signUp.controls['email'].hasError('required') 
+
+
+        <div class="text-center mb-3">
+          <span class="text-danger fs-15 " *ngIf="signUp.controls['email'].hasError('required') 
             && (signUp.controls['email'].dirty 
             || signUp.controls['email'].touched)">
-            This field is required</span>
+            This field is required </span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Password is required">
           <!-- <input class="input100" type="password" name="pass" placeholder="Password"> -->
-          <input class="input100" 
+          <input class="input100 inputStyle" 
             type="password" 
             name="password" 
             autocomplete="off"
@@ -48,15 +51,15 @@
             <i class="fa fa-lock" aria-hidden="true"></i>
           </span>
         </div>
-        <div class="text-center">
+        <div class="text-center mb-3">
           <span class="text-danger fs-15" *ngIf="signUp.controls['password'].hasError('required') 
             && (signUp.controls['password'].dirty 
             || signUp.controls['password'].touched)">
             This field is required</span>
         </div>
 
-        <div class="container-login100-form-btn">
-          <button class="login100-form-btn" (click)="validatePage()">
+        <div class="container-login50-form-btn">
+          <button class="login100-form-btn inputStyle" (click)="validatePage()">
             Login
           </button>
         </div>
