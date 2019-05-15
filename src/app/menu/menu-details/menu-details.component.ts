@@ -16,6 +16,7 @@ export class MenuDetailsComponent implements OnInit {
   backUpArray: any;
   modalRef: BsModalRef;
   ELEMENT_DATA ;
+  Side_Menu_Data;
   item_data;
   SearchMenu: any;
   menuFormGroup: FormGroup;
@@ -142,6 +143,9 @@ export class MenuDetailsComponent implements OnInit {
         console.log(JSON.stringify(res));
         this.ELEMENT_DATA = res;
         this.backUpArray = res;
+        this.Side_Menu_Data = res;
+
+        
   })
 }
 modelDataSave(){
