@@ -1,17 +1,17 @@
 <div class="row">
     <div class="col-lg-1 leftPanel pr-0">
-        <button matBadge="3" matBadgeColor="warn" [matBadgeHidden]="!true"
+        <button matBadge={{orderCountJson.newOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
             (click)="getOrderDetails('new')"><span>NEW</span></button> <br>
-        <button matBadge="2" matBadgeColor="warn" [matBadgeHidden]="true"
+        <button matBadge={{orderCountJson.prepareOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
-            (click)="getOrderDetails('preparing')"><span>PREPARING</span></button> <br>
-        <button matBadge="1" matBadgeColor="warn" [matBadgeHidden]="true"
+            (click)="getOrderData('preparing')"><span>PREPARING</span></button> <br>
+        <button matBadge={{orderCountJson.readyOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
-            (click)="getOrderDetails('ready')"><span>READY</span></button> <br>
-        <button matBadge="8" matBadgeColor="warn" [matBadgeHidden]="!true"
+            (click)="getOrderData('ready')"><span>READY</span></button> <br>
+        <button matBadge={{orderCountJson.dispathOrderCount}}  matBadgeColor="warn" [matBadgeHidden]="false"
             class="btn btn-outline-dark mr-0 mb-md-3 p-md-0 pt-md-2 pb-md-2"
-            (click)="getOrderDetails('pastOrder')"><span>PAST ORDERS</span></button> <br>
+            (click)="getOrderData('pastOrder')"><span>PAST ORDERS</span></button> <br>
     </div>
     <div class="col-lg-11">
         <div class="row">
@@ -117,7 +117,7 @@
                 </div>
 
 
-                <div class="tracker">
+                <div *ngIf="menu_Status == 'pastOrder'" class="tracker">
 
                         <div class="trackingOrder p-2">
                             <div class="toIcon"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
@@ -172,7 +172,7 @@
                     </div>
                     <div class="col-lg-1"> <strong>X</strong> {{ item.item_qty }}</div>
                 </div>
-                <div class="row">
+                <div class="row" *ngIf="menu_Status == 'new' && orderPresent">
                     <div class="col-lg-6">
                         <button class="btn btn-primary" (click)="orderStatus('reject')">Reject</button>
                     </div>
@@ -180,6 +180,30 @@
                         <button class="btn btn-primary" (click)="orderStatus('accept')">Accept</button>
                     </div>
                 </div>
+                <div class="row" *ngIf="menu_Status == 'preparing' && orderPresent">
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary" (click)="orderStatus('cancel_prepare')">Cancel</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary" (click)="orderStatus('ready')">Order Ready</button>
+                    </div>
+                </div>
+                <div class="row" *ngIf="menu_Status == 'ready' && orderPresent">
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary" (click)="orderStatus('cancel_ready')">Cancel</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary" (click)="orderStatus('dispatch')">Dispatch</button>
+                    </div>
+                </div>
+                <!-- <div class="row" *ngIf="menu_Status == 'pastOrder'">
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary" (click)="orderStatus('cancel_ready')">Cancel</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary" (click)="orderStatus('dispatch')">Dispatch</button>
+                    </div>
+                </div> -->
 
 
                 

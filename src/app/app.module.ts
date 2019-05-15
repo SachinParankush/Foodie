@@ -5,22 +5,18 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { MatStepperModule} from '@angular/material/stepper';
-import { FormlyModule} from '@ngx-formly/core';
-import { FormlyBootstrapModule} from '@ngx-formly/bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatStepperModule } from '@angular/material/stepper';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { AppComponent } from './app.component';
-
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-
 import { ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { LayoutModule } from './layout/layout.module';
-// import { FoodieApiService } from './Foodie-api-service';
 import { AppStateModule } from './appstate.module';
-// import { AppState } from './app.service';
 
 
 
@@ -52,10 +48,10 @@ export function createTranslateLoader(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
-        NgbModule,    
+        NgbModule,
         MatStepperModule,
         FormlyModule.forRoot(),
-        FormlyBootstrapModule 
+        FormlyBootstrapModule
     ],
     providers: [
         // AppState

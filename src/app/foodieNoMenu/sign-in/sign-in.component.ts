@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
 
               this.FoodieApiService.retrieveOutletData(params).subscribe(
                 (resp: any) => {
-                  // alert("--------->>>" + JSON.stringify(resp))
+                  alert("--------->>>" + JSON.stringify(res))
                   this.FoodieAppState.outLetArray = resp;
                   
                   this.FoodieAppState.globalLoginData.bid = res.data[0].bid;

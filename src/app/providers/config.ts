@@ -11,4 +11,6 @@ export const RETRIEVEALL = "http://192.168.0.181/foodieh/angular_callcenter_api/
 export const RETRIVEMENUDATA = "http://192.168.0.181/foodieh/angular_callcenter_api/menu_list";
 export const RETRIVEOUTLETDATA = "http://192.168.0.181/foodieh/angular_callcenter_api/get_outlets_on_user_id";
 export const ORDERSTATUSCHANGE = "http://192.168.0.181/foodieh/angular_callcenter_api/update_order_status";
+export const GETORDERDATA = "http://192.168.0.181/foodieh/angular_callcenter_api/get_orders_by_status";
+export const GETORDERCOUNT = "http://192.168.0.181/foodieh/angular_callcenter_api/get_status_count";
 export const DELETEDATA = "/api/mysqlDb/deleteData";

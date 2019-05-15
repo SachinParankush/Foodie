@@ -58,7 +58,7 @@ export class FoodieApiService {
     ------------------------------------------------------------------------------------*/
     retrieveAll(retrive): Observable<any> {
         var url = this.getUrl(config.SERVERTYPE,config.RETRIEVEALL);
-        console.log("calling retrieveAll method");
+        console.log("calling RETRIEVEALL method");
         return this.http.post(url,
             JSON.stringify(retrive),
             this.options)
@@ -71,7 +71,7 @@ export class FoodieApiService {
     ------------------------------------------------------------------------------------*/
     retrieveMenuData(retrive): Observable<any> {
         var url = this.getUrl(config.SERVERTYPE,config.RETRIVEMENUDATA);
-        console.log("calling retrieveMenuData method");
+        console.log("calling RETRIVEMENUDATA method");
         return this.http.post(url,
             JSON.stringify(retrive),
             this.options)
@@ -84,7 +84,7 @@ export class FoodieApiService {
     ------------------------------------------------------------------------------------*/
     retrieveOutletData(retrive): Observable<any> {
         var url = this.getUrl(config.SERVERTYPE,config.RETRIVEOUTLETDATA);
-        console.log("calling retrieveMenuData method");
+        console.log("calling RETRIVEOUTLETDATA method");
         return this.http.post(url,
             JSON.stringify(retrive),
             this.options)
@@ -97,7 +97,31 @@ export class FoodieApiService {
     ------------------------------------------------------------------------------------*/
     orderStatusChange(retrive): Observable<any> {
         var url = this.getUrl(config.SERVERTYPE,config.ORDERSTATUSCHANGE);
-        console.log("calling retrieveMenuData method");
+        console.log("calling ORDERSTATUSCHANGE method");
+        return this.http.post(url,
+            JSON.stringify(retrive),
+            this.options)
+            .map(res => res.json()
+            );
+    }
+    /* ----------------------------------------------------------------------------------
+    **  Http call to order data based on status.
+    ------------------------------------------------------------------------------------*/
+    getOrderData(retrive): Observable<any> {
+        var url = this.getUrl(config.SERVERTYPE,config.GETORDERDATA);
+        console.log("calling GETORDERDATA method");
+        return this.http.post(url,
+            JSON.stringify(retrive),
+            this.options)
+            .map(res => res.json()
+            );
+    }
+    /* ----------------------------------------------------------------------------------
+    **  Http call to order count.
+    ------------------------------------------------------------------------------------*/
+    getOrderCount(retrive): Observable<any> {
+        var url = this.getUrl(config.SERVERTYPE,config.GETORDERCOUNT);
+        console.log("calling GETORDERDATA method");
         return this.http.post(url,
             JSON.stringify(retrive),
             this.options)
