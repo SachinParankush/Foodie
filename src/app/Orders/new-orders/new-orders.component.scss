@@ -2,6 +2,13 @@
  {
      background-color: black;
  }
+
+ .bg_turquoise
+ {
+     background-color: #28c3d5
+ }
+
+
  .margin_top_5
  {
      margin-top: 5px;
@@ -470,11 +477,18 @@ font-family: 7px !important;
     font-size: 20px;
 }
 
+.processInfo countdown{
+    font-size: 15px;
+    line-height: 25px;
+} 
 
+.menuItems{
+    min-height: 500px;
+}
 
-
-
-
+.noMargine{
+    margin: 0px !important;
+}
 
 
 

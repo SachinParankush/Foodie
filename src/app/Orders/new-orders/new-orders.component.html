@@ -19,14 +19,14 @@
                 <br>
                 <div class="input-group md-form form-sm form-1 pl-0 ">
                     <div class="input-group-prepend ">
-                        <span class="input-group-text purple lighten-3" id="basic-text1"><i
+                        <span class="input-group-text purple lighten-3 bg-dark" id="basic-text1"><i
                                 class="fas fa-search text-white" aria-hidden="true"></i></span>
                     </div>
                     <input class="form-control my-0 py-1" [(ngModel)]="searchText" type="text" placeholder="Search"
                         aria-label="Search" (ngModelChange)="prodFilter()">
                 </div>
 
-                <div class="input-group md-form form-sm form-1 pl-0 bg_black margin_top_5 ">
+                <div class="input-group md-form form-sm form-1 pl-0 bg-dark margin_top_5 ">
                     <div class="input-group-prepend">
 
                     </div>
@@ -65,10 +65,14 @@
                                         </div>
 
                                         <div class="col-lg-4"> 
-                                                <div class="processInfo "><i class="fa fa-hourglass-start" aria-hidden="true"></i></div>
-                                                <countdown #countdown [config]="config" (finished)="finishTest()">
+                                                <div class="processInfo "><i class="fa fa-hourglass-start" aria-hidden="true"></i>
+                                                
+                                                    <countdown #countdown [config]="config" (finished)="finishTest()">
                                                         <div class="test_heading"> $!m!:$!s!</div>
                                                 </countdown>
+                                            
+                                            </div>
+                                                
                                             <!-- <ul class="list-inline text-right">
                                                         <li class="text-center">
                                                             <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode"
@@ -158,7 +162,7 @@
                     </div>
 
 
-                    
+        <div class="menuItems">
                 <div *ngIf="!orderPresent" class="padding_top_50px">
                     <img src="../../../assets/img/noOrder.PNG" />
                 </div>
@@ -176,30 +180,46 @@
                     </div>
                     <div class="col-lg-1"> <strong>X</strong> {{ item.item_qty }}</div>
                 </div>
-                <div class="row" *ngIf="menu_Status == 'new' && orderPresent">
-                    <div class="col-lg-6">
-                        <button class="btn btn-primary" (click)="orderStatus('reject')">Reject</button>
-                    </div>
-                    <div class="col-lg-6">
-                        <button class="btn btn-primary" (click)="orderStatus('accept')">Accept</button>
-                    </div>
+            </div>
+
+
+
+            <div class="btn-group btn-group-lg m-0 btn-block" *ngIf="menu_Status == 'new' && orderPresent">
+            <button type="button" class="btn btn-block btn-primary mr-0 noMargine" (click)="orderStatus('reject')">Reject</button>
+            <button type="button" class="btn btn-block btn-info ml-0 noMargine" (click)="orderStatus('accept')">Accept</button>
+            </div>
+
+
+
+
+            <!-- <div class="row" *ngIf="menu_Status == 'new' && orderPresent">
+                <div class="col-lg-6">
+                    <button class="btn btn-danger btn-md" (click)="orderStatus('reject')">Reject</button>
                 </div>
+                <div class="col-lg-6">
+                    <button class="btn btn-success" (click)="orderStatus('accept')">Accept</button>
+                </div>
+            </div>
                 <div class="row" *ngIf="menu_Status == 'preparing' && orderPresent">
                     <div class="col-lg-6">
-                        <button class="btn btn-primary" (click)="orderStatus('cancel_prepare')">Cancel</button>
+                        <button class="btn btn-danger" (click)="orderStatus('cancel_prepare')">Cancel</button>
                     </div>
                     <div class="col-lg-6">
-                        <button class="btn btn-primary" (click)="orderStatus('ready')">Order Ready</button>
+                        <button class="btn btn-warning" (click)="orderStatus('ready')">Order Ready</button>
                     </div>
                 </div>
                 <div class="row" *ngIf="menu_Status == 'ready' && orderPresent">
                     <div class="col-lg-6">
-                        <button class="btn btn-primary" (click)="orderStatus('cancel_ready')">Cancel</button>
+                        <button class="btn btn-danger" (click)="orderStatus('cancel_ready')">Cancel</button>
                     </div>
                     <div class="col-lg-6">
-                        <button class="btn btn-primary" (click)="orderStatus('dispatch')">Dispatch</button>
+                        <button class="btn btn-success" (click)="orderStatus('dispatch')">Dispatch</button>
                     </div>
-                </div>
+                </div> -->
+
+
+
+
                 <!-- <div class="row" *ngIf="menu_Status == 'pastOrder'">
                     <div class="col-lg-6">
                         <button class="btn btn-primary" (click)="orderStatus('cancel_ready')">Cancel</button>
@@ -218,21 +238,34 @@
 
             <div class="col-lg-3 orderCard">
 
-                <div *ngIf="orderNumber" class="row">
+                <div *ngIf="orderNumber" class="row"> 
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-4">
+                        
+                        <div class="processInfo mt-2"> <i class="fa fa-money" aria-hidden="true"></i>
+                        
+                    </div>
 
+
+                    </div>
+
+
+                    <div class="col-lg-8">
+                       
                         <div class="pt-3 pr-3">
                             <h4><b>GRAND TOTAL</b></h4>
+
                             <span style="font-size: 18px; font-weight: bold;">₹ {{grand_total}} </span><br><br>
                             <span>Item Total</span> <span class="floatright marginright"> ₹ {{ item_total }} </span>
                             <br>
                             <span>Packing Charges</span> <span class="floatright marginright"> ₹ {{ package_charges }}
                             </span> <br>
                             <span>GST</span> <span class="floatright marginright"> ₹ {{ GST }} </span> <br>
-                            <span>Discount</span> <span class="floatright marginright"> ₹ {{ discount }} </span> <br>
+                            <span>Discount</span> <span class="floatright marginright"> ₹ {{ discount }} </span> 
 
                         </div>
+
+                      
                     </div>
                     <hr>
                 </div>

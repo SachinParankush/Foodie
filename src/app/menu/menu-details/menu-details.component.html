@@ -1,10 +1,10 @@
-<countdown #countdown [config]="config" (finished)="finishTest()">
+<!-- <countdown #countdown [config]="config" (finished)="finishTest()">
    <div class="test_heading">Time left - $!m!:$!s!</div>
-</countdown>
+</countdown> -->
 <div class="row">
    <div class="col-md-2">
       <h4 class="pl-4 pt-3"> Categories </h4>
-      <ul style="list-style-type:none; " *ngFor="let data of Side_Menu_Data; let i = index;"
+      <ul style="list-style-type:none; margin-left: -18px; margin-bottom: 0.3rem;" *ngFor="let data of Side_Menu_Data; let i = index;"
          class="text-left categoryMnuStyle">
          <li><a class="a"  href={{data.MainCourse.value}} >{{data.MainCourse}}</a></li>
          <!-- <li><a class="a" href="#Salads">Salads</a></li>
@@ -21,11 +21,13 @@
    <div class="col-md-10" style="background: white;">
 
       <div class="menu-body__">
-         <div class="row mt-3">
+
+
+         <div class="row mt-3 shadow-sm">
             <div class="col-lg-7">
                <div class="input-group md-form form-sm form-1 pl-0">
                   <div class="input-group-prepend">
-                     <span class="input-group-text purple lighten-3" id="basic-text1"><i
+                     <span class="input-group-text purple lighten-3 bg-dark" id="basic-text1"><i
                            class="fas fa-search text-white" aria-hidden="true"></i></span>
                   </div>
                   <input class="form-control my-0 py-1" [(ngModel)]="SearchMenu" type="text" placeholder="Search"
@@ -59,7 +61,7 @@
 
 
                   <div class="row m-0 p-0">
-                     <div class="col-md-6"><span *ngIf="subData.item_category =='veg'">
+                     <div class="col-md-8"><span *ngIf="subData.item_category =='veg'">
                            <img src="../../../assets/img/veg.png" class="category_img" />
                         </span>
                         <span *ngIf="subData.item_category =='nonveg'">
@@ -71,7 +73,7 @@
                         </div>
                      </div>
 
-                     <div class="col-md-3">
+                     <div class="col-md-2">
                         <div class="menu-item-price">
                            <form class="validate-form" [formGroup]="menuFormGroup">
                               <mat-slide-toggle (click)='openModal(template,subData)' formControlName="togle" >
@@ -79,7 +81,7 @@
                            </form>
                         </div>
                      </div>
-                     <div class="col-md-3 edit">
+                     <div class="col-md-2 edit text-right">
                         <a class="a" (click)='openModal1(template1,subData1)'>Edit</a>
                         <a href="" class="a">Delete</a>
                      </div>

@@ -130,14 +130,17 @@ h2.halfLine:before{
     float: right;
     font-weight: bold;
     font-family: arial;
+    border-radius: 2px;
     // margin-top: -30px;
   }
 
   .edit a{
     padding: 3px 8px;
     background: #e3e4e8;
+    color: #3e4152;
     margin-right:5px;
     font-weight: normal;
+    border-radius: 2px;
     font-size: 12px !important;
   }
 
@@ -173,7 +176,7 @@ h2.halfLine:before{
 
 ul.categoryMnuStyle li a{
   color: #3e4152 !important;
-  line-height: 25px;
+  line-height: 18px;
 }
 
 ul.categoryMnuStyle li a:hover{
