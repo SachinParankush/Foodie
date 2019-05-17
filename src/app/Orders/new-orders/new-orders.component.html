@@ -109,7 +109,7 @@
 
                 
                 <div *ngIf="orderNumber" class="margin_top_5 pt-3">
-                    <h3><span class="text-blue ng-binding">#{{ orderNumber }} </span>
+                    <h3><span class="text-blue ng-binding">#{{ orderNumber }}</span>
                         <span *ngIf="menu_Status == 'new'" class="badge badge-secondary">New</span>
                         <span *ngIf="menu_Status == 'preparing'" class="badge badge-warning">PREPARING</span>
                         <span *ngIf="menu_Status == 'ready'" class="badge badge-info">FOOD READY</span>
@@ -185,9 +185,28 @@
 
 
             <div class="btn-group btn-group-lg m-0 btn-block" *ngIf="menu_Status == 'new' && orderPresent">
-            <button type="button" class="btn btn-block btn-primary mr-0 noMargine" (click)="orderStatus('reject')">Reject</button>
-            <button type="button" class="btn btn-block btn-info ml-0 noMargine" (click)="orderStatus('accept')">Accept</button>
+                <button type="button" class="btn btn-block btn-primary mr-0 noMargine"
+                    (click)="orderStatus('reject')">Reject</button>
+                <button type="button" class="btn btn-block btn-info ml-0 noMargine" (click)="orderStatus('accept')">Accept</button>
             </div>
+
+            <div class="btn-group btn-group-lg m-0 btn-block" *ngIf="menu_Status == 'preparing' && orderPresent">
+                <button type="button" class="btn btn-block btn-primary mr-0 noMargine"
+                   (click)="orderStatus('cancel_prepare')">Cancel</button>
+                <button type="button" class="btn btn-block btn-info ml-0 noMargine" (click)="orderStatus('ready')">Order Ready</button>
+            </div>
+            
+            <div class="btn-group btn-group-lg m-0 btn-block" *ngIf="menu_Status == 'ready' && orderPresent">
+                <button type="button" class="btn btn-block btn-primary mr-0 noMargine"
+                  (click)="orderStatus('cancel_ready')">Cancel</button>
+                <button type="button" class="btn btn-block btn-info ml-0 noMargine" (click)="orderStatus('dispatch')">Dispatch</button>
+            </div>
+            
+            <!-- <div class="btn-group btn-group-lg m-0 btn-block" *ngIf="menu_Status == 'pastOrder' && orderPresent">
+                <button type="button" class="btn btn-block btn-primary mr-0 noMargine"
+                  (click)="orderStatus('cancel_ready')">Cancel</button>
+                <button type="button" class="btn btn-block btn-info ml-0 noMargine" (click)="orderStatus('dispatch')">Dispatch</button>
+            </div> -->
 
 
 
@@ -200,6 +219,7 @@
                     <button class="btn btn-success" (click)="orderStatus('accept')">Accept</button>
                 </div>
             </div>
+
                 <div class="row" *ngIf="menu_Status == 'preparing' && orderPresent">
                     <div class="col-lg-6">
                         <button class="btn btn-danger" (click)="orderStatus('cancel_prepare')">Cancel</button>
