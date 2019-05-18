@@ -9,6 +9,7 @@ import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AppStateModule } from '../appstate.module';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 // import { CountdownModule } from 'ngx-countdown';
 import {
     MatAutocompleteModule,
@@ -103,6 +104,7 @@ export function maxValidationMessage(err, field) {
         ReactiveFormsModule,
         TranslateModule,
         AccordionModule.forRoot(),
+        ScrollToModule.forRoot(),
         AlertModule.forRoot(),
         ButtonsModule.forRoot(),
         CarouselModule.forRoot(),
@@ -190,6 +192,7 @@ export function maxValidationMessage(err, field) {
         TranslateModule,
         RouterModule,
         AccordionModule,
+        ScrollToModule,
         AlertModule,
         ButtonsModule,
         CarouselModule,
