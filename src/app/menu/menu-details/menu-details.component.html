@@ -6,7 +6,7 @@
       <h4 class="pl-4 pt-3"> Categories </h4>
       <ul style="list-style-type:none; margin-left: -18px; margin-bottom: 0.3rem;" *ngFor="let data of Side_Menu_Data; let i = index;"
          class="text-left categoryMnuStyle">
-         <li><a class="a"  href={{data.MainCourse.value}} >{{data.MainCourse}}</a></li>
+         <li><a class="a"  (click)="triggerScrollTo(data)" >{{data.MainCourse}}</a></li>
          <!-- <li><a class="a" href="#Salads">Salads</a></li>
          <li><a class="a" href="#Soups">Soups</a></li>
          <li><a class="a" href="#Indian">Indian</a></li>
@@ -52,9 +52,9 @@
 
 
          <div class="ScrollStyle">
-            <div *ngFor="let data of ELEMENT_DATA; let i = index;" id="{{data.MainCourse.value}}" class="menu-section" >
+            <div *ngFor="let data of ELEMENT_DATA; let i = index;" class="menu-section" >
                <h6 class="menu-section-title">
-                  <h2 class="halfLine"><b>{{data.MainCourse}}</b></h2>
+                  <h2 class="halfLine" id={{data.MainCourse}}><b>{{data.MainCourse}}</b></h2>
 
                </h6>
                <!-- Item starts -->
@@ -117,7 +117,7 @@
             <mat-radio-button class="a popBtnStyle" value="End of the Day">End of the Day</mat-radio-button>
             <mat-radio-button class="a popBtnStyle" value="6 hrs from now">6 Hrs</mat-radio-button>&nbsp;&nbsp;
             <mat-radio-button class="a popBtnStyle" value="2 hrs from now">2 Hrs</mat-radio-button>&nbsp;&nbsp;
-         </mat-radio-group>
+         
          <!-- <mat-form-field id="datepicker togglewidth">
                <b> <input matInput [matDatepicker]="picker1"></b>
                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -133,6 +133,7 @@
                   <owl-date-time [hour12Timer]="true" #dt1></owl-date-time>
                </label>
             </mat-radio-button>
+         </mat-radio-group>
          <br>
          <br>
          <div class="instructionsTxt">*You can make an item out of stock for a maximum of 12 days.</div>

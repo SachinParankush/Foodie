@@ -1,8 +1,9 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FoodieApiService } from '../../Foodie-api-service';
-import { BsModalRef,BsModalService } from 'ngx-bootstrap';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-menu-details',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MenuDetailsComponent implements OnInit {
 
-  
+
   minDate = new Date();
   checked: boolean = false;
   @ViewChild('ref') ref;
@@ -20,7 +21,7 @@ export class MenuDetailsComponent implements OnInit {
   searchText;
   backUpArray: any;
   modalRef: BsModalRef;
-  ELEMENT_DATA ;
+  ELEMENT_DATA;
   Side_Menu_Data;
   item_data;
   item_data1;
@@ -28,16 +29,16 @@ export class MenuDetailsComponent implements OnInit {
   menuFormGroup: FormGroup;
   outofstock;
 
-  data : Date = new Date();
-  settings={
-  bigBanner: true,
-  timePickker:true,
-  format:'dd-MMM-yyyy hh:mm a',
-  defaultOpen:false,
-  closeOnSelect:false
-}
+  data: Date = new Date();
+  settings = {
+    bigBanner: true,
+    timePickker: true,
+    format: 'dd-MMM-yyyy hh:mm a',
+    defaultOpen: false,
+    closeOnSelect: false
+  }
   config: { leftTime: number; size: string; };
-  testContent=1;
+  testContent = 1;
   IsmodelShow: boolean;
 
   // nostock = [
@@ -120,16 +121,16 @@ export class MenuDetailsComponent implements OnInit {
     return Array(n);
   }
 
-  
-  constructor(private FoodieApiService: FoodieApiService,private modalService: BsModalService,private fb: FormBuilder,private router: Router) { 
+
+  constructor(private _scrollToService: ScrollToService, private FoodieApiService: FoodieApiService, private modalService: BsModalService, private fb: FormBuilder, private router: Router) {
     this.getOrderDetails();
     this.menuFormGroup = this.fb.group({
-      'togle': [null]      
+      'togle': [null]
     });
-   }
+  }
 
   ngOnInit() {
-   
+
 
   }
 
@@ -143,51 +144,51 @@ export class MenuDetailsComponent implements OnInit {
     this.item_data1 = data;
     console.log(this.item_data1)
   }
-  getOrderDetails(){
-    var params={
+  getOrderDetails() {
+    var params = {
 
     }
     this.FoodieApiService.retrieveMenuData(params).subscribe(
-      (res:any) => {
+      (res: any) => {
         // console.log(JSON.stringify(res));
         this.ELEMENT_DATA = res;
         this.backUpArray = res;
         this.Side_Menu_Data = res;
-        
-
-        
-  })
-}
 
 
-getOrderDetails1(){
-  var params={
 
+      })
   }
-  this.FoodieApiService.retrieveOutOfStockData(params).subscribe(
-    (res:any) => {
-      // console.log(JSON.stringify(res));
-      this.outofstock = res;
-      
 
-      
-})
-}
-modelDataSave(data){
-  this.menuFormGroup.controls['togle'].setValue('true');
-}
- 
-temp(data, s) {
-  return data.filter(e => e.MainCourse.toLowerCase().includes(s) || e.MainCourse.includes(s))
-      .sort((a,b) => a.MainCourse.includes(s) && !b.MainCourse.includes(s) ? -1 : b.MainCourse.includes(s) && !a.MainCourse.includes(s) ? 1 :0);
-}
 
-menuFilter() {
+  getOrderDetails1() {
+    var params = {
+
+    }
+    this.FoodieApiService.retrieveOutOfStockData(params).subscribe(
+      (res: any) => {
+        // console.log(JSON.stringify(res));
+        this.outofstock = res;
+
+
+
+      })
+  }
+  modelDataSave(data) {
+    this.menuFormGroup.controls['togle'].setValue('true');
+  }
+
+  temp(data, s) {
+    return data.filter(e => e.MainCourse.toLowerCase().includes(s) || e.MainCourse.includes(s))
+      .sort((a, b) => a.MainCourse.includes(s) && !b.MainCourse.includes(s) ? -1 : b.MainCourse.includes(s) && !a.MainCourse.includes(s) ? 1 : 0);
+  }
+
+  menuFilter() {
 
     // this.httpdatanew = this.filtradoService.applyFilter(this.cardDetails, this.searchText)
     let a = this.temp(this.ELEMENT_DATA, this.SearchMenu)
     // console.log(a);
-    
+
     this.ELEMENT_DATA = a;
     if (this.SearchMenu == null || this.SearchMenu == "") {
       this.ELEMENT_DATA = this.backUpArray
@@ -197,51 +198,56 @@ menuFilter() {
 
   close() {
     this.modalRef.hide();
-}
-
-ofs()
-{
-  this.outofstock = []
-   var params={
-
-}
-  if(this.ref._checked == true)
-  {
-    
-    this.FoodieApiService.retrieveOutOfStockData(params).subscribe(
-      (res:any) => {
-        // console.log(JSON.stringify(res));
-        // this.outofstock = res;
-        
-        this.ELEMENT_DATA = res;  
-        // console.log(this.ELEMENT_DATA)
-        
-  })
- 
-  // console.log('onClick this.ref._checked '+ this.ref._checked);
   }
-  if(this.ref._checked == false)
-  {
-    this.ELEMENT_DATA = []
-    var params={
+
+  ofs() {
+    this.outofstock = []
+    var params = {
 
     }
-    this.FoodieApiService.retrieveMenuData(params).subscribe(
-      (res:any) => {
-        // console.log(JSON.stringify(res));
-        this.ELEMENT_DATA = res;
-        this.backUpArray = res;
-        this.Side_Menu_Data = res;       
-  })
+    if (this.ref._checked == true) {
+
+      this.FoodieApiService.retrieveOutOfStockData(params).subscribe(
+        (res: any) => {
+          // console.log(JSON.stringify(res));
+          // this.outofstock = res;
+
+          this.ELEMENT_DATA = res;
+          // console.log(this.ELEMENT_DATA)
+
+        })
+
+      // console.log('onClick this.ref._checked '+ this.ref._checked);
+    }
+    if (this.ref._checked == false) {
+      this.ELEMENT_DATA = []
+      var params = {
+
+      }
+      this.FoodieApiService.retrieveMenuData(params).subscribe(
+        (res: any) => {
+          // console.log(JSON.stringify(res));
+          this.ELEMENT_DATA = res;
+          this.backUpArray = res;
+          this.Side_Menu_Data = res;
+        })
+    }
   }
-}
 
-addNewItem(){
-  window.open("http://localhost:4200/#/menuDetails/menu");
-}
+  addNewItem() {
+    window.open("http://localhost:4200/#/menuDetails/menu");
+  }
 
-search(data){
-  console.log(data);
+  search(data) {
+    console.log(data);
+  }
+
+  triggerScrollTo(data) {
+    const config: ScrollToConfigOptions = {
+      target: data.MainCourse
+    };
+
+    this._scrollToService.scrollTo(config);
   }
 
 }
