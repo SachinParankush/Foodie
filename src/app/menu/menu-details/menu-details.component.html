@@ -62,7 +62,7 @@
 
 
                   <div class="row m-0 p-0">
-                     <div class="col-md-8"><span *ngIf="subData.item_category =='veg'">
+                     <div class="col-md-7"><span *ngIf="subData.item_category =='veg'">
                            <img src="../../../assets/img/veg.png" class="category_img" />
                         </span>
                         <span *ngIf="subData.item_category =='nonveg'">
@@ -74,7 +74,7 @@
                         </div>
                      </div>
 
-                     <div class="col-md-2">
+                     <div class="col-md-3">
                         <div class="menu-item-price">
                            <form class="validate-form" [formGroup]="menuFormGroup">
                               <mat-slide-toggle (click)='openModal(template,subData)' formControlName="togle" >
@@ -82,7 +82,7 @@
                            </form>
                         </div>
                      </div>
-                     <div class="col-md-2 edit text-right">
+                     <div class="col-md-2 edit text-left">
                         <a class="a" (click)='openModal1(template1,subData)'>Edit</a>
                         <!-- <a href="" class="a">Delete</a> -->
                      </div>
