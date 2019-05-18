@@ -78,6 +78,19 @@ export class FoodieApiService {
             .map(res => res.json()
             );
     }
+    
+     /* ----------------------------------------------------------------------------------
+    **  Http call to retrive outofstockmenu data
+    ------------------------------------------------------------------------------------*/
+    retrieveOutOfStockData(retrive): Observable<any> {
+        var url = this.getUrl(config.SERVERTYPE,config.RETRIVEOUTOFSTOCKDATA);
+        console.log("calling RETRIVEOUTOFSTOCKDATA method");
+        return this.http.post(url,
+            JSON.stringify(retrive),
+            this.options)
+            .map(res => res.json()
+            );
+    }
 
      /* ----------------------------------------------------------------------------------
     **  Http call to retrive outlet data

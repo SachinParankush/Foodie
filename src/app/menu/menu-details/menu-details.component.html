@@ -38,10 +38,11 @@
 
                <div class="row">
                   <div class="col-lg-6">
-                     <mat-checkbox class="chk pt-2 d-flex">Show Out of stock</mat-checkbox>
+                     <mat-checkbox (change)="ofs()" class="chk pt-2 d-flex" #ref>Show Out of stock</mat-checkbox>
                   </div>
                   <div class="col-lg-6">
-                     <button type="button" class="btn btn-outline-success" style="margin-top:0px !important; ">ADD NEW
+                     <button type="button" (click)="addNewItem()" class="btn btn-outline-success"
+                        style="margin-top:0px !important; ">ADD NEW
                         ITEM</button>
                   </div>
                </div>
@@ -117,19 +118,21 @@
             <mat-radio-button class="a" value="6 hrs from now">6 Hrs</mat-radio-button>&nbsp;&nbsp;
             <mat-radio-button class="a" value="2 hrs from now">2 Hrs</mat-radio-button>&nbsp;&nbsp;
          </mat-radio-group>
-         <label class="a">CUSTOM: </label>
          <!-- <mat-form-field id="datepicker togglewidth">
                <b> <input matInput [matDatepicker]="picker1"></b>
                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field> -->
-         <label>
-            <input [owlDateTime]="dt1">
-            <span class="trigger" [owlDateTimeTrigger]="dt1">
-               <i class="fas fa-calendar-alt"></i>
-            </span>
-            <owl-date-time #dt1></owl-date-time>
-         </label>
+            <mat-radio-button class="a" value="custom">
+               <label class="a">CUSTOM: </label>
+               <label>
+                  <input [owlDateTime]="dt1" [min]="minDate">
+                  <span class="trigger" [owlDateTimeTrigger]="dt1">
+                     <i class="fas fa-calendar-alt"></i>
+                  </span>
+                  <owl-date-time [hour12Timer]="true" #dt1></owl-date-time>
+               </label>
+            </mat-radio-button>
          <br>
          <br>
          <span>*You can make an item out of stock for a maximum of 12 days.</span>
@@ -142,23 +145,30 @@
                <button class="btn btn-primarycancel" (click)="close()">Cancel</button>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
-               <button class="btn btn-primaryconfirm" (click)="modelDataSave()">Confirm</button>
+               <button class="btn btn-primaryconfirm" (click)="modelDataSave(selection)">Confirm</button>
             </div>
 
 
+      </div>
 
+
+
+      <ng-template #template1>
+         <div class="template">
+            <span>Confirm that <b>{{item_data1.dish_name}}</b> is out of stock</span>
+            <hr>
          </div>
-
-
-      </div>
-
-
-
-   </ng-template>
+         <div>
+            <br>
+            <form>
+               <label>Dish Name :<br /></label><input type="text" value="  {{item_data1.dish_price}}" />
+            </form>
    
-   <ng-template #template1>
-      <div class="template">
-         <span>Confirm that <b>{{item_data}}</b> is out of stock</span>
-      </div>
-
-   </ng-template>
+         </div>
+         <br>
+         <form>
+            <label>Dish Price:<br /></label><input type="text" value="  {{item_data1.dish_name}}" />
+         </form>
+   
+   
+      </ng-template>
