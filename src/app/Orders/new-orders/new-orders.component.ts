@@ -39,15 +39,12 @@ export class NewOrdersComponent implements OnInit {
   prepareOrderCount = "0"
   readyOrderCount ="0";
   dispathOrderCount = "0";
+  customer_Name;
+  customer_No;
+  delivery_Person_Name;
+  delivery_Person_No;
   
   alive = true;
-
-
-
-
-  // arrayOne(n: number): any[] {
-  //   return Array(n);
-  // }
 
   constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState) {
     this.getOrderCount();
@@ -124,6 +121,10 @@ export class NewOrdersComponent implements OnInit {
         this.orderTotal = res.data[0].total_amount;
         this.item_total = res.data[0].order_price;
         this.grand_total = res.data[0].total_amount;
+        this.customer_Name = res.data[0].customer_name;
+        this.customer_No = res.data[0].customer_no;
+        this.delivery_Person_Name = res.data[0].delivery_person_name;
+        this.delivery_Person_No = res.data[0].delivery_person_no;
         this.getOrderCount();
       })
   }
@@ -187,6 +188,10 @@ export class NewOrdersComponent implements OnInit {
             this.orderTotal = res.data[0].total_amount;
             this.item_total = res.data[0].order_price;
             this.grand_total = res.data[0].total_amount;
+            this.customer_Name = res.data[0].customer_name;
+            this.customer_No = res.data[0].customer_no;
+            this.delivery_Person_Name = res.data[0].delivery_person_name;
+            this.delivery_Person_No = res.data[0].delivery_person_no;
             this.getOrderCount();            
           }
         }
