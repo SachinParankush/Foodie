@@ -83,7 +83,7 @@
                         </div>
                      </div>
                      <div class="col-md-2 edit text-right">
-                        <a class="a" (click)='openModal1(template1,subData1)'>Edit</a>
+                        <a class="a" (click)='openModal1(template1,subData)'>Edit</a>
                         <!-- <a href="" class="a">Delete</a> -->
                      </div>
                   </div>
@@ -104,7 +104,7 @@
    </div>
 
    <ng-template #template>
-      <div class="template">
+      <div class="template pop_01">
          <span>Confirm that <b>{{item_data.dish_name}}</b> is out of stock</span>
          <hr>
          <span><b>Choose from the below time frame:</b></span>
@@ -114,19 +114,19 @@
          <br>
 
          <mat-radio-group [(ngModel)]="selection" aria-label="Select an option">
-            <mat-radio-button class="a" value="End of the Day">End of the Day</mat-radio-button>&nbsp;&nbsp;
-            <mat-radio-button class="a" value="6 hrs from now">6 Hrs</mat-radio-button>&nbsp;&nbsp;
-            <mat-radio-button class="a" value="2 hrs from now">2 Hrs</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button class="a popBtnStyle" value="End of the Day">End of the Day</mat-radio-button>
+            <mat-radio-button class="a popBtnStyle" value="6 hrs from now">6 Hrs</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button class="a popBtnStyle" value="2 hrs from now">2 Hrs</mat-radio-button>&nbsp;&nbsp;
          </mat-radio-group>
          <!-- <mat-form-field id="datepicker togglewidth">
                <b> <input matInput [matDatepicker]="picker1"></b>
                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field> -->
-            <mat-radio-button class="a" value="custom">
-               <label class="a">CUSTOM: </label>
+            <mat-radio-button class="a popBtnStyle_radio" value="custom">
+               <!-- <label class="a">CUSTOM: </label> -->
                <label>
-                  <input [owlDateTime]="dt1" [min]="minDate">
+                  <input [owlDateTime]="dt1" [min]="minDate" placeholder="Custom Date & Time">
                   <span class="trigger" [owlDateTimeTrigger]="dt1">
                      <i class="fas fa-calendar-alt"></i>
                   </span>
@@ -135,23 +135,23 @@
             </mat-radio-button>
          <br>
          <br>
-         <span>*You can make an item out of stock for a maximum of 12 days.</span>
-
-
+         <div class="instructionsTxt">*You can make an item out of stock for a maximum of 12 days.</div>
          <hr>
 
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
-               <button class="btn btn-primarycancel" (click)="close()">Cancel</button>
+               <button class="btn btn-primary btn-primarycancel" (click)="close()">Cancel</button>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
-               <button class="btn btn-primaryconfirm" (click)="modelDataSave(selection)">Confirm</button>
+               <button class="btn btn-info btn-primaryconfirm" (click)="modelDataSave(selection)">Confirm</button>
             </div>
 
 
       </div>
+      </div>
+      
 
-
+   </ng-template>
 
       <ng-template #template1>
          <div class="template">
@@ -161,7 +161,7 @@
          <div>
             <br>
             <form>
-               <label>Dish Name :<br /></label><input type="text" value="  {{item_data1.dish_price}}" />
+               <label>Dish Name :<br /></label><input type="text" value="{{item_data1.dish_price}}" />
             </form>
    
          </div>

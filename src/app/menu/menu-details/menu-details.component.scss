@@ -249,3 +249,43 @@ max-width: 50px;
   z-index: 990 !important;
   background-color: #000;
 }
+
+.popBtnStyle{
+  padding: 12px 7px;
+  border: 1px solid #eaeaea;
+  float: left;
+  border-radius: 3px;
+  font-size: 12px !important;
+}
+
+.popBtnStyle_radio{
+  padding: 12px 7px;
+  border: 1px solid #eaeaea;
+  float: left;
+  border-radius: 3px;
+  font-size: 12px !important;
+}
+.popBtnStyle_radio label{
+margin-bottom: 0px;  
+}
+
+.popBtnStyle_radio input{
+  border: none !important;
+  }
+
+.pop_01{
+  
+}
+
+.pop_01 ::ng-deep.mat-radio-label{
+  margin-bottom: 0px !important;
+}
+
+.instructionsTxt{
+  clear: both;
+  padding: 10px 0 0 0
+}
+
+
+
+
