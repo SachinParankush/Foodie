@@ -18,8 +18,8 @@ export class NewOrdersComponent implements OnInit {
   orderNumber: any;
   grand_total: number = 263;
   item_total: number = 240;
-  package_charges: number = 11;
-  GST: number = 12;
+  package_charges;
+  GST;
   discount: number = 0;
   orderDetails: any;
   orderQuantity: any;
@@ -125,6 +125,8 @@ export class NewOrdersComponent implements OnInit {
         this.customer_No = res.data[0].customer_no;
         this.delivery_Person_Name = res.data[0].delivery_person_name;
         this.delivery_Person_No = res.data[0].delivery_person_no;
+        this.package_charges = res.data[0].package_charge;
+        this.GST = res.data[0].gst;
         this.getOrderCount();
       })
   }
@@ -192,6 +194,8 @@ export class NewOrdersComponent implements OnInit {
             this.customer_No = res.data[0].customer_no;
             this.delivery_Person_Name = res.data[0].delivery_person_name;
             this.delivery_Person_No = res.data[0].delivery_person_no;
+            this.package_charges = res.data[0].package_charge;
+            this.GST = res.data[0].gst;
             this.getOrderCount();            
           }
         }
