@@ -174,15 +174,17 @@ h2.halfLine:before{
   color: #3e4152 !important;
 }
 
-ul.categoryMnuStyle li a{
+ul.categoryMnuStyle li ::ng-deep a{
   color: #3e4152 !important;
   line-height: 18px;
+  cursor: hand;
+  display: block;
 }
 
-ul.categoryMnuStyle li a:hover{
+ul.categoryMnuStyle li ::ng-deep a:hover{
   color: #ec5f00 !important;
   text-decoration: none;
-  cursor: hand;
+  cursor: pointer;
 }
 
 
@@ -284,6 +286,23 @@ margin-bottom: 0px;
 .instructionsTxt{
   clear: both;
   padding: 10px 0 0 0
+}
+
+.editBtn{
+  cursor: pointer;
+}
+
+.statusNow{
+  font-size: 11px;
+  font-weight: 400;
+  color: #ec5f00;
+}
+
+.avalTime{
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    color: #ec5f00;
 }
 
 
