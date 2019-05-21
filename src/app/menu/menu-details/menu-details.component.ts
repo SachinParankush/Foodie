@@ -134,9 +134,15 @@ export class MenuDetailsComponent implements OnInit {
 
   }
 
-  openModal(template: TemplateRef<any>, data?: any) {
+  openModal(template: TemplateRef<any>, data?: any , index?: any,index2?: any,event?: any) {
     this.modalRef = this.modalService.show(template, { class: 'modal-lg' });
     this.item_data = data;
+    // console.log(JSON.stringify(this.ELEMENT_DATA[index].Subcourse[index2]));
+    if (event.checked == true) {
+      this.ELEMENT_DATA[index].Subcourse[index2].dish_status = false;          
+    } else {
+      this.ELEMENT_DATA[index].Subcourse[index2].dish_status = true;
+    }
   }
 
   openModal1(template1: TemplateRef<any>, data?: any) {
@@ -150,13 +156,9 @@ export class MenuDetailsComponent implements OnInit {
     }
     this.FoodieApiService.retrieveMenuData(params).subscribe(
       (res: any) => {
-        // console.log(JSON.stringify(res));
         this.ELEMENT_DATA = res;
         this.backUpArray = res;
         this.Side_Menu_Data = res;
-
-
-
       })
   }
 
@@ -167,15 +169,11 @@ export class MenuDetailsComponent implements OnInit {
     }
     this.FoodieApiService.retrieveOutOfStockData(params).subscribe(
       (res: any) => {
-        // console.log(JSON.stringify(res));
         this.outofstock = res;
-
-
-
       })
   }
-  modelDataSave(data) {
-    this.menuFormGroup.controls['togle'].setValue('true');
+  modelDataSave() {
+    
   }
 
   temp(data, s) {
@@ -184,11 +182,7 @@ export class MenuDetailsComponent implements OnInit {
   }
 
   menuFilter() {
-
-    // this.httpdatanew = this.filtradoService.applyFilter(this.cardDetails, this.searchText)
     let a = this.temp(this.ELEMENT_DATA, this.SearchMenu)
-    // console.log(a);
-
     this.ELEMENT_DATA = a;
     if (this.SearchMenu == null || this.SearchMenu == "") {
       this.ELEMENT_DATA = this.backUpArray
@@ -209,15 +203,8 @@ export class MenuDetailsComponent implements OnInit {
 
       this.FoodieApiService.retrieveOutOfStockData(params).subscribe(
         (res: any) => {
-          // console.log(JSON.stringify(res));
-          // this.outofstock = res;
-
           this.ELEMENT_DATA = res;
-          // console.log(this.ELEMENT_DATA)
-
         })
-
-      // console.log('onClick this.ref._checked '+ this.ref._checked);
     }
     if (this.ref._checked == false) {
       this.ELEMENT_DATA = []
@@ -226,7 +213,6 @@ export class MenuDetailsComponent implements OnInit {
       }
       this.FoodieApiService.retrieveMenuData(params).subscribe(
         (res: any) => {
-          // console.log(JSON.stringify(res));
           this.ELEMENT_DATA = res;
           this.backUpArray = res;
           this.Side_Menu_Data = res;
@@ -249,5 +235,15 @@ export class MenuDetailsComponent implements OnInit {
 
     this._scrollToService.scrollTo(config);
   }
+
+  device:number = 1;
+
+  onChange(e) {
+        if (e.checked == true) {
+          this.device = 1;          
+        } else {
+          this.device = 0;         
+        }
+    }
 
 }

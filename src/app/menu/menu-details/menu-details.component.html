@@ -58,7 +58,7 @@
 
                </h6>
                <!-- Item starts -->
-               <div *ngFor="let subData of data.Subcourse; let i = index;" class="menu-item">
+               <div *ngFor="let subData of data.Subcourse; let ij = index;" class="menu-item">
 
 
                   <div class="row m-0 p-0">
@@ -77,11 +77,15 @@
                      <div class="col-md-3">
                         <div class="menu-item-price">
                            <form class="validate-form" [formGroup]="menuFormGroup">
-                              <mat-slide-toggle (click)='openModal(template,subData)' formControlName="togle" >
+                              <mat-slide-toggle ngDefaultControl 
+                              (change)="openModal(template,subData,i,ij,$event)" 
+                              [checked]="subData.dish_status">
                               </mat-slide-toggle>
                            </form>
                         </div>
-                       <p class="avalTime">Next available  <br/>2050-01-01 01:01:01 </p>
+                        <div *ngIf="!subData.dish_status">
+                           <p class="avalTime" >Next available <br />2050-01-01 01:01:01 </p>
+                        </div>                       
                      </div>
                      <div class="col-md-2 edit text-left">
                         <a class="a editBtn" (click)='openModal1(template1,subData)'>Edit</a>
@@ -146,7 +150,7 @@
                <button class="btn btn-primary btn-primarycancel" (click)="close()">Cancel</button>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
-               <button class="btn btn-info btn-primaryconfirm" (click)="modelDataSave(selection)">Confirm</button>
+               <button class="btn btn-info btn-primaryconfirm" (click)="modelDataSave()">Confirm</button>
             </div>
 
 
