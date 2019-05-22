@@ -10,6 +10,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AppStateModule } from '../appstate.module';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 // import { CountdownModule } from 'ngx-countdown';
 import {
     MatAutocompleteModule,
@@ -101,6 +102,7 @@ export function maxValidationMessage(err, field) {
     imports: [
         CommonModule,        
         FormsModule,
+        BsDatepickerModule.forRoot(),
         ReactiveFormsModule,
         TranslateModule,
         AccordionModule.forRoot(),
@@ -188,6 +190,7 @@ export function maxValidationMessage(err, field) {
     exports: [
         CommonModule,
         FormsModule,
+        BsDatepickerModule,
         ReactiveFormsModule,
         TranslateModule,
         RouterModule,

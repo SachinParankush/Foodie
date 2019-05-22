@@ -1,0 +1,186 @@
+<div class="row">
+  <div class="col-md-3 form-group">
+    <input type="text" placeholder="Daterangepicker"  class="form-control" bsDaterangepicker >
+
+    
+  </div>
+
+
+  <div class="form-group col-md-2">
+
+    <select id="BE" class="form-control">
+      <option *ngFor="let data of option1; let i = index" value={{data}}>{{data}}
+
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group col-md-2">
+
+    <!-- <select id="be" class="form-control">
+      <option *ngFor="let data of option2; let i = index" value={{data}}>{{data}}
+
+      </option>
+    </select> -->
+    <button type="button" style="padding:4px">Export as CSV <i class="fa fa-cloud-download" aria-hidden="true"></i></button>
+  </div>
+
+
+
+
+</div>
+
+
+    <div>
+        <div class="row">
+            <div class="col-lg-3 orderCard_div pr-0 pl-0">
+                <br>
+                <div class="input-group md-form form-sm form-1 pl-0 ">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text purple lighten-3 bg-dark" id="basic-text1"><i
+                                class="fas fa-search text-white" aria-hidden="true"></i></span>
+                    </div>
+                    <input class="form-control my-0 py-1" [(ngModel)]="searchText" type="text" placeholder="Search"
+                        aria-label="Search" (ngModelChange)="prodFilter()">
+                        <!-- <button><i class="fa fa-filter" aria-hidden="true"></i></button> -->
+                        <button class="btn-outline-secondary"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                        
+                </div>
+                <br>
+                <div *ngIf="orderPresent" class="ScrollStyle"
+                    style="height:-webkit-fill-available-150px;  overflow-y: scroll;">
+
+
+                    <div class="fixHeight">
+                      <div *ngFor="let data of cardDetails; let i = index;"
+                        class="input-group md-form form-sm form-1 pl-0  padding_5 margin_top_5 orderCard" (click)="showOrderDetails(data)">
+                        <div class="container-fluid ml-n4">
+                          <div class="container-fluid">
+                            <h6 class="mt-2 text-uppercase">
+                              <span>{{data.hotel_location}}</span>
+                            </h6>
+                            <div class="row">
+                              <div class="col-lg-9">
+                                <h3 class="text-warning">{{data.order_id}}</h3>
+                                <p>{{data.total_items}} items <span class="ng-binding">for
+                                    ₹{{data.total_amount}}</span></p>
+                                <p style="font-size: 12px; color: rgb(155, 155, 155)">Received few seconds ago</p>
+                              </div>
+                    
+                              <div class="col-lg-3">
+                    
+                                <div class="time text-center">
+                                  <div class="processInfo"><i class="fa fa-check-circle" aria-hidden="true"></i>
+                                
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <br>
+            <div class="col-lg-9 orderCard ">         
+              <table  style="width:70%;padding:4px ;" class="table table-hover">
+                  <tr>
+                    <th style="padding: 15px">#{{ orderNumber }}
+                        <span class="badge badge-success">PICKED UP</span>
+                        <span class="floatright">03 May 2019 04:38 PM</span>
+                        <br/>
+                        <span class="floatleft"> {{orderQuantity}} items for ₹{{orderTotal}}</span>
+                        
+                    </th>
+                    <td class="qty"><h4>Quantity</h4></td>
+                  </tr>
+                  <tr *ngFor="let item of orderDetails">
+                    <th >{{ item.dish_name  }}</th>
+                    <td style="text-align: center;" >{{ item.item_qty }}</td>
+                  </tr>
+                 
+                </table>
+                <br/>
+                
+
+
+                <table style="border: 1px,solid,black;width:70%">
+                  
+                 <tr rowspan="2">
+                   <th style="text-align: center"  >Amount to be collected: <br>
+                   <span style="color: green;font-size: 22px">₹ {{grand_total}}</span></th>
+                   
+                   <td  style="background-color: white"><br/>
+                    <div class="row">
+                      <div class="col-lg-6">
+                          <span class="floatright"> Grand Total:</span>
+                      </div>
+                      <div class="col-lg-6">
+                          <span class="floatleft">₹ {{grand_total}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <span class="floatright">  Item Total:</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="floatleft">₹ {{ item_total }}</span>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <span class="floatright">  Packing Charges:</span>
+                          </div>
+                          <div class="col-lg-6">
+                              <span class="floatleft">₹ {{ package_charges }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <span class="floatright">   GST:</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <span class="floatleft">₹ {{ GST }}</span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-lg-6">
+                                  <span class="floatright">   Discount:</span>
+                              </div>
+                              <div class="col-lg-6">
+                                  <span class="floatleft">₹ {{ discount }}</span>
+                                </div>
+                            </div><br/>
+                      </td>
+                   
+                 </tr>
+
+                </table>
+
+
+                
+
+
+            <div class="menuItems">
+            </div>
+
+
+            
+
+
+            </div>
+            <br>
+
+          
+        </div>
+
+    </div>
+
+
+
+
+
