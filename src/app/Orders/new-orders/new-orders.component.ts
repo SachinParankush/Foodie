@@ -115,7 +115,7 @@ export class NewOrdersComponent implements OnInit {
         console.log(JSON.stringify(res));
         this.cardDetails = res.data;
         this.orderDetails = res.data[0].order_details;
-        this.backUpArray = res;
+        this.backUpArray = res.data;
         this.orderNumber = res.data[0].bill_id;
         this.orderQuantity = res.data[0].total_item;
         this.orderTotal = res.data[0].total_amount;
