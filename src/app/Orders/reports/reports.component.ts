@@ -1,9 +1,9 @@
-import { Component, OnInit ,ɵConsole} from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { FoodieApiService } from '../../Foodie-api-service';
 import { AppState } from '../../app.service';
 import { Observable } from 'rxjs';
-
+import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class ReportsComponent implements OnInit {
 
   option2 = [
     "Export As CSV"
-    
+
 
   ];
 
@@ -55,14 +55,47 @@ export class ReportsComponent implements OnInit {
   infinityLoopCheck = true;
   newOrderCount = "0";
   prepareOrderCount = "0"
-  readyOrderCount ="0";
+  readyOrderCount = "0";
   dispathOrderCount = "0";
   customer_Name;
   customer_No;
   delivery_Person_Name;
   delivery_Person_No;
-  
+
   alive = true;
+
+  // CSV Declaration.
+  csvOptions = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: true,
+    showTitle: true,
+    title: 'Foodie Order Report.',
+    useBom: true,
+    noDownload: false,
+    headers: ["Order ID", "Total Amount", "Bill ID", "Order Price", "Total item", "Hotel Location", "GST", "Package Charge", "Delivery Person Name", "Delivery Person Ph.No.", "Customer Name", "Customer Ph.No.", "Dish Name"]
+  };
+
+  // CSV JSON
+  SampleJson =
+    {
+      "order_id": "",
+      "total_amount": "",
+      "bill_id": "",
+      "order_price": "",
+      "total_item": "",
+      "hotel_location": "",
+      "gst": "",
+      "package_charge": "",
+      "delivery_person_name": "",
+      "delivery_person_no": "",
+      "customer_name": "",
+      "customer_no": "",
+      "dish_name": [],
+    }
+
+  csvJson = [];
 
 
 
@@ -71,33 +104,33 @@ export class ReportsComponent implements OnInit {
 
     this.getOrderCount();
     this.getOrderDetails('new');
-    Observable.timer(0,10000)
-    .takeWhile(() => this.alive) // only fires when component is alive
-    .subscribe(() => {
-      var params = {
-        "user_id": this.FoodieAppState.globalLoginData.user_id,
-        "bid": this.FoodieAppState.globalLoginData.bid
-      }
-      this.FoodieApiService.getOrderCount(params).subscribe(
-        (responce: any) => {
-          if (responce.code == '200') {
-            if (responce.data.newOrder[0].count != 0) {
-              this.newOrderCount = responce.data.newOrder[0].count;
+    Observable.timer(0, 10000)
+      .takeWhile(() => this.alive) // only fires when component is alive
+      .subscribe(() => {
+        var params = {
+          "user_id": this.FoodieAppState.globalLoginData.user_id,
+          "bid": this.FoodieAppState.globalLoginData.bid
+        }
+        this.FoodieApiService.getOrderCount(params).subscribe(
+          (responce: any) => {
+            if (responce.code == '200') {
+              if (responce.data.newOrder[0].count != 0) {
+                this.newOrderCount = responce.data.newOrder[0].count;
+              }
+              if (responce.data.prepareOrder[0].count != 0) {
+                this.prepareOrderCount = responce.data.prepareOrder[0].count;
+              }
+              if (responce.data.readyOrder[0].count != 0) {
+                this.readyOrderCount = responce.data.readyOrder[0].count;
+              }
+              if (responce.data.dispathOrder[0].count != 0) {
+                this.dispathOrderCount = responce.data.dispathOrder[0].count;
+              }
             }
-            if (responce.data.prepareOrder[0].count != 0) {
-              this.prepareOrderCount = responce.data.prepareOrder[0].count;
-            }
-            if (responce.data.readyOrder[0].count != 0) {
-              this.readyOrderCount = responce.data.readyOrder[0].count;
-            }
-            if (responce.data.dispathOrder[0].count != 0) {
-              this.dispathOrderCount = responce.data.dispathOrder[0].count;
-            }
-          }
-        })
-    });
+          })
+      });
 
-   }
+  }
 
   ngOnInit() {
     this.config = {
@@ -105,10 +138,10 @@ export class ReportsComponent implements OnInit {
       size: 'large',
     };
   }
-  
 
 
-  ngOnDestroy(){
+
+  ngOnDestroy() {
     this.alive = false; // switches your IntervalObservable off
   }
 
@@ -151,6 +184,7 @@ export class ReportsComponent implements OnInit {
         this.delivery_Person_Name = res.data[0].delivery_person_name;
         this.delivery_Person_No = res.data[0].delivery_person_no;
         this.getOrderCount();
+        this.jsonMap(res.data)
       })
   }
 
@@ -217,7 +251,7 @@ export class ReportsComponent implements OnInit {
             this.customer_No = res.data[0].customer_no;
             this.delivery_Person_Name = res.data[0].delivery_person_name;
             this.delivery_Person_No = res.data[0].delivery_person_no;
-            this.getOrderCount();            
+            this.getOrderCount();
           }
         }
       })
@@ -257,5 +291,51 @@ export class ReportsComponent implements OnInit {
       })
   }
 
-  
+  downloadCSV() {
+    //this.dtHolidays : JSONDATA , HolidayList : CSV file Name, this.csvOptions : file options
+    new AngularCsv(this.csvJson, "Order List", this.csvOptions);
+  }
+
+  jsonMap(data) {
+    if (data.length != null) {
+
+      for (let i in data) {
+        this.SampleJson.bill_id = data[i].bill_id;
+        this.SampleJson.customer_name = data[i].customer_name;
+        this.SampleJson.customer_no = data[i].customer_no;
+        this.SampleJson.delivery_person_name = data[i].delivery_person_name;
+        this.SampleJson.delivery_person_no = data[i].delivery_person_no;
+        this.SampleJson.gst = data[i].gst;
+        this.SampleJson.hotel_location = data[i].hotel_location;
+        this.SampleJson.order_id = data[i].order_id;
+        this.SampleJson.order_price = data[i].order_price;
+        this.SampleJson.package_charge = data[i].package_charge;
+        this.SampleJson.total_amount = data[i].total_amount;
+        this.SampleJson.total_item = data[i].total_item;
+        for (let j in data[i].order_details) {
+          this.SampleJson.dish_name.push(data[i].order_details[j].dish_name);
+        }
+        this.csvJson.push(this.SampleJson);
+        this.SampleJson =
+          {
+            "order_id": "",
+            "total_amount": "",
+            "bill_id": "",
+            "order_price": "",
+            "total_item": "",
+            "hotel_location": "",
+            "gst": "",
+            "package_charge": "",
+            "delivery_person_name": "",
+            "delivery_person_no": "",
+            "customer_name": "",
+            "customer_no": "",
+            "dish_name": [],
+          }
+
+      }
+    }
+  }
+
+
 }
