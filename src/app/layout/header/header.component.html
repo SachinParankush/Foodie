@@ -23,10 +23,18 @@ style="margin:0px 0;background-color: #f8f9fa !important;">
 
     </ul>
     <form class="form-inline my-0 my-lg-0 mnuBtns">
-      <a href=""> <button class="btn btn-warning btn-xs">FAQ's</button> </a>
-      <mat-icon matBadge="22" matBadgeColor="warn"> alert </mat-icon>
-      <a href=""><i class="far fa-bell" style="color: black;"></i></a>
-      <a href=""><i class="fas fa-power-off" style="color: black;"></i></a>
+      
+      <!-- <mat-icon matBadge="22" matBadgeColor="warn"> alert </mat-icon> 
+      <a href=""><i class="far fa-bell" style="color: black;"></i></a>-->
+      <!-- <a href=""><i class="fas fa-power-off" style="color: black;"></i></a> -->
+
+      <a><button class="btn btn-warning btn-xs">FAQ's</button> </a>
+      <a> <i class="material-icons iconsStyle" matBadge="11"  matBadgePosition="above after" matBadgeColor="warn">notification_important </i>
+          
+           </a>
+      <a><i class="material-icons iconsStyle">account_circle</i></a>
+      <a routerLink="/routesNoMenu/signIn"> <i class="material-icons iconsStyle">power_settings_new</i></a>
+
     </form>
   </div>
 </nav>
@@ -36,7 +44,7 @@ style="margin:0px 0;background-color: #f8f9fa !important;">
   <div class="row">
     <div class="col-md-12 col-sm-12">
       <div class="row">
-        <div class="col-md-6 col-sm-6">
+        <div class="col-md-5 col-sm-5">
           <p style="float: left" class="mb-md-0"><a class="btn btn-default roundedBtn p-0"
               routerLink="/orders/NewOrders">
               <i class="fas fa-bars"></i> </a>ORDER</p>
@@ -49,10 +57,9 @@ style="margin:0px 0;background-color: #f8f9fa !important;">
           <p style="float: left;" class="mb-md-0"><a class="btn btn-default roundedBtn p-0"
               routerLink="/orders/NewOrders"><i class="fas fa-question"></i></a>HELP</p>
         </div>
-        <div class="col-md-6 col-sm-6">
+        <div class="col-md-7 col-sm-7">
 
-
-          <p class="mt-3 text-right pr-5">You are viewing the details of Kammanahalli/Kalyan Nagar, Opposite St. Peter's
+          <p class="mt-3 text-left pr-5 rightPopUpFilter">You are viewing the details of Kammanahalli/Kalyan Nagar, Opposite St. Peter's
             School, Bangalore
             <a class="nav-link pr-5" href="javascript:void(0)" [popover]="popTemplate1" placement="bottom"
               style="display:-webkit-inline-box;">Change Outlet &nbsp; <i class="fa fa-angle-down"
@@ -81,7 +88,7 @@ style="margin:0px 0;background-color: #f8f9fa !important;">
 
     <div class="row outletSearch">
       <div class="col-md-5">
-        <h4>ALL OUTLETS </h4>
+        <h4>ALL OUTLETS</h4>
       </div>
       <div class="col-md-7 text-right">
         <input matInput placeholder="Type Restaurant Name" [(ngModel)]="searchText" (ngModelChange)="prodFilter()">
@@ -159,7 +166,7 @@ style="margin:0px 0;background-color: #f8f9fa !important;">
 
             <div class="col-lg-2 text-right">
               <a>
-
+                  <mat-slide-toggle>On</mat-slide-toggle>
               </a>
 
             </div>

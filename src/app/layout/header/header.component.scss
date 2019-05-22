@@ -213,11 +213,22 @@ min-height: 250px;
 .outletED h5{
     font-size: 13px;
 }
+.iconsStyle{
+    color: #3a3f51; 
+}
 
+.rightPopUpFilter ::ng-deep.mat-tab-body .row ,.rightPopUpFilter ::ng-deep.mat-tab-body .row div{
+    flex-grow: 0 !important;
+    padding: 0px;
+    font-size: 13px;
+    margin: 0px;
+}
 
-
-
-
+.rightPopUpFilter ::ng-deep.mat-tab-body h5{
+    flex-grow: 0 !important;
+    padding: 0px;
+    font-size: 14px;
+}
 
 
 
