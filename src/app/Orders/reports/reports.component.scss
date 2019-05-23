@@ -39,11 +39,11 @@
 }
 .floatleft
 {
-    float: left;
+    float: left !important;
 }
 .floatright
 {
-   float : right;
+   float : right !important;
 }
 .marginright
 {
@@ -522,4 +522,12 @@ th, td {
     text-align: center !important;
     padding-top: 20px !important;
   }
+
+  ::ng-deep .popover-body {
+    width: 180px;
+    height: 180px;
+}
+.list{
+    list-style: none;
+}
 

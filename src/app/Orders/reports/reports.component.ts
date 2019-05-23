@@ -1,5 +1,5 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { FoodieApiService } from '../../Foodie-api-service';
 import { AppState } from '../../app.service';
 import { Observable } from 'rxjs';
@@ -22,11 +22,7 @@ export class ReportsComponent implements OnInit {
 
   ];
 
-  option2 = [
-    "Export As CSV"
 
-
-  ];
 
   color = 'primary';
   mode = 'determinate';
@@ -96,11 +92,16 @@ export class ReportsComponent implements OnInit {
     }
 
   csvJson = [];
+  names: any;
+  selectedAll: any;
+  form: FormGroup;
 
 
 
 
   constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState) {
+
+   
 
     this.getOrderCount();
     this.getOrderDetails('new');
@@ -130,7 +131,19 @@ export class ReportsComponent implements OnInit {
           })
       });
 
+      this.names = [
+        { name: 'Swiggy', selected: false },
+        { name: 'Zomato', selected: false },
+        { name: 'Ubereats', selected: false },
+        { name: 'Savoury', selected: false },        
+      ]
+      
+    
+   
+   
+    
   }
+  
 
   ngOnInit() {
     this.config = {
@@ -139,7 +152,16 @@ export class ReportsComponent implements OnInit {
     };
   }
 
-
+  selectAll() {
+    for (var i = 0; i < this.names.length; i++) {
+      this.names[i].selected = this.selectedAll;
+    }
+  }
+  checkIfAllSelected() {
+    this.selectedAll = this.names.every(function(item:any) {
+        return item.selected == true;
+      })
+  }
 
   ngOnDestroy() {
     this.alive = false; // switches your IntervalObservable off
@@ -220,8 +242,8 @@ export class ReportsComponent implements OnInit {
     console.log("time over")
     this.audio.play();
   }
-
   getOrderData(status_Type) {
+
     this.menu_Status = status_Type;
     var params = {
       "user_id": this.FoodieAppState.globalLoginData.user_id,
@@ -336,6 +358,8 @@ export class ReportsComponent implements OnInit {
       }
     }
   }
-
-
 }
+
+
+
+
