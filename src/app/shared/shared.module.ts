@@ -11,6 +11,7 @@ import { AppStateModule } from '../appstate.module';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 // import { CountdownModule } from 'ngx-countdown';
 import {
     MatAutocompleteModule,
@@ -105,6 +106,7 @@ export function maxValidationMessage(err, field) {
         BsDatepickerModule.forRoot(),
         ReactiveFormsModule,
         TranslateModule,
+        NgMultiSelectDropDownModule.forRoot(),
         AccordionModule.forRoot(),
         ScrollToModule.forRoot(),
         AlertModule.forRoot(),
@@ -193,6 +195,7 @@ export function maxValidationMessage(err, field) {
         BsDatepickerModule,
         ReactiveFormsModule,
         TranslateModule,
+        NgMultiSelectDropDownModule,
         RouterModule,
         AccordionModule,
         ScrollToModule,

@@ -14,6 +14,13 @@ import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
 export class ReportsComponent implements OnInit {
 
   registrationForm: FormGroup;
+  myForm: FormGroup;
+  disabled = false;
+  ShowFilter = false;
+  limitSelection = false;
+  cities = [];
+  selectedItems = [];
+  dropdownSettings: any = {};
   option1 = [
     "All Orders",
     "Picked Up",
@@ -99,10 +106,10 @@ export class ReportsComponent implements OnInit {
 
 
 
-  constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState) {
+  constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState,private fb: FormBuilder) {
 
    
-
+   
     this.getOrderCount();
     this.getOrderDetails('new');
     Observable.timer(0, 10000)
@@ -145,12 +152,7 @@ export class ReportsComponent implements OnInit {
   }
   
 
-  ngOnInit() {
-    this.config = {
-      leftTime: (this.testContent) * 60,
-      size: 'large',
-    };
-  }
+  
 
   selectAll() {
     for (var i = 0; i < this.names.length; i++) {
@@ -356,6 +358,53 @@ export class ReportsComponent implements OnInit {
           }
 
       }
+    }
+  }
+
+
+  ngOnInit() {
+
+    this.config = {
+      leftTime: (this.testContent) * 60,
+      size: 'large',
+    };
+
+    this.cities = [
+      { item_id: 1, item_text: 'Picked Up' },
+      { item_id: 2, item_text: 'Delivered' },
+      { item_id: 3, item_text: 'Cancelled' }
+    ];
+    this.selectedItems = [];
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: this.ShowFilter
+    };
+    this.myForm = this.fb.group({
+      city: [this.selectedItems]
+    });
+  }
+
+  onItemSelect(item: any) {
+    console.log('onItemSelect', item);
+  }
+  onSelectAll(items: any) {
+    console.log('onSelectAll', items);
+  }
+  toogleShowFilter() {
+    this.ShowFilter = !this.ShowFilter;
+    this.dropdownSettings = Object.assign({}, this.dropdownSettings, { allowSearchFilter: this.ShowFilter });
+  }
+
+  handleLimitSelection() {
+    if (this.limitSelection) {
+      this.dropdownSettings = Object.assign({}, this.dropdownSettings, { limitSelection: 2 });
+    } else {
+      this.dropdownSettings = Object.assign({}, this.dropdownSettings, { limitSelection: null });
     }
   }
 }

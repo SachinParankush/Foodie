@@ -6,13 +6,18 @@
   </div>
 
 
-  <div class="form-group col-md-2">
+  <div class="form-group col-md-3">
 
-    <select id="BE" class="form-control">
+    <!-- <select id="BE" class="form-control">
       <option *ngFor="let data of option1; let i = index" value={{data}}>{{data}}
 
       </option>
-    </select>
+    </select> -->
+    <form [formGroup]="myForm">
+      <ng-multiselect-dropdown name="city" [placeholder]="'All Orders'" [data]="cities" formControlName="city"
+        [disabled]="disabled" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)">
+      </ng-multiselect-dropdown>
+    </form>
   </div>
 
   <div class="form-group col-md-2">
