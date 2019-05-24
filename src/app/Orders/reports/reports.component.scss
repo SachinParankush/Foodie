@@ -523,11 +523,12 @@ th, td {
     padding-top: 20px !important;
   }
 
-  ::ng-deep .popover-body {
-    width: 180px;
-    height: 180px;
+  ::ng-deep .filter-body {
+    width: 180px !important;
+    height: 180px !important;
 }
 .list{
     list-style: none;
+    line-height: 25px;
 }
 

@@ -47,22 +47,23 @@
                         <button class="btn-outline-secondary" [popover]="popTemplate" placement="bottom"><i class="fa fa-filter" aria-hidden="true"></i></button>
                         
                         <ng-template #popTemplate>
-                            <div class="col-md-12">
+                          <div class="filter-body">
+                            <div class="col-md-12 popover-body">
                               <h6 class="text-center">AGGRIGATERS</h6>
-                              
-                              <ul> 
-                                
+                        
+                              <ul>
+                        
                                 <li class="list"> <input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll();" />Select all
                                 </li>
                                 <li class="list" *ngFor="let n of names">
                                   <input type="checkbox" [(ngModel)]="n.selected" (change)="checkIfAllSelected();">
-                                  {{n.name}}                               
+                                  {{n.name}}
                                 </li>
                               </ul>
-                            
+                        
                             </div>
-                      
-                          </ng-template>
+                          </div>
+                        </ng-template>
                       
                 </div>
                 <br>

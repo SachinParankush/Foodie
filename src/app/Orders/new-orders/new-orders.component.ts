@@ -236,4 +236,162 @@ export class NewOrdersComponent implements OnInit {
       })
   }
 
+  print() {
+    let printContents, popupWin;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(`
+    <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Foodie</title>
+
+<style>
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;	
+}
+
+.heading{
+	font-size:18px;
+	font-weight:bold;
+	}
+.gstin{
+	font-size:16px;
+	font-weight:bold;
+	}
+.total{
+	font-size:18px;
+	font-weight:bold;	
+	}
+	
+</style>
+</head>
+
+<body onload="window.print();window.close()">
+
+<table width="400" border="0">
+  <tr>
+    <td align="center" valign="middle">Foodie.....</td>
+  </tr>
+  <tr>
+    <td align="center"><p class="heading">A unit of NKP Empire Ventures Pvt. Ltd.</p>
+    <p>
+    Damascus Street Next to Golden Fork Restaurant
+P.O Box: 236963, Dubai
+Ph: 04345711, 043457555</p>
+<p class="gstin">GSTIN : 29AADCN9372N12M</p>
+<hr /></td>
+  </tr>
+  
+  <tr>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td>Bill No.</td>
+    <td>:</td>
+    <td>MSQ107&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td>:</td>
+    <td>12-10-2017	| 12:45:20 </td>
+  </tr>
+  <tr>
+    <td>Table No.</td>
+    <td>:</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>Operator</td>
+    <td>:</td>
+    <td>Subhash</td>
+  </tr>
+  <tr>
+    <td>Steward</td>
+    <td>:</td>
+    <td>Uday</td>
+  </tr>
+</table>
+
+    
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td align="left" style="border-top:1px solid #999; border-bottom:1px solid #999;">Item Name</td>
+        <td align="center" style="border-top:1px solid #999; border-bottom:1px solid #999;">QTY </td>
+        <td align="center" style="border-top:1px solid #999; border-bottom:1px solid #999;">Price </td>
+        <td align="center" style="border-top:1px solid #999; border-bottom:1px solid #999;">Amount&nbsp;</td>
+      </tr>
+      <tr> 
+        <td align="left">Motton Tikka</td>
+        <td align="center">1</td>
+        <td align="center">150</td>
+        <td align="center">150</td>
+      </tr>
+      <tr>
+       <td align="left">Chicken Hydarabadi</td>
+        <td align="center">1</td>
+        <td align="center">150</td>
+        <td align="center">150</td>
+      </tr>
+    </table>
+    <hr/></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr>
+            <td align="left">Total Items&nbsp;</td>
+            <td>:</td>
+            <td align="left">`+ this.orderQuantity +`</td>
+          </tr>
+          
+        </table></td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr>
+            <td width="64%" align="right">Total </td>
+            <td width="6%">:</td>
+            <td width="30%" align="right">`+ this.item_total +`</td>
+          </tr>
+          <tr>
+            <td align="right">Discount </td>
+            <td>:</td>
+            <td align="right">`+ this.discount +`</td>
+          </tr>
+          <tr>
+            <td align="right">Parcel Charges </td>
+            <td>:</td>
+            <td align="right">`+ this.package_charges +`</td>
+          </tr>
+          <tr>
+            <td align="right">GST</td>
+            <td>:</td>
+            <td align="right">`+ this.GST +`</td>
+          </tr>
+        </table></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="right" class="total"><hr />
+    Net Total : `+ this.grand_total +`
+    <hr /></td>
+  </tr>
+  <tr>
+    <td align="center">******************************************</td>
+  </tr>
+</table>
+</body>
+</html>  
+    `
+    );
+    popupWin.document.close();
+  }
+
+
 }
