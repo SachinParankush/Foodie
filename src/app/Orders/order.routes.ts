@@ -6,6 +6,7 @@ import { PreparingOrderComponent } from './preparing-order/preparing-order.compo
 import { ReadyOrdersComponent } from './ready-orders/ready-orders.component';
 import {PastOrdersComponent  } from './past-orders/past-orders.component';
 import { ReportsComponent } from './reports/reports.component';
+import { BusinessMetricsComponent } from './business-metrics/business-metrics.component';
 
 const orderRoutes: Routes = [     
             { path: '', component: LayoutComponent, canActivate: [], children: [    
@@ -13,9 +14,9 @@ const orderRoutes: Routes = [
             { path: 'NewOrders', component:NewOrdersComponent},
             { path: 'preparingOrder', component:PreparingOrderComponent},
             { path: 'readyOrders', component:ReadyOrdersComponent},
-            { path: 'PastOrders', component:PastOrdersComponent},
-            
+            { path: 'PastOrders', component:PastOrdersComponent},            
             { path: 'reports', component:ReportsComponent},
+            { path: 'business-metrics', component:BusinessMetricsComponent},
             // Not found
             { path: '**', redirectTo: 'NewOrders' }    
     ]
