@@ -13,10 +13,12 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { OrderCardComponent } from './order-card/order-card.component';
 import { AppStateModule } from '../appstate.module';
+import { MetricsComponent } from './metrics/metrics.component';
 
 @NgModule({
     declarations: [
-    OrderCardComponent
+    OrderCardComponent,
+    MetricsComponent
     ],
     imports: [        
         CommonModule,
@@ -32,7 +34,8 @@ import { AppStateModule } from '../appstate.module';
         NgbModule.forRoot(),
     ],
     exports: [
-        OrderCardComponent
+        OrderCardComponent,
+        MetricsComponent
     ]
 })
 
