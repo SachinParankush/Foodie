@@ -6,6 +6,7 @@ import { foodieNoMenu } from './foodieNoMenu.component';
 import { SignupComponent } from './signup/signup.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { BrandSelectComponent } from './brand-select/brand-select.component';
+import { MetricsComponent } from './metrics/metrics.component';
 
 export const routes = [
   { path: '', component: foodieNoMenu, pathMatch: 'full' }
@@ -16,7 +17,7 @@ export const routes = [
     SharedModule,
     foodieMenu,
   ],
-  declarations: [SignupComponent, SignInComponent, BrandSelectComponent],
+  declarations: [SignupComponent, SignInComponent, BrandSelectComponent, MetricsComponent],
     providers:[DatePipe]
 })
 export class foodieNoModule { 
