@@ -12,7 +12,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 // import { CountdownModule } from 'ngx-countdown';
+
 import {
     MatAutocompleteModule,
     MatButtonModule,
@@ -124,6 +126,7 @@ export function maxValidationMessage(err, field) {
         TooltipModule.forRoot(),
         PopoverModule.forRoot(),
         TypeaheadModule.forRoot(),
+        NgxDaterangepickerMd.forRoot(),
         ToasterModule,
         // Material Modules
         MatAutocompleteModule,
@@ -162,6 +165,7 @@ export function maxValidationMessage(err, field) {
         MatBadgeModule,
         OwlDateTimeModule,
         OwlNativeDateTimeModule,
+        
         FormlyModule.forRoot({
             validationMessages: [
               { name: 'required', message: ' ' },              
@@ -262,7 +266,8 @@ export function maxValidationMessage(err, field) {
         FileUploadModule,
         MatBadgeModule,
         OwlDateTimeModule,
-        OwlNativeDateTimeModule
+        OwlNativeDateTimeModule,
+        NgxDaterangepickerMd
         
         
     ]

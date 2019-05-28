@@ -4,6 +4,9 @@ import { FoodieApiService } from '../../Foodie-api-service';
 import { AppState } from '../../app.service';
 import { Observable } from 'rxjs';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
+import * as moment from 'moment';
+
+
 
 
 @Component({
@@ -12,6 +15,23 @@ import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
   styleUrls: ['./reports.component.scss']
 })
 export class ReportsComponent implements OnInit {
+
+  selected: any;
+alwaysShowCalendars: boolean;
+ranges: any = {
+  'Today': [moment(), moment()],
+  'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+  'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+  'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+  'This Month': [moment().startOf('month'), moment().endOf('month')],
+  'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+}
+invalidDates: moment.Moment[] = [moment().add(2, 'days'), moment().add(3, 'days'), moment().add(5, 'days')];
+
+isInvalidDate = (m: moment.Moment) =>  {
+  return this.invalidDates.some(d => d.isSame(m, 'day') )
+}
+
 
   registrationForm: FormGroup;
   myForm: FormGroup;
@@ -28,6 +48,8 @@ export class ReportsComponent implements OnInit {
     "Cancelled"
 
   ];
+
+  
 
 
 
@@ -102,16 +124,20 @@ export class ReportsComponent implements OnInit {
   names: any;
   selectedAll: any;
   form: FormGroup;
+  bsInlineValue = new Date();
 
 
 
 
   constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState,private fb: FormBuilder) {
+    
+    this.alwaysShowCalendars = true;
 
    
    
     this.getOrderCount();
     this.getOrderDetails('new');
+    
     Observable.timer(0, 10000)
       .takeWhile(() => this.alive) // only fires when component is alive
       .subscribe(() => {
