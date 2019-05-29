@@ -34,6 +34,9 @@ export class BusinessMetricsComponent implements OnInit {
   acceptedOrders = 90.65;
   goodFoodReady = 99;
 
+  num = 10;
+  den = 58;
+
 
   constructor() { 
     this.report(1)
@@ -77,6 +80,8 @@ export class BusinessMetricsComponent implements OnInit {
         this.acceptedOrders = 80.65;
         this.goodFoodReady = 90;
         this.b = [456, 533];
+        this.num = 10;
+        this.den = 58;
       }
       if(index == 2){
         this.dynamicClass2 = 'active';
@@ -92,6 +97,8 @@ export class BusinessMetricsComponent implements OnInit {
         this.acceptedOrders = 60.65;
         this.goodFoodReady = 79;
         this.b = [956, 133];
+        this.num = 20;
+        this.den = 58;
       }
       if(index == 3){
         this.dynamicClass3 = 'active';
@@ -107,6 +114,8 @@ export class BusinessMetricsComponent implements OnInit {
         this.acceptedOrders = 96.65;
         this.goodFoodReady = 99;
         this.b = [226, 253];
+        this.num = 30;
+        this.den = 58;
       }
       if(index == 4){
         this.dynamicClass4 = 'active';
@@ -122,6 +131,8 @@ export class BusinessMetricsComponent implements OnInit {
         this.acceptedOrders = 90.65;
         this.goodFoodReady = 99;
         this.b = [826, 353];
+        this.num = 40;
+        this.den = 58;
       }
       if(index == 5){
         this.dynamicClass5 = 'active';
@@ -137,6 +148,8 @@ export class BusinessMetricsComponent implements OnInit {
         this.acceptedOrders = 70.65;
         this.goodFoodReady = 90;
         this.b = [26,553];
+        this.num = 50;
+        this.den = 58;
       }
       if(index == 6){
         this.dynamicClass6 = 'active';
@@ -152,6 +165,8 @@ export class BusinessMetricsComponent implements OnInit {
         this.acceptedOrders = 60.65;
         this.goodFoodReady = 99;
         this.b = [626,223];
+        this.num = 45;
+        this.den = 58;
       }
       if(index == 7){
         this.dynamicClass7 = 'active';
@@ -167,6 +182,8 @@ export class BusinessMetricsComponent implements OnInit {
         this.acceptedOrders = 60.65;
         this.goodFoodReady = 89;
         this.b = [526,653];
+        this.num = 55;
+        this.den = 58;
       }
   }
 
