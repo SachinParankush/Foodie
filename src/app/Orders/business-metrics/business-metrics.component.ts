@@ -18,6 +18,7 @@ export class BusinessMetricsComponent implements OnInit {
   dynamicClass5;
   dynamicClass6;
   dynamicClass7;
+  date;
 
   now = moment().format('dddd');
   now1 = moment().subtract(1, 'days').format('dddd');
@@ -68,6 +69,7 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass5 = '';
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
+        this.date = moment().format('ddd, DD MMM');
       }
       if(index == 2){
         this.dynamicClass2 = 'active';
@@ -77,6 +79,7 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass5 = '';
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
+        this.date = moment().subtract(1, 'days').format('ddd, DD MMM');
       }
       if(index == 3){
         this.dynamicClass3 = 'active';
@@ -86,6 +89,7 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass5 = '';
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
+        this.date = moment().subtract(2 ,'days').format('ddd, DD MMM');
       }
       if(index == 4){
         this.dynamicClass4 = 'active';
@@ -95,6 +99,7 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass5 = '';
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
+        this.date = moment().subtract(3, 'days').format('ddd, DD MMM');
       }
       if(index == 5){
         this.dynamicClass5 = 'active';
@@ -104,6 +109,7 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass4 = '';
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
+        this.date = moment().subtract(4, 'days').format('ddd, DD MMM');
       }
       if(index == 6){
         this.dynamicClass6 = 'active';
@@ -113,6 +119,7 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass4 = '';
         this.dynamicClass5 = '';
         this.dynamicClass7 = '';
+        this.date = moment().subtract(5, 'days').format('ddd, DD MMM');
       }
       if(index == 7){
         this.dynamicClass7 = 'active';
@@ -122,6 +129,7 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass4 = '';
         this.dynamicClass5 = '';
         this.dynamicClass6 = '';
+        this.date = moment().subtract(6, 'days').format('ddd, DD MMM');
       }
   }
 
