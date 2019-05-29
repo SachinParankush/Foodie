@@ -1,32 +1,97 @@
-<div style="display: flex; margin-top: 32px;">
+<div class="insights-overview-title">Your Business</div>
+<div style="display: flex;">
   <div class="days-sidebar">
-      <ul>
-          <li [ngClass]="dynamicClass1" (click)="report(1)">
-              Today
-          </li>
-          <li [ngClass]="dynamicClass2" (click)="report(2)">
-              Yesterday
-          </li>
-          <li [ngClass]="dynamicClass3" (click)="report(3)">
-            {{now2}}
-          </li>
-          <li [ngClass]="dynamicClass4" (click)="report(4)">
-            {{now3}}
-          </li>
-          <li [ngClass]="dynamicClass5" (click)="report(5)">
-            {{now4}}
-          </li>
-          <li [ngClass]="dynamicClass6" (click)="report(6)">
-            {{now5}}
-          </li>
-          <li [ngClass]="dynamicClass7" (click)="report(7)">
-            {{now6}}
-          </li>
-      </ul>
+    <ul>
+      <li [ngClass]="dynamicClass1" (click)="report(1)">
+        Today
+      </li>
+      <li [ngClass]="dynamicClass2" (click)="report(2)">
+        Yesterday
+      </li>
+      <li [ngClass]="dynamicClass3" (click)="report(3)">
+        {{now2}}
+      </li>
+      <li [ngClass]="dynamicClass4" (click)="report(4)">
+        {{now3}}
+      </li>
+      <li [ngClass]="dynamicClass5" (click)="report(5)">
+        {{now4}}
+      </li>
+      <li [ngClass]="dynamicClass6" (click)="report(6)">
+        {{now5}}
+      </li>
+      <li [ngClass]="dynamicClass7" (click)="report(7)">
+        {{now6}}
+      </li>
+    </ul>
   </div>
-  <div class="insights-overview-details-content">
-    <div class="graph">
-      <canvas #lineChart>{{chart}}</canvas>
-    </div>    
-  </div>  
-</div>  
+  <div class="insights-overview-details-content bkcolor">
+    <div class="margin_left_15px">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3 ">
+            <div>
+              <span class="daily-selected-date ng-binding">Wed, 29 May</span><br>
+              <span class="ops-metric-card-label">Overview</span>
+              <div style="margin-top: 20px;">
+                  <span class="top-insight-numerator ng-binding">0</span>
+                  <span class="top-insight-denominator ng-binding">/0</span>
+              </div>
+              <div class="top-insight-label">
+                  Good Food Ready
+              </div>
+              <div class="page">
+                <p>
+                  <!-- <ngb-progressbar class="progwidth" type="info" [value]="55"></ngb-progressbar> -->
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3">
+
+          </div>
+          <div class="col-lg-4 col-md-5 col-sm-5 status">
+            <div class="graph">
+              <canvas #lineChart>{{chart}}</canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div>
+            <span class="metrics-section-text">
+                Operational Metrics
+            </span>
+          <span class="see-details-icon"></span>
+          <a routerLink="/orders/reports" class="see-details-text">
+            See more details
+          </a>
+        </div>
+      </div>
+      <div class="row">
+          <div class="ops-metric-card">
+              <div class="ops-metric-card-label">Accepted Orders</div>
+              <span class="ops-metric-value ng-binding">100%</span>
+          </div>
+        <div class="ops-metric-card">
+          <div class="ops-metric-card-label">Order Edits</div>
+          <span class="ops-metric-value ng-binding">{{orderEdits}}%</span>
+        </div>
+        <div class="ops-metric-card">
+          <div class="ops-metric-card-label">Cancelled Orders</div>
+          <span class="ops-metric-value ng-binding">{{cancelledOrders}}%</span>
+        </div>
+        <div class="ops-metric-card">
+          <div class="ops-metric-card-label">Accepted Orders</div>
+          <span class="ops-metric-value ng-binding">{{acceptedOrders}}%</span>
+        </div>
+        <div class="ops-metric-card">
+          <div class="ops-metric-card-label">Good Food Ready</div>
+          <span class="ops-metric-value ng-binding">{{goodFoodReady}}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

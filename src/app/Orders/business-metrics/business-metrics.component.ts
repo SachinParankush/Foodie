@@ -27,6 +27,12 @@ export class BusinessMetricsComponent implements OnInit {
   now5 = moment().subtract(5, 'days').format('dddd');
   now6 = moment().subtract(6, 'days').format('dddd');
 
+  orderEdits = 10;
+  cancelledOrders = 0;
+  acceptedOrders = 90.65;
+  goodFoodReady = 99;
+
+
   constructor() { 
     this.report(1)
    }
