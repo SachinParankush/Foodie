@@ -1,0 +1,33 @@
+.graph{
+    height: 230px;
+    width: 530px;
+}
+
+
+.days-sidebar {
+    width: 10%;
+}
+
+.days-sidebar li {
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+li, ol, ul {
+    list-style: none;
+}
+
+.active{
+    background-color: white !important;
+    border-right-color: rgb(255, 255, 255) !important;
+}
+
+.days-sidebar li.active {
+    background-color: #fff;
+    color: #f5861f;
+    border-right: 0;
+}

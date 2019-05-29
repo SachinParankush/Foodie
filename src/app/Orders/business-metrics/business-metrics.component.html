@@ -1,4 +1,32 @@
-
-<app-metrics>
-  
-</app-metrics>
+<div style="display: flex; margin-top: 32px;">
+  <div class="days-sidebar">
+      <ul>
+          <li [ngClass]="dynamicClass1" (click)="report(1)">
+              Today
+          </li>
+          <li [ngClass]="dynamicClass2" (click)="report(2)">
+              Yesterday
+          </li>
+          <li [ngClass]="dynamicClass3" (click)="report(3)">
+            {{now2}}
+          </li>
+          <li [ngClass]="dynamicClass4" (click)="report(4)">
+            {{now3}}
+          </li>
+          <li [ngClass]="dynamicClass5" (click)="report(5)">
+            {{now4}}
+          </li>
+          <li [ngClass]="dynamicClass6" (click)="report(6)">
+            {{now5}}
+          </li>
+          <li [ngClass]="dynamicClass7" (click)="report(7)">
+            {{now6}}
+          </li>
+      </ul>
+  </div>
+  <div class="insights-overview-details-content">
+    <div class="graph">
+      <canvas #lineChart>{{chart}}</canvas>
+    </div>    
+  </div>  
+</div>  
