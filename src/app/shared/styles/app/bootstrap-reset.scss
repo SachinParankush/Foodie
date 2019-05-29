@@ -447,120 +447,22 @@ $value in $theme-colors {
     min-width: 100px !important;
 }
 
+///////////////////////////////////
 
-// Dont delete commented code
-// .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-//     display: none;
-// }
+.md-drppicker .ranges ul li button.active {
+    background-color: #0375a7 !important;
+}
 
-
-// .wizard .mat-tab-label {
-//     background-color: transparent !important;
-//     padding: 0 !important;
-//     width: 100% !important;
-//     margin: 1em auto !important;
-//     border-radius: .25em !important;
-//     clear: both !important;
-//     border-bottom: none !important;
-// }  
-//   .wizard .mat-tab-label {
-//     width: 100% !important;
-//     float: none !important;
-//     margin-bottom: 3px !important;
-//   }
-  
-//   .wizard .mat-tab-label >* {
-//     position: relative !important;
-//     padding: 10px .8em .8em 2.5em !important;
-//     color: #999999 !important;
-//     background-color: #dedede !important;
-//     border-color: #dedede !important;
-//   }
-  
-//   .wizard .mat-tab-label.completed>* {
-//     color: #fff !important;
-//     background-color: #47cf73 !important;
-//     border-color: #47cf73 !important;
-//     border-bottom: none !important;
-//   }
-  
-//   .wizard .mat-tab-label-active>* {
-//     color: #fff !important;
-//     background-color: #d55822 !important;
-//     border-color: #d55822 !important;
-//     border-bottom: none !important;
-//   }
-  
-//   .wizard .mat-tab-label::after:last-child {
-//     border: none !important;
-//   }
-  
-//   .wizard > .mat-tab-label {
-//     opacity: 1 !important;
-//     font-size: 14px !important;
-//   }
-  
-// //   .wizard .mat-tab-label:hover {
-// //     color: #fff !important;
-// //     background-color: #2c3f4c !important;
-// //     border-color: #2c3f4c !important;
-// //   }
-  
-
-  
-//   @media(min-width:992px) {
-//     // .wizard .mat-tab-label {
-//     //   position: relative !important;
-//     //   padding: 0 !important;
-//     //   margin: 4px 4px 4px 0 !important;
-//     //   width: 12% !important;
-//     //   float: left !important;
-//     //   text-align: center !important;
-//     // }
-//     .wizard .mat-tab-label-active  {
-//       padding-top: 10px !important;
-//     }
-//     .wizard .mat-tab-label::after,
-//     .wizard .mat-tab-label >*::after {
-//       content: '' !important;
-//       position: absolute !important;
-//       top: 0px !important;
-//       left: 100% !important;
-//       height: 0 !important;
-//       width: 0 !important;
-//       border: 20.7px solid transparent !important;
-//       border-right-width: 0 !important;
-//       /*border-left-width: 20px*/
-//     }
-//     .wizard .mat-tab-label::after {
-//       z-index: 1 !important;
-//       -webkit-transform: translateX(4px) !important;
-//       -moz-transform: translateX(4px) !important;
-//       -ms-transform: translateX(4px) !important;
-//       -o-transform: translateX(4px) !important;
-//       transform: translateX(4px) !important;
-//       border-left-color: #fff !important;
-//       margin: 0 !important;
-//     }
-//     .wizard .mat-tab-label >*::after {
-//       z-index: 2 !important;
-//       border-left-color: inherit !important;
-//     }
-//     .wizard > .mat-tab-label:nth-of-type(1) > .mat-tab-label {
-//       border-top-left-radius: 10px !important;
-//       border-bottom-left-radius: 10px !important;
-//     }
-//     .wizard .mat-tab-label:last-child .mat-tab-label {
-//       border-top-right-radius: 10px !important;
-//       border-bottom-right-radius: 10px !important;
-//     }
-//     .wizard .mat-tab-label:last-child {
-//       margin-right: 0 !important;
-//     }
-//     .wizard .mat-tab-label:last-child .mat-tab-label:after,
-//     .wizard .mat-tab-label:last-child:after {
-//       content: "" !important;
-//       border: none !important;
-//     }
+.md-drppicker td.active, .md-drppicker td.active:hover {
+    background-color: #0375a7 !important;
+}
+.md-drppicker .btn {
+    background-color: #0375a7 !important;
+}
     
-//   }
+    
+    
+   
+    
+    
+    

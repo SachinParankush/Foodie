@@ -1,54 +1,9 @@
 <div class="top">
 <div class="row">
    
-  <!-- <div class="col-md-3 form-group">
-    
-    <input type="text" placeholder="Daterangepicker"  [popover]="popTemplate1" placement="bottom" class="form-control" bsDaterangepicker >
-  </div> -->
-
-  <!-- <div class="col-md-3 form-group">
-    
-      <input type="text"  [popover]="popFilterTemplate" placement="bottom" class="form-control">
-    </div>
-
-  
-    
-
-
-
-  <ng-template #popFilterTemplate>
-    
-      <div class="pop-up">
-          <div class="row">
-          <div col-lg-3 class="day-info">
-          
-            <button class="btn warning">Today</button>
-            <button class="btn warning">Yesterday</button>
-            <button class="btn warning">Last 7 days</button>
-            <button class="btn warning">Last 30 days</button>
-          
-            <button class="btn warning">This month</button>
-            <button class="btn warning">Last month</button>
-            <button class="btn warning" bsDaterangepicker placement="right">Custom Range</button>
-
-          </div>
-
-            <div col-lg-5 class="date-info">
-	<div class="daterangepicker ltr show-ranges opensleft show-calendar" style="display: block; top: 168px; right: 34.8906px; left: auto;"><div class="ranges"><ul><li data-range-key="Today">Today</li><li data-range-key="Yesterday" class="active">Yesterday</li><li data-range-key="Last 7 Days">Last 7 Days</li><li data-range-key="Last 30 Days">Last 30 Days</li><li data-range-key="This Month">This Month</li><li data-range-key="Last Month">Last Month</li><li data-range-key="Custom Range">Custom Range</li></ul></div><div class="calendar left"><div class="calendar-table"><table class="table-condensed"><thead><tr><th class="prev available" data-original-title="" title=""><span></span></th><th colspan="5" class="month" data-original-title="" title="">Apr 2019</th><th data-original-title="" title=""></th></tr><tr><th data-original-title="" title="">Su</th><th data-original-title="" title="">Mo</th><th data-original-title="" title="">Tu</th><th data-original-title="" title="">We</th><th data-original-title="" title="">Th</th><th data-original-title="" title="">Fr</th><th data-original-title="" title="">Sa</th></tr></thead><tbody><tr><td class="weekend off available" data-title="r0c0">31</td><td class="available" data-title="r0c1">1</td><td class="available" data-title="r0c2">2</td><td class="available" data-title="r0c3">3</td><td class="available" data-title="r0c4">4</td><td class="available" data-title="r0c5">5</td><td class="weekend available" data-title="r0c6">6</td></tr><tr><td class="weekend available" data-title="r1c0">7</td><td class="available" data-title="r1c1">8</td><td class="available" data-title="r1c2">9</td><td class="available" data-title="r1c3">10</td><td class="available" data-title="r1c4">11</td><td class="available" data-title="r1c5">12</td><td class="weekend available" data-title="r1c6">13</td></tr><tr><td class="weekend available" data-title="r2c0">14</td><td class="available" data-title="r2c1">15</td><td class="available" data-title="r2c2">16</td><td class="available" data-title="r2c3">17</td><td class="available" data-title="r2c4">18</td><td class="available" data-title="r2c5">19</td><td class="weekend available" data-title="r2c6">20</td></tr><tr><td class="weekend available" data-title="r3c0">21</td><td class="available" data-title="r3c1">22</td><td class="available" data-title="r3c2">23</td><td class="available" data-title="r3c3">24</td><td class="available" data-title="r3c4">25</td><td class="available" data-title="r3c5">26</td><td class="weekend available" data-title="r3c6">27</td></tr><tr><td class="weekend available" data-title="r4c0">28</td><td class="available" data-title="r4c1">29</td><td class="available" data-title="r4c2">30</td><td class="off available" data-title="r4c3">1</td><td class="off available" data-title="r4c4">2</td><td class="off available" data-title="r4c5">3</td><td class="weekend off available" data-title="r4c6">4</td></tr><tr><td class="weekend off available" data-title="r5c0">5</td><td class="off available" data-title="r5c1">6</td><td class="off available" data-title="r5c2">7</td><td class="off available" data-title="r5c3">8</td><td class="off available" data-title="r5c4">9</td><td class="off available" data-title="r5c5">10</td><td class="weekend off available" data-title="r5c6">11</td></tr></tbody></table></div><div class="calendar-time" style="display: none;"></div></div><div class="calendar right"><div class="calendar-table"><table class="table-condensed"><thead><tr><th data-original-title="" title=""></th><th colspan="5" class="month" data-original-title="" title="">May 2019</th><th class="next available" data-original-title="" title=""><span></span></th></tr><tr><th data-original-title="" title="">Su</th><th data-original-title="" title="">Mo</th><th data-original-title="" title="">Tu</th><th data-original-title="" title="">We</th><th data-original-title="" title="">Th</th><th data-original-title="" title="">Fr</th><th data-original-title="" title="">Sa</th></tr></thead><tbody><tr><td class="weekend off available" data-title="r0c0">28</td><td class="off available" data-title="r0c1">29</td><td class="off available" data-title="r0c2">30</td><td class="available" data-title="r0c3">1</td><td class="available" data-title="r0c4">2</td><td class="available" data-title="r0c5">3</td><td class="weekend available" data-title="r0c6">4</td></tr><tr><td class="weekend available" data-title="r1c0">5</td><td class="available" data-title="r1c1">6</td><td class="available" data-title="r1c2">7</td><td class="available" data-title="r1c3">8</td><td class="available" data-title="r1c4">9</td><td class="available" data-title="r1c5">10</td><td class="weekend available" data-title="r1c6">11</td></tr><tr><td class="weekend available" data-title="r2c0">12</td><td class="available" data-title="r2c1">13</td><td class="available" data-title="r2c2">14</td><td class="available" data-title="r2c3">15</td><td class="available" data-title="r2c4">16</td><td class="available" data-title="r2c5">17</td><td class="weekend available" data-title="r2c6">18</td></tr><tr><td class="weekend available" data-title="r3c0">19</td><td class="available" data-title="r3c1">20</td><td class="available" data-title="r3c2">21</td><td class="available" data-title="r3c3">22</td><td class="available" data-title="r3c4">23</td><td class="available" data-title="r3c5">24</td><td class="weekend available" data-title="r3c6">25</td></tr><tr><td class="weekend active start-date active end-date available" data-title="r4c0">26</td><td class="today available" data-title="r4c1">27</td><td class="available" data-title="r4c2">28</td><td class="available" data-title="r4c3">29</td><td class="available" data-title="r4c4">30</td><td class="available" data-title="r4c5">31</td><td class="weekend off available" data-title="r4c6">1</td></tr><tr><td class="weekend off available" data-title="r5c0">2</td><td class="off available" data-title="r5c1">3</td><td class="off available" data-title="r5c2">4</td><td class="off available" data-title="r5c3">5</td><td class="off available" data-title="r5c4">6</td><td class="off available" data-title="r5c5">7</td><td class="weekend off available" data-title="r5c6">8</td></tr></tbody></table></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-buttons"><span class="drp-selected">2019-05-26 - 2019-05-26</span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" type="button">Apply</button> </div></div>             
-            </div>
-      
-      </div>
-
-   
-    </div>
-    <br>
-    <button class="button">Apply</button>
-    <button class="button1">Cancel</button>
-    </ng-template> -->
   
     <div col-lg-7 class="date-info">
 
-      <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/> -->
 
       <input type="text"
       class="datePicker"
@@ -59,6 +14,9 @@
       [ranges]="ranges"
       [linkedCalendars]="true"
       [isInvalidDate] = "isInvalidDate"
+      [locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}"
+      
+      
       
     
       placeholder="Daterangepicker..."/>
@@ -68,11 +26,6 @@
 
   <div class="form-group col-md-3">
 
-    <!-- <select id="BE" class="form-control">
-      <option *ngFor="let data of option1; let i = index" value={{data}}>{{data}}
-
-      </option>
-    </select> -->
     <form [formGroup]="myForm">
       <ng-multiselect-dropdown name="city" [placeholder]="'All Orders'" [data]="cities" formControlName="city"
         [disabled]="disabled" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)">
@@ -82,11 +35,6 @@
 
   <div class="form-group col-md-2">
 
-    <!-- <select id="be" class="form-control">
-      <option *ngFor="let data of option2; let i = index" value={{data}}>{{data}}
-
-      </option>
-    </select> -->
     <button type="button" style="padding:4px" class="datePicker" (click)="downloadCSV()">Export as CSV <i class="fa fa-cloud-download" aria-hidden="true"></i></button>
   </div>
 
@@ -107,9 +55,8 @@
                     </div>
                     <input class="form-control my-0 py-1" [(ngModel)]="searchText" type="text" placeholder="Search"
                         aria-label="Search" (ngModelChange)="prodFilter()">
-                        <!-- <button><i class="fa fa-filter" aria-hidden="true"></i></button> -->
 
-                        <button class="btn-outline-secondary" [popover]="popTemplate" placement="bottom"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                        <button class="btn-outline-secondary" [popover]="popTemplate" placement="bottom" triggers="focus" mdbWavesEffect><i class="fa fa-filter" aria-hidden="true" ></i></button>
                         
                         <ng-template #popTemplate>
                           <div class="filter-body">
@@ -249,17 +196,6 @@
 
                 </table>
               </div>
-               
-                
-
-
-            <div class="menuItems">
-            </div>
-
-
-            
-
-
             </div>
             <br>
 
@@ -267,5 +203,10 @@
         </div>
 
     </div>
+
+    
+
+    
+    
 
     

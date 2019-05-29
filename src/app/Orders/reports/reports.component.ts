@@ -6,9 +6,6 @@ import { Observable } from 'rxjs';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
 import * as moment from 'moment';
 
-
-
-
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
@@ -16,21 +13,22 @@ import * as moment from 'moment';
 })
 export class ReportsComponent implements OnInit {
 
+  // custom daterange picker
   selected: any;
-alwaysShowCalendars: boolean;
-ranges: any = {
-  'Today': [moment(), moment()],
-  'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-  'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-  'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-  'This Month': [moment().startOf('month'), moment().endOf('month')],
-  'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-}
-invalidDates: moment.Moment[] = [moment().add(2, 'days'), moment().add(3, 'days'), moment().add(5, 'days')];
+  alwaysShowCalendars: boolean;
+  ranges: any = {
+    'Today': [moment(), moment()],
+    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    'This Month': [moment().startOf('month'), moment().endOf('month')],
+    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+  }
+  invalidDates: moment.Moment[] = [moment().add(2, 'days'), moment().add(3, 'days'), moment().add(5, 'days')];
 
-isInvalidDate = (m: moment.Moment) =>  {
-  return this.invalidDates.some(d => d.isSame(m, 'day') )
-}
+  isInvalidDate = (m: moment.Moment) => {
+    return this.invalidDates.some(d => d.isSame(m, 'day'))
+  }
 
 
   registrationForm: FormGroup;
@@ -49,7 +47,7 @@ isInvalidDate = (m: moment.Moment) =>  {
 
   ];
 
-  
+
 
 
 
@@ -129,15 +127,15 @@ isInvalidDate = (m: moment.Moment) =>  {
 
 
 
-  constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState,private fb: FormBuilder) {
-    
+  constructor(private FoodieApiService: FoodieApiService, private FoodieAppState: AppState, private fb: FormBuilder) {
+
     this.alwaysShowCalendars = true;
 
-   
-   
+
+
     this.getOrderCount();
     this.getOrderDetails('new');
-    
+
     Observable.timer(0, 10000)
       .takeWhile(() => this.alive) // only fires when component is alive
       .subscribe(() => {
@@ -164,21 +162,13 @@ isInvalidDate = (m: moment.Moment) =>  {
           })
       });
 
-      this.names = [
-        { name: 'Swiggy', selected: false },
-        { name: 'Zomato', selected: false },
-        { name: 'Ubereats', selected: false },
-        { name: 'Savoury', selected: false },        
-      ]
-      
-    
-   
-   
-    
+    this.names = [
+      { name: 'Swiggy', selected: false },
+      { name: 'Zomato', selected: false },
+      { name: 'Ubereats', selected: false },
+      { name: 'Savoury', selected: false },
+    ]
   }
-  
-
-  
 
   selectAll() {
     for (var i = 0; i < this.names.length; i++) {
@@ -186,9 +176,9 @@ isInvalidDate = (m: moment.Moment) =>  {
     }
   }
   checkIfAllSelected() {
-    this.selectedAll = this.names.every(function(item:any) {
-        return item.selected == true;
-      })
+    this.selectedAll = this.names.every(function (item: any) {
+      return item.selected == true;
+    })
   }
 
   ngOnDestroy() {
@@ -434,7 +424,3 @@ isInvalidDate = (m: moment.Moment) =>  {
     }
   }
 }
-
-
-
-
