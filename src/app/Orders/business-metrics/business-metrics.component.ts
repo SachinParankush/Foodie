@@ -11,6 +11,7 @@ export class BusinessMetricsComponent implements OnInit {
   @ViewChild('lineChart') private chartRef;
   chart: any;
   a = ["Food Ready Correct","Food Ready Pressed Early"];
+  b = [0, 0];
   dynamicClass1;
   dynamicClass2;
   dynamicClass3;
@@ -47,7 +48,7 @@ export class BusinessMetricsComponent implements OnInit {
           {
             label: "Population (millions)",
             backgroundColor: ["#0375A7", "#28C3D5"],
-            data: [656, 533]
+            data: this.b
           }
         ]
       },
@@ -61,6 +62,7 @@ export class BusinessMetricsComponent implements OnInit {
   }
 
   report(index){
+    this.b = [];
       if(index == 1){
         this.dynamicClass1 = 'active';
         this.dynamicClass2 = '';
@@ -70,6 +72,11 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
         this.date = moment().format('ddd, DD MMM');
+        this.orderEdits = 0;
+        this.cancelledOrders = 1;
+        this.acceptedOrders = 80.65;
+        this.goodFoodReady = 90;
+        this.b = [456, 533];
       }
       if(index == 2){
         this.dynamicClass2 = 'active';
@@ -80,6 +87,11 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
         this.date = moment().subtract(1, 'days').format('ddd, DD MMM');
+        this.orderEdits = 2;
+        this.cancelledOrders = 1;
+        this.acceptedOrders = 60.65;
+        this.goodFoodReady = 79;
+        this.b = [956, 133];
       }
       if(index == 3){
         this.dynamicClass3 = 'active';
@@ -90,6 +102,11 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
         this.date = moment().subtract(2 ,'days').format('ddd, DD MMM');
+        this.orderEdits = 19;
+        this.cancelledOrders = 0;
+        this.acceptedOrders = 96.65;
+        this.goodFoodReady = 99;
+        this.b = [226, 253];
       }
       if(index == 4){
         this.dynamicClass4 = 'active';
@@ -100,6 +117,11 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
         this.date = moment().subtract(3, 'days').format('ddd, DD MMM');
+        this.orderEdits = 50;
+        this.cancelledOrders = 0;
+        this.acceptedOrders = 90.65;
+        this.goodFoodReady = 99;
+        this.b = [826, 353];
       }
       if(index == 5){
         this.dynamicClass5 = 'active';
@@ -110,6 +132,11 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass6 = '';
         this.dynamicClass7 = '';
         this.date = moment().subtract(4, 'days').format('ddd, DD MMM');
+        this.orderEdits = 10;
+        this.cancelledOrders = 0;
+        this.acceptedOrders = 70.65;
+        this.goodFoodReady = 90;
+        this.b = [26,553];
       }
       if(index == 6){
         this.dynamicClass6 = 'active';
@@ -120,6 +147,11 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass5 = '';
         this.dynamicClass7 = '';
         this.date = moment().subtract(5, 'days').format('ddd, DD MMM');
+        this.orderEdits = 20;
+        this.cancelledOrders = 0;
+        this.acceptedOrders = 60.65;
+        this.goodFoodReady = 99;
+        this.b = [626,223];
       }
       if(index == 7){
         this.dynamicClass7 = 'active';
@@ -130,6 +162,11 @@ export class BusinessMetricsComponent implements OnInit {
         this.dynamicClass5 = '';
         this.dynamicClass6 = '';
         this.date = moment().subtract(6, 'days').format('ddd, DD MMM');
+        this.orderEdits = 1;
+        this.cancelledOrders = 0;
+        this.acceptedOrders = 60.65;
+        this.goodFoodReady = 89;
+        this.b = [526,653];
       }
   }
 
