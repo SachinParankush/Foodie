@@ -10,8 +10,7 @@ export class OrderTakingComponent implements OnInit {
 
   Branches: any = ['Mysore', 'Bangalore'];
   Types: any = ['Call Center', 'Swiggy', 'Zomato', 'Uber Eats', 'Empire App', 'Web Order'];
-
-
+  Payment: any = ['Online Payment', 'cash On Delivery'];
   orderTaking: FormGroup;
   private fieldArray: Array<any> = [];
   private newAttribute: any = {
