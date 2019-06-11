@@ -8,6 +8,10 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class OrderTakingComponent implements OnInit {
 
+  Branches: any = ['Mysore', 'Bangalore'];
+  Types: any = ['Call Center', 'Swiggy', 'Zomato', 'Uber Eats', 'Empire App', 'Web Order'];
+
+
   orderTaking: FormGroup;
   private fieldArray: Array<any> = [];
   private newAttribute: any = {
