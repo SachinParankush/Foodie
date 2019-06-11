@@ -13,6 +13,7 @@ import { AppStateModule } from '../appstate.module';
 import { CountdownModule } from 'ngx-countdown';
 import { ReportsComponent } from './reports/reports.component';
 import { BusinessMetricsComponent } from './business-metrics/business-metrics.component';
+import { OrderTakingComponent } from './order-taking/order-taking.component';
 
 export const routes = [
   { path: '', component: orderComponent, pathMatch: 'full' }
@@ -27,7 +28,7 @@ export const routes = [
     AppStateModule,
     CountdownModule
   ],
-  declarations: [NewOrdersComponent, PreparingOrderComponent, ReadyOrdersComponent, PastOrdersComponent, ReportsComponent, BusinessMetricsComponent],
+  declarations: [NewOrdersComponent, PreparingOrderComponent, ReadyOrdersComponent, PastOrdersComponent, ReportsComponent, BusinessMetricsComponent, OrderTakingComponent],
     providers:[DatePipe]
 })
 export class orderModule { 
