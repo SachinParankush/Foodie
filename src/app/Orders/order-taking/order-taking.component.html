@@ -199,19 +199,20 @@
         <tbody>
             <tr *ngFor="let field of fieldArray; let i = index">
                 <td>
-                    <input [(ngModel)]="field.itemCode" class="form-control" type="text" name="{{field.itemCode}}" />
+                    <input [(ngModel)]="field.itemCode" class="form-control" type="text" name="{{field.itemCode}}" disabled="true"/>
                 </td>
                 <td>
-                    <input [(ngModel)]="field.itemName" class="form-control" type="text" name="{{field.itemName}}" />
+                    <!-- <input [(ngModel)]="field.itemName" class="form-control" type="text" name="{{field.itemName}}" /> -->
+                    <label>{{field.itemName}}</label>
                 </td>
                 <td>
-                    <input [(ngModel)]="field.itemQuantity" class="form-control" type="text" (change)="addFieldValue(field.itemQuantity,i)" name="{{field.itemQuantity}}" />
+                    <input [(ngModel)]="field.itemQuantity" class="form-control" type="text" (change)="editFieldValue(field,i)" (ngModelChange)="editCal(field)" name="{{field.itemQuantity}}" />
                 </td>
                 <td>
-                    <input [(ngModel)]="field.itemRate" class="form-control" type="text" name="{{field.itemRate}}" />
+                    <input [(ngModel)]="field.itemRate" class="form-control" type="text" name="{{field.itemRate}}" disabled="true"/>
                 </td>
                 <td>
-                    <input [(ngModel)]="field.itemAmount" class="form-control" type="text" name="{{field.itemAmount}}" />
+                    <input [(ngModel)]="field.itemAmount" class="form-control" type="text" name="{{field.itemAmount}}" disabled="true"/>
                 </td>
                 
             </tr>
@@ -220,16 +221,17 @@
                     <input class="form-control" type="text" id="itemCode" [(ngModel)]="newAttribute.itemCode" (change)="selectItem(newAttribute.itemCode)" name="itemCode" />
                 </td>
                 <td>
-                    <input class="form-control" type="text" id="itemName" [(ngModel)]="newAttribute.itemName" name="itemName" />
+                    <!-- <input class="form-control" type="text" id="itemName" [(ngModel)]="newAttribute.itemName" name="itemName" /> -->
+                    <label>{{newAttribute.itemName}}</label>
                 </td>
                 <td>
-                    <input class="form-control" type="text" id="itemQuantity" [(ngModel)]="newAttribute.itemQuantity" (change)="addFieldValue(newAttribute.itemQuantity)" name="itemQuantity" />
+                    <input class="form-control" type="text" id="itemQuantity" [(ngModel)]="newAttribute.itemQuantity" (change)="addFieldValue(newAttribute.itemQuantity)" (ngModelChange)="amtCal(newAttribute.itemQuantity)" name="itemQuantity" />
                 </td>  
                 <td>
-                    <input class="form-control" type="text" id="itemRate" [(ngModel)]="newAttribute.itemRate" name="itemRate" />
+                    <input class="form-control" type="text" id="itemRate" [(ngModel)]="newAttribute.itemRate" name="itemRate" disabled="true"/>
                 </td>
                 <td>
-                    <input class="form-control" type="text" id="itemAmount" [(ngModel)]="newAttribute.itemAmount" name="itemAmount" />
+                    <input class="form-control" type="text" id="itemAmount" [(ngModel)]="newAttribute.itemAmount" name="itemAmount" disabled="true"/>
                 </td>              
             </tr>
         </tbody>
