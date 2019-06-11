@@ -184,194 +184,195 @@
 
 
       <div class="col-md-7">
-        <div class="row">
-          <div class="col-md-3">
-            <h6>Coupon Code</h6>
-          </div>
-          <div class="col-md-3">
-            <input class="form-control" type="text">
-          </div>
-          <div class="col-md-2">
-            <button class="APPLY" type="submit">APPLY</button>
-          </div>
-        </div><br />
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th>CODE</th>
-              <th>ITEM NAME</th>
-              <th>QTY</th>
-              <th>RATE</th>
-              <th>AMOUNT</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let field of fieldArray; let i = index">
-              <td>
-                <input [(ngModel)]="field.itemCode" class="form-control" type="text" name="{{field.itemCode}}"
-                  disabled="true" />
-              </td>
-              <td>
-                <!-- <input [(ngModel)]="field.itemName" class="form-control" type="text" name="{{field.itemName}}" /> -->
-                <label>{{field.itemName}}</label>
-              </td>
-              <td>
-                <input [(ngModel)]="field.itemQuantity" class="form-control" type="text"
-                  (change)="editFieldValue(field,i)" (ngModelChange)="editCal(field)" name="{{field.itemQuantity}}" />
-              </td>
-              <td>
-                <input [(ngModel)]="field.itemRate" class="form-control" type="text" name="{{field.itemRate}}"
-                  disabled="true" />
-              </td>
-              <td>
-                <input [(ngModel)]="field.itemAmount" class="form-control" type="text" name="{{field.itemAmount}}"
-                  disabled="true" />
-              </td>
-
-            </tr>
-            <tr>
-              <td>
-                <input class="form-control" type="text" id="itemCode" [(ngModel)]="newAttribute.itemCode"
-                  (change)="selectItem(newAttribute.itemCode)" name="itemCode" />
-              </td>
-              <td>
-                <!-- <input class="form-control" type="text" id="itemName" [(ngModel)]="newAttribute.itemName" name="itemName" /> -->
-                <label>{{newAttribute.itemName}}</label>
-              </td>
-              <td>
-                <input class="form-control" type="text" id="itemQuantity" [(ngModel)]="newAttribute.itemQuantity"
-                  (change)="addFieldValue(newAttribute.itemQuantity)"
-                  (ngModelChange)="amtCal(newAttribute.itemQuantity)" name="itemQuantity" />
-              </td>
-              <td>
-                <input class="form-control" type="text" id="itemRate" [(ngModel)]="newAttribute.itemRate"
-                  name="itemRate" disabled="true" />
-              </td>
-              <td>
-                <input class="form-control" type="text" id="itemAmount" [(ngModel)]="newAttribute.itemAmount"
-                  name="itemAmount" disabled="true" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="row padding_bottom_15px">
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">Delivery Date</h6>
-              <input disabled="true" class="col-md-6 form-control" type="text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <h6>Coupon Code</h6>
+            </div>
+            <div class="col-md-3">
+              <input class="form-control" type="text">
+            </div>
+            <div class="col-md-2">
+              <button class="APPLY" type="submit">APPLY</button>
+            </div>
+          </div><br />
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>CODE</th>
+                <th>ITEM NAME</th>
+                <th>QTY</th>
+                <th>RATE</th>
+                <th>AMOUNT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let field of fieldArray; let i = index">
+                <td>
+                  <input [(ngModel)]="field.itemCode" class="form-control" type="text" name="{{field.itemCode}}"
+                    disabled="true" />
+                </td>
+                <td>
+                  <input [(ngModel)]="field.itemName" class="form-control" type="text" disabled="true" name="{{field.itemName}}" />
+                  <!-- <label>{{field.itemName}}</label> -->
+                </td>
+                <td>
+                  <input [(ngModel)]="field.itemQuantity" class="form-control" type="text" (change)="editFieldValue(field,i)"
+                    (ngModelChange)="editCal(field)" name="{{field.itemQuantity}}" />
+                </td>
+                <td>
+                  <input [(ngModel)]="field.itemRate" class="form-control" type="text" name="{{field.itemRate}}"
+                    disabled="true" />
+                </td>
+                <td>
+                  <input [(ngModel)]="field.itemAmount" class="form-control" type="text" name="{{field.itemAmount}}"
+                    disabled="true" />
+                </td>
+      
+              </tr>
+              <tr>
+                <td>
+                  <input class="form-control" type="text" #Code id="itemCode" [(ngModel)]="newAttribute.itemCode"
+                    (change)="selectItem(newAttribute.itemCode)" name="itemCode" />
+                </td>
+                <td>
+                  <input class="form-control" type="text" id="itemName" [(ngModel)]="newAttribute.itemName" disabled="true" name="itemName" />
+                  <!-- <label>{{newAttribute.itemName}}</label> -->
+                </td>
+                <td>
+                  <input class="form-control" type="text" id="itemQuantity" [(ngModel)]="newAttribute.itemQuantity"
+                    (change)="addFieldValue(newAttribute.itemQuantity)" (ngModelChange)="amtCal(newAttribute.itemQuantity)"
+                    name="itemQuantity" />
+                </td>
+                <td>
+                  <input class="form-control" type="text" id="itemRate" [(ngModel)]="newAttribute.itemRate" name="itemRate"
+                    disabled="true" />
+                </td>
+                <td>
+                  <input class="form-control" type="text" id="itemAmount" [(ngModel)]="newAttribute.itemAmount"
+                    name="itemAmount" disabled="true" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <div class="row padding_bottom_15px">
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">Delivery Date</h6>
+                <input disabled="true" class="col-md-6 form-control" type="text">
+              </div>
+            </div>
+      
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">Total Amount</h6>
+                <input disabled="true" class="col-md-6 form-control" type="text">
+              </div>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">Total Amount</h6>
-              <input disabled="true" class="col-md-6 form-control" type="text">
+          <div class="row padding_bottom_15px">
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">Delivery Time</h6>
+                <input disabled="true" class="col-md-6 form-control" type="text">
+              </div>
+            </div>
+      
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">Tax & Parcel Charges</h6>
+                <input disabled="true" class="col-md-6 form-control" type="text">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row padding_bottom_15px">
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">Delivery Time</h6>
-              <input disabled="true" class="col-md-6 form-control" type="text">
+          <div class="row padding_bottom_15px">
+            <div class="col-md-6">
+      
+            </div>
+      
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">CGST@2.5%</h6>
+                <h6 class="col-md-6 text-right">2.07</h6>
+              </div>
+              <div class="row">
+                <h6 class="col-md-6">SGST@2.5%</h6>
+                <h6 class="col-md-6 text-right">2.07</h6>
+              </div>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">Tax & Parcel Charges</h6>
-              <input disabled="true" class="col-md-6 form-control" type="text">
+      
+          <div class="row padding_bottom_15px">
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">Total Discount</h6>
+                <input disabled="true" class="col-md-6 form-control" type="text">
+              </div>
+            </div>
+      
+            <div class="col-md-6">
+              <div class="row">
+      
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row padding_bottom_15px">
-          <div class="col-md-6">
-
-          </div>
-
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">CGST@2.5%</h6>
-              <h6 class="col-md-6 text-right">2.07</h6>
+      
+          <div class="row padding_bottom_15px">
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">Total Items</h6>
+                <input disabled="true" class="col-md-6 form-control" type="text">
+              </div>
             </div>
-            <div class="row">
-              <h6 class="col-md-6">SGST@2.5%</h6>
-              <h6 class="col-md-6 text-right">2.07</h6>
-            </div>
-          </div>
-        </div>
-
-        <div class="row padding_bottom_15px">
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">Total Discount</h6>
-              <input disabled="true" class="col-md-6 form-control" type="text">
+      
+            <div class="col-md-6">
+              <div class="row">
+                <h6 class="col-md-6">Grand Total</h6>
+                <input disabled="true" class="col-md-6 form-control" type="text">
+              </div>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div class="row">
-
+      
+          <div class="row padding_bottom_15px">
+            <div class="col-md-12">
+              <div class="row">
+                <h6 class="col-md-3">Payment</h6>
+                <select class="col-md-9 form-control" aria-label="user_quotes" id="inputEmail3">
+                  <option value="" disabled>Select Payment</option>
+                  <option *ngFor="let Payment of Payment" [ngValue]="Payment">{{Payment}}</option>
+                </select>
+                <!-- <input class="col-md-9 form-control" type="text"> -->
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="row padding_bottom_15px">
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">Total Items</h6>
-              <input disabled="true" class="col-md-6 form-control" type="text">
+      
+          <div class="row padding_bottom_15px">
+            <div class="col-md-12">
+              <div class="row">
+                <h6 class="col-md-3">Customer Interest</h6>
+                <input class="col-md-9 form-control" type="text">
+              </div>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div class="row">
-              <h6 class="col-md-6">Grand Total</h6>
-              <input disabled="true" class="col-md-6 form-control" type="text">
-            </div>
-          </div>
-        </div>
-
-        <div class="row padding_bottom_15px">
-          <div class="col-md-12">
-            <div class="row">
-              <h6 class="col-md-3">Payment</h6>
-              <select class="col-md-9 form-control" aria-label="user_quotes" id="inputEmail3">
-                <option value="" disabled>Select Payment</option>
-                <option *ngFor="let Payment of Payment" [ngValue]="Payment">{{Payment}}</option>
-              </select>
-              <!-- <input class="col-md-9 form-control" type="text"> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="row padding_bottom_15px">
-          <div class="col-md-12">
-            <div class="row">
-              <h6 class="col-md-3">Customer Interest</h6>
-              <input  class="col-md-9 form-control" type="text">
-            </div>
-          </div>
-        </div>
-
-        <div class="row padding_bottom_15px">
-
-          
-
+      
+          <div class="row padding_bottom_15px">
+      
+      
+      
             <div class="col-md-6">
               <button class="btn btn-success" type="submit">SAVE ORDER</button>
             </div>
             <div class="col-md-6">
               <button class="btn btn-warning" type="submit">CANCEL ORDER</button>
             </div>
-
+      
           </div>
-       
-
-
+      
+      
+        </div>
       </div>
-    
+
 
 
 

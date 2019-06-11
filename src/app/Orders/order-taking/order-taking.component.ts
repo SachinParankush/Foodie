@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./order-taking.component.scss']
 })
 export class OrderTakingComponent implements OnInit {
+
+  @ViewChild('Code') inputEl: ElementRef;
 
   Branches: any = ['Mysore', 'Bangalore'];
   Types: any = ['Call Center', 'Swiggy', 'Zomato', 'Uber Eats', 'Empire App', 'Web Order'];
@@ -60,11 +62,13 @@ export class OrderTakingComponent implements OnInit {
   addFieldValue(data) {
     if (data == 0 || data == undefined || data == null) {
       this.newAttribute = {};
+      this.inputEl.nativeElement.focus();
     }
     else {
       this.newAttribute['itemAmount'] = this.newAttribute.itemQuantity * this.newAttribute.itemRate;
       this.fieldArray.push(this.newAttribute)
       this.newAttribute = {};
+      this.inputEl.nativeElement.focus();
     }
   }
 
@@ -90,6 +94,7 @@ export class OrderTakingComponent implements OnInit {
     }
     else {
       this.newAttribute = {}
+      this.inputEl.nativeElement.focus();
     }
   }
 
@@ -108,9 +113,11 @@ export class OrderTakingComponent implements OnInit {
     if (data.itemQuantity == 0) {
       if (index > 0) {
         this.fieldArray.splice(index, 1);
+        this.inputEl.nativeElement.focus();
       }
       else {
         this.fieldArray.shift();
+        this.inputEl.nativeElement.focus();
       }
     }
   }
