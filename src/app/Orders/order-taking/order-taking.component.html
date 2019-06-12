@@ -267,7 +267,7 @@
             <div class="col-md-6">
               <div class="row">
                 <h6 class="col-md-6">Total Amount</h6>
-                <input disabled="true" class="col-md-6 form-control" type="text">
+                <input disabled="true" class="col-md-6 form-control" type="text"  [(ngModel)]="totalAmount">
               </div>
             </div>
           </div>
@@ -282,7 +282,7 @@
             <div class="col-md-6">
               <div class="row">
                 <h6 class="col-md-6">Tax & Parcel Charges</h6>
-                <input disabled="true" class="col-md-6 form-control" type="text">
+                <input disabled="true" class="col-md-6 form-control"  [(ngModel)]="parcelCharges" type="text">
               </div>
             </div>
           </div>
@@ -294,11 +294,11 @@
             <div class="col-md-6">
               <div class="row">
                 <h6 class="col-md-6">CGST@2.5%</h6>
-                <h6 class="col-md-6 text-right">2.07</h6>
+                <h6 class="col-md-6 text-right">{{cgst}}</h6>
               </div>
               <div class="row">
                 <h6 class="col-md-6">SGST@2.5%</h6>
-                <h6 class="col-md-6 text-right">2.07</h6>
+                <h6 class="col-md-6 text-right">{{sgst}}</h6>
               </div>
             </div>
           </div>
@@ -307,7 +307,7 @@
             <div class="col-md-6">
               <div class="row">
                 <h6 class="col-md-6">Total Discount</h6>
-                <input disabled="true" class="col-md-6 form-control" type="text">
+                <input disabled="true" class="col-md-6 form-control"  [(ngModel)]="totalDiscount" type="text">
               </div>
             </div>
       
@@ -322,14 +322,14 @@
             <div class="col-md-6">
               <div class="row">
                 <h6 class="col-md-6">Total Items</h6>
-                <input disabled="true" class="col-md-6 form-control" type="text">
+                <input disabled="true" class="col-md-6 form-control"  [(ngModel)]="totalItems" type="text">
               </div>
             </div>
       
             <div class="col-md-6">
               <div class="row">
                 <h6 class="col-md-6">Grand Total</h6>
-                <input disabled="true" class="col-md-6 form-control" type="text">
+                <input disabled="true" class="col-md-6 form-control" [(ngModel)]="grandTotal" type="text">
               </div>
             </div>
           </div>

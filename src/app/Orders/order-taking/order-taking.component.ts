@@ -22,6 +22,15 @@ export class OrderTakingComponent implements OnInit {
     // "quantity": 0, 
     // "amount":0 
   };
+  deliveryDate:any;
+  totalAmount=0;
+  deliveryTime:any;
+  parcelCharges=20;
+  cgst=0;
+  sgst=0;
+  totalDiscount=0;
+  totalItems=0;
+  grandTotal=0;
 
   itemDetails = [{
     "itemCode": "hkb",
@@ -44,22 +53,21 @@ export class OrderTakingComponent implements OnInit {
     "itemRate": "110"
   }
   ]
+  // TotalAmount: 0;
 
   constructor(private fb: FormBuilder) {
-    // this.orderTaking = this.fb.group({
-    //   'itemCode': [null],
-    //   'itemName': [null],
-    //   'itemQuantity': [null],
-    //   // 'displayQuantity': [null],
-    //   'itemRate': [null],
-    //   'itemAmount': [null],
-    // });
+
   }
 
   ngOnInit() {
   }
 
   addFieldValue(data) {
+    this.totalAmount = 0;
+    this.totalItems = 0;
+    this.cgst = 0;
+    this.sgst = 0;
+    this.grandTotal = 0;
     if (data == 0 || data == undefined || data == null) {
       this.newAttribute = {};
       this.inputEl.nativeElement.focus();
@@ -67,7 +75,15 @@ export class OrderTakingComponent implements OnInit {
     else {
       this.newAttribute['itemAmount'] = this.newAttribute.itemQuantity * this.newAttribute.itemRate;
       this.fieldArray.push(this.newAttribute)
-      this.newAttribute = {};
+      for (let i in this.fieldArray) {
+        this.totalAmount=this.fieldArray[i].itemAmount + this.totalAmount;
+        this.totalItems=this.totalItems + 1;
+        this.cgst=(this.totalAmount * 2.5) / 100;
+        this.sgst=(this.totalAmount * 2.5) / 100;
+
+      }
+       this.grandTotal=this.totalAmount + this.cgst + this.sgst + this.parcelCharges;
+       this.newAttribute = {};
       this.inputEl.nativeElement.focus();
     }
   }
@@ -96,15 +112,28 @@ export class OrderTakingComponent implements OnInit {
       this.newAttribute = {}
       this.inputEl.nativeElement.focus();
     }
+
+
   }
 
   editCal(data) {
+
+    this.totalAmount = 0;
+    this.totalItems = 0;
+    this.cgst = 0;
+    this.sgst = 0;
+    this.grandTotal = 0;
 
     for (let i in this.fieldArray) {
       if (this.fieldArray[i].itemCode == data.itemCode) {
         this.fieldArray[i].itemAmount = this.fieldArray[i].itemQuantity * this.fieldArray[i].itemRate;
       }
-    }
+      this.totalAmount=this.fieldArray[i].itemAmount + this.totalAmount;
+      this.totalItems=this.totalItems + 1;
+      this.cgst=(this.totalAmount * 2.5) / 100;
+      this.sgst=(this.totalAmount * 2.5) / 100;
+    }  
+     this.grandTotal=this.totalAmount + this.cgst + this.sgst + this.parcelCharges;
 
   }
 
