@@ -1,12 +1,22 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Rating } from 'ngx-rating';
 
 @Component({
   selector: 'app-order-taking',
   templateUrl: './order-taking.component.html',
-  styleUrls: ['./order-taking.component.scss']
+  styleUrls: ['./order-taking.component.scss'],
+
+
 })
+
+
+
 export class OrderTakingComponent implements OnInit {
+
+  // currentRate = 5;
+  // maxRate = 5;
+  starsCount: number;
 
   @ViewChild('Code') inputEl: ElementRef;
 

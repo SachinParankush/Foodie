@@ -13,6 +13,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import {RatingModule} from "ngx-rating";
+
 // import { CountdownModule } from 'ngx-countdown';
 
 import {
@@ -61,7 +63,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
-import { RatingModule } from 'ngx-bootstrap/rating';
+// import { RatingModule } from 'ngx-bootstrap/rating';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -81,6 +83,7 @@ import { JqcloudDirective } from './directives/jqcloud/jqcloud.directive';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormWizardModule } from 'angular2-wizard';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // https://angular.io/styleguide#!#04-10
 
 
@@ -120,14 +123,16 @@ export function maxValidationMessage(err, field) {
         ModalModule.forRoot(),
         PaginationModule.forRoot(),
         ProgressbarModule.forRoot(),
-        RatingModule.forRoot(),
+        // RatingModule.forRoot(),
         TabsModule.forRoot(),
         TimepickerModule.forRoot(),
         TooltipModule.forRoot(),
         PopoverModule.forRoot(),
         TypeaheadModule.forRoot(),
         NgxDaterangepickerMd.forRoot(),
+        NgbModule.forRoot(),
         ToasterModule,
+        RatingModule,
         // Material Modules
         MatAutocompleteModule,
         MatButtonModule,
@@ -227,6 +232,8 @@ export function maxValidationMessage(err, field) {
         NowDirective,
         ScrollableDirective,
         JqcloudDirective,
+        NgbModule,
+        RatingModule,
         // Material Modules
         MatAutocompleteModule,
         MatButtonModule,
