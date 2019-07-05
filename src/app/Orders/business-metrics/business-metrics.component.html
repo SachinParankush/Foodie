@@ -34,21 +34,20 @@
               <span class="daily-selected-date ng-binding">{{date}}</span><br>
               <span class="ops-metric-card-label">Overview</span>
               <div style="margin-top: 20px;">
-                  <span class="top-insight-numerator ng-binding">{{num}}</span>
-                  <span class="top-insight-denominator ng-binding">/{{den}}</span>
+                <span class="top-insight-numerator ng-binding">{{num}}</span>
+                <span class="top-insight-denominator ng-binding">/{{den}}</span>
               </div>
               <div class="top-insight-label">
-                  Good Food Ready
+                Good Food Ready
               </div>
               <div class="page">
-                <p>
-                  <!-- <ngb-progressbar class="progwidth" type="info" [value]="55"></ngb-progressbar> -->
-                </p>
+                <!-- <p>
+                  <ngb-progressbar class="progwidth" type="info" [value]="55"></ngb-progressbar>
+                </p> -->
               </div>
             </div>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
-
           </div>
           <div class="col-lg-4 col-md-5 col-sm-5 status">
             <div class="graph">
@@ -60,9 +59,9 @@
       <hr>
       <div class="row">
         <div>
-            <span class="metrics-section-text">
-                Operational Metrics
-            </span>
+          <span class="metrics-section-text">
+            Operational Metrics
+          </span>
           <span class="see-details-icon"></span>
           <a routerLink="/orders/reports" class="see-details-text">
             See more details
@@ -70,10 +69,10 @@
         </div>
       </div>
       <div class="row">
-          <div class="ops-metric-card">
-              <div class="ops-metric-card-label">Accepted Orders</div>
-              <span class="ops-metric-value ng-binding">100%</span>
-          </div>
+        <div class="ops-metric-card">
+          <div class="ops-metric-card-label">Accepted Orders</div>
+          <span class="ops-metric-value ng-binding">100%</span>
+        </div>
         <div class="ops-metric-card">
           <div class="ops-metric-card-label">Order Edits</div>
           <span class="ops-metric-value ng-binding">{{orderEdits}}%</span>
@@ -93,5 +92,4 @@
       </div>
     </div>
   </div>
-
 </div>

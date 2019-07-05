@@ -171,15 +171,15 @@ export class FoodieApiService {
     /* ----------------------------------------------------------------------------------
     **   Http call to delete data in tblattachment
     ------------------------------------------------------------------------------------*/
-    deleteData(params): Observable<any> {
-        var url = this.getUrl(config.SERVERTYPE,config.DELETEDATA);
-        console.log("calling service  deleteData ");
-        return this.http.post(url,
-            JSON.stringify(params),
-            this.options)
-            .map(res => res.json()
-            );
-    }
+    // deleteData(params): Observable<any> {
+    //     var url = this.getUrl(config.SERVERTYPE,config.DELETEDATA);
+    //     console.log("calling service  deleteData ");
+    //     return this.http.post(url,
+    //         JSON.stringify(params),
+    //         this.options)
+    //         .map(res => res.json()
+    //         );
+    // }
 
     // API is get the Apiendpoint url based on the parameter passed handling both Web and Device
    getUrl(type, keyUrl : any) : string {
